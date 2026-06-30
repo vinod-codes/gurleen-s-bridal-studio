@@ -1,18 +1,18 @@
-import img703298 from "@/assets/bridal/703298286.jpg.asset.json";
-import img466970 from "@/assets/bridal/466970031.jpg.asset.json";
-import img466972 from "@/assets/bridal/466972229.jpg.asset.json";
-import img466976 from "@/assets/bridal/466976768.jpg.asset.json";
-import img467144 from "@/assets/bridal/467144624.jpg.asset.json";
-import img467336 from "@/assets/bridal/467336503.jpg.asset.json";
-import img702799 from "@/assets/bridal/702799812.jpg.asset.json";
-import img703055 from "@/assets/bridal/703055670.jpg.asset.json";
-import img703259 from "@/assets/bridal/703259471.jpg.asset.json";
-import img684222 from "@/assets/bridal/684222717.jpg.asset.json";
-import img686411 from "@/assets/bridal/686411525.jpg.asset.json";
-import img658626 from "@/assets/bridal/658626963.jpg.asset.json";
-import img660354 from "@/assets/bridal/660354905.jpg.asset.json";
-import img656634 from "@/assets/bridal/656634297.jpg.asset.json";
-import img658113 from "@/assets/bridal/658113993.jpg.asset.json";
+const img703298 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851381/gurleen-bridal/703298286.jpg" };
+const img466970 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851361/gurleen-bridal/466970031.jpg" };
+const img466972 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851363/gurleen-bridal/466972229.jpg" };
+const img466976 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851364/gurleen-bridal/466976768.jpg" };
+const img467144 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851365/gurleen-bridal/467144624.jpg" };
+const img467336 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851366/gurleen-bridal/467336503.jpg" };
+const img702799 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851375/gurleen-bridal/702799812.jpg" };
+const img703055 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851377/gurleen-bridal/703055670.jpg" };
+const img703259 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851378/gurleen-bridal/703259471.jpg" };
+const img684222 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851372/gurleen-bridal/684222717.jpg" };
+const img686411 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851374/gurleen-bridal/686411525.jpg" };
+const img658626 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851370/gurleen-bridal/658626963.jpg" };
+const img660354 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851371/gurleen-bridal/660354905.jpg" };
+const img656634 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851367/gurleen-bridal/656634297.jpg" };
+const img658113 = { url: "https://res.cloudinary.com/w1ahlvct/image/upload/v1782851368/gurleen-bridal/658113993.jpg" };
 
 export type BridalImage = {
   url: string;

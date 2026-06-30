@@ -59,7 +59,6 @@ function Home() {
       <About />
       <GalleryFiltered />
       <Academy />
-      <Process />
       <InstagramCallout />
       <FinalCTA />
       <Footer />
@@ -78,11 +77,15 @@ function Hero() {
         transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0"
       >
-        <img src={HERO} alt="" className="w-full h-full object-cover object-[center_30%]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80" />
+        <img 
+          src={HERO} 
+          alt="" 
+          className="w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full pointer-events-none">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,17 +110,15 @@ function Hero() {
         >
           Luxury bridal makeup artistry, made for the most photographed day of your life.
         </motion.p>
+        
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.05, duration: 0.8 }}
-          className="flex flex-wrap gap-4 mt-10"
+          className="flex flex-wrap gap-4 mt-10 pointer-events-auto"
         >
-          <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine">
-            Book Your Bridal Makeup
-          </a>
-          <a href="#portfolio" className="btn-ghost-light">
-            View Portfolio
+          <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3">
+            Inquire Availability
           </a>
         </motion.div>
       </div>
