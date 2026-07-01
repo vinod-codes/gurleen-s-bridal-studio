@@ -30,8 +30,28 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Mumbai-based luxury bridal artistry. Available worldwide.",
       },
+      { property: "og:url", content: "/" },
       { property: "og:image", content: HERO },
       { name: "twitter:image", content: HERO },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Gurleen Kaur Pannu — Luxury Bridal Makeup",
+          image: HERO,
+          description:
+            "Luxury bridal makeup artistry by Gurleen Kaur Pannu. Mumbai-based, available worldwide.",
+          telephone: "+91 74003 53112",
+          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
+          areaServed: ["Mumbai", "India", "Worldwide"],
+          sameAs: ["https://www.instagram.com/gurleenkaurpannu_mua"],
+          priceRange: "$$$",
+        }),
+      },
     ],
   }),
   component: Home,
@@ -101,6 +121,9 @@ function Hero() {
           className="font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight"
         >
           Gurleen Kaur<br />Pannu
+          <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
+            Luxury Bridal Makeup Artist · Mumbai
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
