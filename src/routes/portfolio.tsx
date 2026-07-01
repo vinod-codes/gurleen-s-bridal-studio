@@ -14,7 +14,22 @@ export const Route = createFileRoute("/portfolio")({
       { name: "description", content: "A curated portfolio of bridal, destination, engagement, reception, editorial and western bridal work by Gurleen Kaur Pannu." },
       { property: "og:title", content: "Portfolio — Gurleen Kaur Pannu" },
       { property: "og:description", content: "Full bridal portfolio of Mumbai luxury makeup artist Gurleen Kaur Pannu." },
+      { property: "og:url", content: "/portfolio" },
       { property: "og:image", content: ALL_PORTFOLIO[0].url },
+      { name: "twitter:image", content: ALL_PORTFOLIO[0].url },
+    ],
+    links: [{ rel: "canonical", href: "/portfolio" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Bridal Portfolio — Gurleen Kaur Pannu",
+          author: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+          image: ALL_PORTFOLIO.slice(0, 12).map((i) => i.url),
+        }),
+      },
     ],
   }),
   component: PortfolioPage,
