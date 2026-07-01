@@ -101,6 +101,9 @@ function Hero() {
           className="font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight"
         >
           Gurleen Kaur<br />Pannu
+          <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
+            Luxury Bridal Makeup Artist · Mumbai
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
