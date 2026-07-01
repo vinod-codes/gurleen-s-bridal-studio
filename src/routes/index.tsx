@@ -30,8 +30,28 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Mumbai-based luxury bridal artistry. Available worldwide.",
       },
+      { property: "og:url", content: "/" },
       { property: "og:image", content: HERO },
       { name: "twitter:image", content: HERO },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Gurleen Kaur Pannu — Luxury Bridal Makeup",
+          image: HERO,
+          description:
+            "Luxury bridal makeup artistry by Gurleen Kaur Pannu. Mumbai-based, available worldwide.",
+          telephone: "+91 74003 53112",
+          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
+          areaServed: ["Mumbai", "India", "Worldwide"],
+          sameAs: ["https://www.instagram.com/gurleenkaurpannu_mua"],
+          priceRange: "$$$",
+        }),
+      },
     ],
   }),
   component: Home,
