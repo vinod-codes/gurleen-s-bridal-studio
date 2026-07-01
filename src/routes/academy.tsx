@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Reveal } from "@/components/site/Reveal";
 import { WA } from "@/lib/whatsapp";
+import { FOUNDER } from "@/lib/images";
 
 export const Route = createFileRoute("/academy")({
   head: () => ({
@@ -13,6 +14,38 @@ export const Route = createFileRoute("/academy")({
       { name: "description", content: "Three formats of professional makeup education: 5-Day Masterclass, 1-Day Look & Learn (city editions), and a 2-Month Professional Course." },
       { property: "og:title", content: "The Academy — Gurleen Kaur Pannu" },
       { property: "og:description", content: "Professional bridal makeup education from Gurleen Kaur Pannu." },
+      { property: "og:url", content: "/academy" },
+      { property: "og:image", content: FOUNDER.lipShot.url },
+      { name: "twitter:image", content: FOUNDER.lipShot.url },
+    ],
+    links: [{ rel: "canonical", href: "/academy" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              name: "5-Day Bridal Makeup Masterclass",
+              description: "Intensive hands-on training for aspiring makeup artists.",
+              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy", sameAs: "https://www.instagram.com/gurleenkaurpannu_mua" },
+            },
+            {
+              "@type": "Course",
+              name: "1-Day Look & Learn",
+              description: "Focused city-wise day covering a complete signature bridal look.",
+              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy" },
+            },
+            {
+              "@type": "Course",
+              name: "2-Month Professional Makeup Course",
+              description: "End-to-end professional formation for the working artist.",
+              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy" },
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: AcademyPage,
