@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gurleen Kaur Pannu — Luxury Bridal Makeup Artist & Academy, Mumbai" },
+      { title: "Gurleen Kaur Pannu — Luxury Bridal Makeup, Mumbai" },
       {
         name: "description",
         content:
@@ -90,7 +90,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Mumbai-based luxury bridal artistry & academy. Available worldwide.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Gurleen Kaur Pannu" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Gurleen Kaur Pannu",
+          alternateName: "Gurleen Kaur Pannu Luxury Bridal Makeup & Academy",
+          description:
+            "Luxury bridal makeup artist and academy based in Mumbai, available worldwide for destination weddings.",
+        }),
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

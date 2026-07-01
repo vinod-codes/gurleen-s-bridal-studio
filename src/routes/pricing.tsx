@@ -25,6 +25,42 @@ export const Route = createFileRoute("/pricing")({
       { name: "twitter:image", content: TRADITIONAL[0].url },
     ],
     links: [{ rel: "canonical", href: "/pricing" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              name: "Signature Bridal",
+              serviceType: "Bridal Makeup — Wedding Day",
+              description:
+                "Consultation and studio trial, full bridal makeup on the wedding day, hair styling, drape assistance and touch-ups through the ceremony.",
+              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              areaServed: "Mumbai",
+            },
+            {
+              "@type": "Service",
+              name: "Engagement & Reception",
+              serviceType: "Event Makeup",
+              description:
+                "Consultation call, full makeup and hair styling for a single engagement or reception event, on-location or studio.",
+              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+            },
+            {
+              "@type": "Service",
+              name: "Destination Wedding",
+              serviceType: "Destination Bridal Makeup",
+              description:
+                "Multi-day artist availability with transparent travel, stay and logistics; bridal and family looks with editorial-quality finishing.",
+              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              areaServed: "Worldwide",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: PricingPage,
 });
