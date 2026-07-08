@@ -166,45 +166,34 @@ function Hero() {
       "-=0.6"
     );
 
-    tl.fromTo(
-      ".hero-scroll",
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.out" },
-      "-=0.2"
-    );
-
-    gsap.to(".hero-scroll-line", {
-      y: 8,
-      repeat: -1,
-      yoyo: true,
-      duration: 1,
-      ease: "power1.inOut"
-    });
-
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative min-h-screen flex items-end overflow-hidden">
+    <section ref={container} className="relative min-h-screen flex items-start overflow-hidden">
+      {/* Background image — face is right-side, keep right clear */}
       <div className="absolute inset-0 overflow-hidden">
-        <img 
-          src={heroImg} 
-          alt="" 
+        <img
+          src={heroImg}
+          alt=""
           fetchPriority="high"
-          style={{ 
+          style={{
             objectPosition: `${posX}% ${posY}%`,
             transform: `scale(${zoom})`
           }}
-          className="hero-bg w-full h-full object-cover transition-all duration-300" 
+          className="hero-bg w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/40 to-ink/90 pointer-events-none" />
+        {/* Gradient: strong on left where text sits, fades to transparent on right so face shows */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/50 to-ink/10 pointer-events-none" />
+        {/* Subtle top vignette for nav readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Dev Position Picker Tool (Hidden for production) */}
       <div className="hidden absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
         <div>
           <label className="font-bold mb-1 block">Test Hero Image</label>
-          <select 
-            value={heroImg} 
+          <select
+            value={heroImg}
             onChange={(e) => setHeroImg(e.target.value)}
             className="border border-ink/20 p-1 bg-white text-ink w-full"
           >
@@ -213,85 +202,58 @@ function Hero() {
             ))}
           </select>
         </div>
-
         <div>
           <label className="font-bold flex justify-between">
-            <span>Zoom</span>
-            <span>{zoom.toFixed(2)}x</span>
+            <span>Zoom</span><span>{zoom.toFixed(2)}x</span>
           </label>
-          <input 
-            type="range" 
-            min="1" max="3" step="0.05" 
-            value={zoom} 
-            onChange={(e) => setZoom(parseFloat(e.target.value))} 
-            className="w-full"
-          />
+          <input type="range" min="1" max="3" step="0.05" value={zoom}
+            onChange={(e) => setZoom(parseFloat(e.target.value))} className="w-full" />
         </div>
-
         <div>
           <label className="font-bold flex justify-between">
-            <span>Position X (Left/Right)</span>
-            <span>{posX}%</span>
+            <span>Position X</span><span>{posX}%</span>
           </label>
-          <input 
-            type="range" 
-            min="0" max="100" step="1" 
-            value={posX} 
-            onChange={(e) => setPosX(parseInt(e.target.value))} 
-            className="w-full"
-          />
+          <input type="range" min="0" max="100" step="1" value={posX}
+            onChange={(e) => setPosX(parseInt(e.target.value))} className="w-full" />
         </div>
-
         <div>
           <label className="font-bold flex justify-between">
-            <span>Position Y (Up/Down)</span>
-            <span>{posY}%</span>
+            <span>Position Y</span><span>{posY}%</span>
           </label>
-          <input 
-            type="range" 
-            min="0" max="100" step="1" 
-            value={posY} 
-            onChange={(e) => setPosY(parseInt(e.target.value))} 
-            className="w-full"
-          />
+          <input type="range" min="0" max="100" step="1" value={posY}
+            onChange={(e) => setPosY(parseInt(e.target.value))} className="w-full" />
         </div>
-
-        <button 
+        <button
           onClick={() => {
             const data = `Image URL: ${heroImg}\nZoom: scale(${zoom})\nPosition: ${posX}% ${posY}%`;
             navigator.clipboard.writeText(data);
             alert("Copied!\n" + data);
           }}
           className="bg-ink text-ivory py-1 px-2 hover:bg-wine transition-colors"
-        >
-          Copy Image & Position
-        </button>
+        >Copy Image & Position</button>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full pointer-events-none">
-        <p className="hero-eyebrow eyebrow !text-gold opacity-0">
-          Mumbai · Available Worldwide
-        </p>
-        <h1 className="hero-title font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight opacity-0">
-          Bridal Makeup Artist<br />Mumbai
-          <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
-            GKP Artistry & Makeovers · Luxury Bridal Artistry
+      {/* Text — anchored top-left, constrained to left half, clears the nav */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-44 md:pt-52 pb-24 pointer-events-none">
+        <div className="max-w-lg md:max-w-xl">
+          <p className="hero-eyebrow eyebrow !text-gold opacity-0">
+            Mumbai · Available Worldwide
+          </p>
+          <h1 className="hero-title font-display text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-5 leading-[1.04] tracking-tight opacity-0">
+            Bridal Makeup Artist,<br />Mumbai.
+          </h1>
+          <p className="hero-subtitle font-display italic text-ivory/85 text-base md:text-xl mt-6 leading-relaxed opacity-0">
+            Soft, luminous, camera-honest artistry for the most photographed day of your life.
+          </p>
+          <span className="block font-sans not-italic text-[10px] tracking-[0.3em] uppercase text-gold/80 mt-5 opacity-0 hero-eyebrow">
+            GKP Artistry & Makeovers
           </span>
-        </h1>
-        <p className="hero-subtitle font-display italic text-ivory/90 text-lg md:text-2xl mt-6 max-w-2xl opacity-0">
-          Soft, luminous, camera-honest looks for the most photographed day of your life.
-        </p>
-        
-        <div className="hero-cta flex flex-wrap gap-4 mt-10 pointer-events-auto opacity-0">
-          <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3">
-            Enquire for Your Date
-          </a>
+          <div className="hero-cta mt-10 pointer-events-auto opacity-0">
+            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine">
+              Enquire for Your Date
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div className="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 text-ivory/70 opacity-0">
-        <span className="text-[10px] tracking-[0.32em] uppercase">Scroll</span>
-        <span className="hero-scroll-line block w-px h-10 bg-ivory/50" />
       </div>
     </section>
   );
