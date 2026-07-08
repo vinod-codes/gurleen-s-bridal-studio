@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as BridalRouteImport } from './routes/bridal'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const PricingRoute = PricingRouteImport.update({
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BridalRoute = BridalRouteImport.update({
+  id: '/bridal',
+  path: '/bridal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AcademyRoute = AcademyRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
+  '/bridal': typeof BridalRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
+  '/bridal': typeof BridalRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
+  '/bridal': typeof BridalRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/academy'
+    | '/bridal'
     | '/portfolio'
     | '/pricing'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/academy' | '/portfolio' | '/pricing' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/bridal'
+    | '/portfolio'
+    | '/pricing'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/academy'
+    | '/bridal'
     | '/portfolio'
     | '/pricing'
     | '/sitemap.xml'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AcademyRoute: typeof AcademyRoute
+  BridalRoute: typeof BridalRoute
   PortfolioRoute: typeof PortfolioRoute
   PricingRoute: typeof PricingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -123,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bridal': {
+      id: '/bridal'
+      path: '/bridal'
+      fullPath: '/bridal'
+      preLoaderRoute: typeof BridalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/academy': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AcademyRoute: AcademyRoute,
+  BridalRoute: BridalRoute,
   PortfolioRoute: PortfolioRoute,
   PricingRoute: PricingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
