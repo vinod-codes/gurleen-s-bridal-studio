@@ -96,6 +96,7 @@ function Home() {
 /* -------- Hero -------- */
 function Hero() {
   const container = React.useRef<HTMLDivElement>(null);
+  const [imgPos, setImgPos] = useState("center 100%");
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -160,9 +161,30 @@ function Hero() {
           src={HERO} 
           alt="" 
           fetchPriority="high"
-          className="hero-bg w-full h-full object-cover object-center" 
+          style={{ objectPosition: imgPos }}
+          className="hero-bg w-full h-full object-cover" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
+      </div>
+
+      {/* Dev Position Picker Tool */}
+      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto">
+        <label className="font-bold">Image Position (e.g. center 100%)</label>
+        <input 
+          type="text" 
+          value={imgPos} 
+          onChange={(e) => setImgPos(e.target.value)} 
+          className="border border-ink/20 p-1 bg-white text-ink"
+        />
+        <button 
+          onClick={() => {
+            navigator.clipboard.writeText(imgPos);
+            alert("Copied: " + imgPos);
+          }}
+          className="bg-ink text-ivory py-1 px-2 hover:bg-wine transition-colors"
+        >
+          Copy Position
+        </button>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full pointer-events-none">

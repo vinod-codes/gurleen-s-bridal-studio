@@ -88,8 +88,8 @@ export const EDITORIAL: BridalImage[] = [
 
 // ── Founder ────────────────────────────────────────────────────────────────────
 export const FOUNDER = {
-  lipShot: { url: img656634.url, alt: "Gurleen applying lip product in warm lamp-lit interior" },
-  marble: { url: img658113.url, alt: "Gurleen laughing in sequinned gown in sunlit marble bathroom" },
+  lipShot: { url: img474873.url, alt: "Gurleen close-up portrait in white lace dress" },
+  marble: { url: img475286.url, alt: "Gurleen reading a book in white lace dress" },
 };
 
 // ── Full portfolio (for portfolio page) ────────────────────────────────────────
