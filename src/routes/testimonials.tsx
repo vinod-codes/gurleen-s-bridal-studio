@@ -22,6 +22,47 @@ export const Route = createFileRoute("/testimonials")({
       { name: "twitter:image", content: TRADITIONAL[1].url },
     ],
     links: [{ rel: "canonical", href: "/testimonials" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "GKP Artistry & Makeovers",
+          description: "Luxury bridal makeup artist and professional makeup academy in Mumbai.",
+          url: "https://www.instagram.com/gurleenkaurpannu_mua",
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5",
+            bestRating: "5",
+            ratingCount: "8",
+          },
+          review: [
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Aanya" },
+              reviewBody:
+                "Gurleen made me look like the softest, most photographed version of myself. Every frame from the wedding is one I'd keep on my wall.",
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Isha" },
+              reviewBody:
+                "The calm in the room on the morning of my wedding was worth everything. Skin looked like skin. It lasted from mandap to reception.",
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Meher" },
+              reviewBody:
+                "We flew her to Bali for a three-event wedding. Zero drama, three completely different looks, one hand of restraint throughout.",
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: TestimonialsPage,
 });

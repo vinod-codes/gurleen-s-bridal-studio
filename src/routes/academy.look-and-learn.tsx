@@ -20,6 +20,25 @@ export const Route = createFileRoute("/academy/look-and-learn")({
       { property: "og:description", content: "A focused city-wise day covering a complete signature bridal look." },
       { property: "og:url", content: "/academy/look-and-learn" },
     ],
+    links: [{ rel: "canonical", href: "/academy/look-and-learn" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "1-Day Look & Learn Bridal Masterclass",
+          description: "Join GKP Artistry & Makeovers for a 1-Day Look & Learn masterclass in your city. A focused, single-day session covering a complete signature bridal look.",
+          provider: {
+            "@type": "Organization",
+            name: "GKP Professional Makeup Academy",
+            sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
+          },
+          courseMode: "onsite",
+          educationalLevel: "beginner to advanced",
+        }),
+      },
+    ],
   }),
   component: LookAndLearnPage,
 });

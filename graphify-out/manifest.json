@@ -100,8 +100,8 @@
     "semantic_hash": "398fec7b6e0651f449c5420aa69a927f"
   },
   "src/components/site/Footer.tsx": {
-    "mtime": 1783494307.5924668,
-    "ast_hash": "54c03efa50d34ac26e16920a4eb5bd60",
+    "mtime": 1783498616.5261362,
+    "ast_hash": "70500f2d9bbf0df23f5a65e5f1779878",
     "semantic_hash": ""
   },
   "src/components/site/Nav.tsx": {
@@ -375,13 +375,13 @@
     "semantic_hash": "e3f848f1b39f863e6164cf58b5a8e752"
   },
   "src/lib/whatsapp.ts": {
-    "mtime": 1782848636.3222237,
-    "ast_hash": "4414c074349d8043857820eaef5ae3c6",
-    "semantic_hash": "4414c074349d8043857820eaef5ae3c6"
+    "mtime": 1783498483.4107797,
+    "ast_hash": "353ff0901e9871b2e955041bcb734612",
+    "semantic_hash": ""
   },
   "src/routeTree.gen.ts": {
-    "mtime": 1783493739.2017503,
-    "ast_hash": "90293b25942d734bfb321a1fe9bf3522",
+    "mtime": 1783498539.1536334,
+    "ast_hash": "0d389aeb63f21f6185c44da035167db7",
     "semantic_hash": ""
   },
   "src/router.tsx": {
@@ -400,8 +400,8 @@
     "semantic_hash": ""
   },
   "src/routes/academy.tsx": {
-    "mtime": 1783494399.0425663,
-    "ast_hash": "b58c79755e92543f6e4a8c1e563691db",
+    "mtime": 1783498593.5339692,
+    "ast_hash": "1be7923591020e843455b9f141562332",
     "semantic_hash": ""
   },
   "src/routes/bridal.tsx": {
@@ -410,9 +410,9 @@
     "semantic_hash": ""
   },
   "src/routes/contact.tsx": {
-    "mtime": 1783490528.3181455,
-    "ast_hash": "0c0bd7cb0afe5c1b994b70c5b3dae9c5",
-    "semantic_hash": "0c0bd7cb0afe5c1b994b70c5b3dae9c5"
+    "mtime": 1783497902.398837,
+    "ast_hash": "64be9b5c1f6912d63de54f35ce0ead05",
+    "semantic_hash": ""
   },
   "src/routes/destination-weddings.tsx": {
     "mtime": 1783494461.1414516,
@@ -420,9 +420,9 @@
     "semantic_hash": ""
   },
   "src/routes/editorial-fashion.tsx": {
-    "mtime": 1783490528.3181455,
-    "ast_hash": "e74aabea8a6f82d091d8df58ffd4fc69",
-    "semantic_hash": "e74aabea8a6f82d091d8df58ffd4fc69"
+    "mtime": 1783498037.9053466,
+    "ast_hash": "fd302cd0a1e63e6045bee9cf314dcc96",
+    "semantic_hash": ""
   },
   "src/routes/engagement-reception.tsx": {
     "mtime": 1783494463.1677072,
@@ -430,9 +430,9 @@
     "semantic_hash": ""
   },
   "src/routes/faq.tsx": {
-    "mtime": 1783490528.3181455,
-    "ast_hash": "096e56dea11cfacd97ebb6294d79702e",
-    "semantic_hash": "096e56dea11cfacd97ebb6294d79702e"
+    "mtime": 1783497896.1459622,
+    "ast_hash": "be4e591083aafcc7e496898ecc8433f4",
+    "semantic_hash": ""
   },
   "src/routes/index.tsx": {
     "mtime": 1783494334.2272582,
@@ -440,34 +440,34 @@
     "semantic_hash": ""
   },
   "src/routes/portfolio.tsx": {
-    "mtime": 1783490528.3215666,
-    "ast_hash": "0874580820dd7e53db1a3f4fd8d8c657",
-    "semantic_hash": "0874580820dd7e53db1a3f4fd8d8c657"
+    "mtime": 1783497888.0367768,
+    "ast_hash": "f106a17fc792a76291bca713b1f3e88e",
+    "semantic_hash": ""
   },
   "src/routes/pricing.tsx": {
-    "mtime": 1783490528.3215666,
-    "ast_hash": "35278d79d504cb1bf719ae36486a355b",
-    "semantic_hash": "35278d79d504cb1bf719ae36486a355b"
+    "mtime": 1783497920.4098363,
+    "ast_hash": "dedc6c24f790acd49b9f0b2f2d93d494",
+    "semantic_hash": ""
   },
   "src/routes/privacy.tsx": {
-    "mtime": 1783490528.3215666,
-    "ast_hash": "1380c32596e447ae9cdb4eabb5e5eda8",
-    "semantic_hash": "1380c32596e447ae9cdb4eabb5e5eda8"
+    "mtime": 1783497960.988526,
+    "ast_hash": "d92f7dbcb90efdd8b5951ed5b4ce6b16",
+    "semantic_hash": ""
   },
   "src/routes/sitemap[.]xml.ts": {
-    "mtime": 1783490528.3230646,
-    "ast_hash": "0eda539e15e26d4624c76ae83fc6a610",
-    "semantic_hash": "0eda539e15e26d4624c76ae83fc6a610"
+    "mtime": 1783498634.8495386,
+    "ast_hash": "9d86e75bf34690a56f42a094c997bcc6",
+    "semantic_hash": ""
   },
   "src/routes/terms.tsx": {
-    "mtime": 1783490528.3230646,
-    "ast_hash": "9c7c36d5c678a0d0b8c206f32d840091",
-    "semantic_hash": "9c7c36d5c678a0d0b8c206f32d840091"
+    "mtime": 1783497977.2489378,
+    "ast_hash": "549fd0aa38dc752cbbe23ca540e78731",
+    "semantic_hash": ""
   },
   "src/routes/testimonials.tsx": {
-    "mtime": 1783490528.3230646,
-    "ast_hash": "8d7707b0ee6d89a9861d792b92562259",
-    "semantic_hash": "8d7707b0ee6d89a9861d792b92562259"
+    "mtime": 1783498023.349798,
+    "ast_hash": "586c5acb00b0ad1e8d4016214fcc6171",
+    "semantic_hash": ""
   },
   "src/server.ts": {
     "mtime": 1782848636.3282936,
@@ -500,28 +500,28 @@
     "semantic_hash": "b4e8af3f0f230eee39d6bd32d195195f"
   },
   "src/routes/academy.look-and-learn.tsx": {
-    "mtime": 1783492899.3324666,
-    "ast_hash": "d30bae3e12ad635ff4b0c91be8fd1436",
+    "mtime": 1783497737.8683586,
+    "ast_hash": "46b9d6ad7942e3561fd17ba75dfd74c9",
     "semantic_hash": ""
   },
   "src/routes/academy.masterclass.tsx": {
-    "mtime": 1783492844.2005434,
-    "ast_hash": "150b741c73798941eeb0c51267a94e25",
+    "mtime": 1783497653.529948,
+    "ast_hash": "649e7d385c1924ee43a321c6f8a922c5",
     "semantic_hash": ""
   },
   "src/routes/academy.two-month-professional.tsx": {
-    "mtime": 1783492874.8532033,
-    "ast_hash": "caaf73462efae4d59bc2ece56f284eef",
+    "mtime": 1783497655.592456,
+    "ast_hash": "d9f7e56977bfc81ac1bddc22d096e6f7",
     "semantic_hash": ""
   },
   "src/routes/refund.tsx": {
-    "mtime": 1783492976.3509746,
-    "ast_hash": "0940f201a4fb1dcb267bf21043c004a2",
+    "mtime": 1783498021.630162,
+    "ast_hash": "dc9a5c9d250df6c49cac92a0eec10584",
     "semantic_hash": ""
   },
   "src/routes/thank-you.tsx": {
-    "mtime": 1783492987.14899,
-    "ast_hash": "c875312dcb9b86f273d01f449db1d537",
+    "mtime": 1783498024.5860257,
+    "ast_hash": "df13441232b48ab2b5c574ea6154b485",
     "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "plan.md": {
-    "mtime": 1783492517.6945195,
-    "ast_hash": "cc24d3e011b96c795bc787c386d26ef4",
+    "mtime": 1783498347.3892367,
+    "ast_hash": "6990be05eac3b86a414723e8759d0fbd",
     "semantic_hash": ""
   },
   "public/llms.txt": {
@@ -557,6 +557,11 @@
   "src/routes/README.md": {
     "mtime": 1782848636.3282936,
     "ast_hash": "7c596cbb4d31d216707c1fb18d7d4d3b",
+    "semantic_hash": ""
+  },
+  "src/routes/academy.one-on-one.tsx": {
+    "mtime": 1783498538.0846944,
+    "ast_hash": "122d37c8b81631da53d590557902a7fa",
     "semantic_hash": ""
   }
 }

@@ -46,5 +46,12 @@
   "44": "collapsible.tsx",
   "45": "vite.config.ts",
   "46": "Route",
-  "47": "AGENTS.md"
+  "47": "AGENTS.md",
+  "48": "react",
+  "49": "badge.tsx",
+  "50": "tabs.tsx",
+  "51": "input.tsx",
+  "52": "separator.tsx",
+  "53": "skeleton.tsx",
+  "54": "tooltip.tsx"
 }

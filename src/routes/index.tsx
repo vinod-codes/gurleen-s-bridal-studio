@@ -64,7 +64,7 @@ const SERVICES = [
   { name: "Reception Makeup", img: WESTERN[0], wa: WA.reception, desc: "Polished, contemporary glamour for the reception evening." },
   { name: "Editorial Makeup", img: FOUNDER.lipShot as any, wa: WA.editorial, desc: "Magazine and editorial looks crafted for the lens." },
   { name: "Fashion & Campaign Shoots", img: WESTERN[1], wa: WA.fashion, desc: "Beauty direction for campaigns, lookbooks and runway." },
-  { name: "Celebrity Makeup", img: TRADITIONAL[2], wa: WA.celebrity, desc: "Discreet, camera-ready makeup for public appearances.", placeholder: true },
+  { name: "Airbrush & HD Makeup", img: TRADITIONAL[2], wa: WA.general, desc: "Advanced techniques for flawless, long-lasting, camera-ready skin." },
   { name: "Photoshoot Makeup", img: TRADITIONAL[3], wa: WA.photoshoot, desc: "Pre-wedding, portfolio and personal-brand photoshoots." },
   { name: "Bridal Styling", img: TRADITIONAL[7], wa: WA.styling, desc: "Complete styling — drape, hair, jewellery placement and finish." },
 ];
@@ -100,6 +100,7 @@ function Hero() {
         <img 
           src={HERO} 
           alt="" 
+          fetchpriority="high"
           className="w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
@@ -475,35 +476,7 @@ function Academy() {
   );
 }
 
-/* -------- Process -------- */
-function Process() {
-  const steps = [
-    { n: "01", t: "Consultation", d: "We talk through your wedding, attire, venue and the kind of beauty that feels like you." },
-    { n: "02", t: "Trial", d: "A studio trial where we design and finalise your bridal look — photographed for reference." },
-    { n: "03", t: "Day Of", d: "On the morning of your wedding, the look is recreated with calm, precision and care." },
-  ];
-  return (
-    <section className="bg-ivory py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="max-w-2xl mb-16">
-          <p className="eyebrow">The Experience</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4">What working together looks like.</h2>
-        </Reveal>
-        <div className="grid md:grid-cols-3 gap-10 md:gap-16">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.1}>
-              <div className="border-t border-gold/40 pt-6">
-                <p className="font-display text-gold text-xl">{s.n}</p>
-                <h3 className="font-display text-2xl md:text-3xl mt-3">{s.t}</h3>
-                <p className="text-taupe mt-4 leading-relaxed text-[15px]">{s.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 /* -------- Instagram -------- */
 function InstagramCallout() {

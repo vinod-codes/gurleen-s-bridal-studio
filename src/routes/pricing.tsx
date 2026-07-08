@@ -69,7 +69,7 @@ const PACKAGES = [
   {
     name: "Signature Bridal",
     kicker: "Wedding Day",
-    price: "On request",
+    price: "From ₹35,000",
     includes: [
       "Consultation & studio trial",
       "Full bridal makeup on wedding day",
@@ -81,7 +81,7 @@ const PACKAGES = [
   {
     name: "Engagement & Reception",
     kicker: "Single Event",
-    price: "On request",
+    price: "From ₹20,000",
     includes: [
       "Consultation call",
       "Full makeup for the event",

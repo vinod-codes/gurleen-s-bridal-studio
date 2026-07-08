@@ -19,6 +19,25 @@ export const Route = createFileRoute("/academy/two-month-professional")({
       { property: "og:description", content: "End-to-end professional formation for the working artist." },
       { property: "og:url", content: "/academy/two-month-professional" },
     ],
+    links: [{ rel: "canonical", href: "/academy/two-month-professional" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "2-Month Professional Makeup Course",
+          description: "End-to-end professional makeup artistry course by GKP Artistry & Makeovers. Learn bridal makeup, business strategy, and portfolio building in Mumbai.",
+          provider: {
+            "@type": "Organization",
+            name: "GKP Professional Makeup Academy",
+            sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
+          },
+          courseMode: "onsite",
+          educationalLevel: "beginner to professional",
+        }),
+      },
+    ],
   }),
   component: ProfessionalCoursePage,
 });

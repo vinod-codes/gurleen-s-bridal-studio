@@ -19,6 +19,25 @@ export const Route = createFileRoute("/academy/masterclass")({
       { property: "og:description", content: "Professional hands-on training for aspiring artists." },
       { property: "og:url", content: "/academy/masterclass" },
     ],
+    links: [{ rel: "canonical", href: "/academy/masterclass" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "5-Day Bridal Makeup Masterclass",
+          description: "Intensive 5-day hands-on makeup training for aspiring makeup artists by GKP Artistry & Makeovers in Mumbai.",
+          provider: {
+            "@type": "Organization",
+            name: "GKP Professional Makeup Academy",
+            sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
+          },
+          courseMode: "onsite",
+          educationalLevel: "beginner to advanced",
+        }),
+      },
+    ],
   }),
   component: MasterclassPage,
 });

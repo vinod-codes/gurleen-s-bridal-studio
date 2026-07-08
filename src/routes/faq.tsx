@@ -76,6 +76,10 @@ const FAQS = [
     a: "Yes. The 5-Day Masterclass and 2-Month Professional Course are structured for both beginners and working artists. The 1-Day Look & Learn is best for artists with some experience.",
   },
   {
+    q: "Do you provide certification for academy courses?",
+    a: "Yes, all students receive a GKP Artistry & Makeovers certification upon successful completion of the Masterclass or Professional Course, recognizing their training.",
+  },
+  {
     q: "What is your cancellation policy?",
     a: "Retainers are non-refundable, but for date changes we do our best to accommodate a new date subject to availability. Detailed terms are shared in the booking note.",
   },
