@@ -9,11 +9,11 @@ import { FOUNDER, WESTERN, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/editorial-fashion")({
   head: () => ({
     meta: [
-      { title: "Editorial, Fashion & Campaign Makeup — Gurleen Kaur Pannu" },
+      { title: "Editorial, Fashion & Campaign Makeup — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Editorial and fashion makeup by Gurleen Kaur Pannu — magazine covers, campaigns, lookbooks and runway. Beauty direction for the lens.",
+          "Editorial and fashion makeup by GKP Artistry & Makeovers — magazine covers, campaigns, lookbooks and runway. Beauty direction for the lens.",
       },
       { property: "og:title", content: "Editorial, Fashion & Campaign Makeup" },
       { property: "og:description", content: "Beauty direction for editorial, campaign and runway work." },
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/editorial-fashion")({
           "@type": "Service",
           name: "Editorial & Fashion Makeup",
           serviceType: "Editorial Makeup Direction",
-          provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+          provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
           description: "Editorial, campaign, lookbook and runway beauty direction.",
         }),
       },

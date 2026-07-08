@@ -6,13 +6,13 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — Gurleen Kaur Pannu" },
+      { title: "Terms & Conditions — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Terms governing bookings, retainers, cancellations, travel and use of the Gurleen Kaur Pannu website and services.",
+          "Terms governing bookings, retainers, cancellations, travel and use of the GKP Artistry & Makeovers website and services.",
       },
-      { property: "og:title", content: "Terms & Conditions — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Terms & Conditions — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Booking, retainer, cancellation and website terms." },
       { property: "og:url", content: "/terms" },
     ],
@@ -39,7 +39,7 @@ function TermsPage() {
         <div className="mx-auto max-w-3xl px-6 space-y-10 text-[16px] text-taupe leading-relaxed">
           <Block title="1. Scope">
             These terms govern your use of this website and the services offered by
-            Gurleen Kaur Pannu ("the artist"). Using the site or engaging our services
+            GKP Artistry & Makeovers ("the artist"). Using the site or engaging our services
             constitutes acceptance of these terms.
           </Block>
           <Block title="2. Bookings & retainers">
@@ -75,7 +75,7 @@ function TermsPage() {
           </Block>
           <Block title="8. Intellectual property">
             All content on this website — text, images, photography, and design — is the
-            property of Gurleen Kaur Pannu or licensed to us, and may not be reproduced
+            property of GKP Artistry & Makeovers or licensed to us, and may not be reproduced
             without written permission.
           </Block>
           <Block title="9. Liability">

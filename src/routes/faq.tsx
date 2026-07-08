@@ -9,13 +9,13 @@ import { WA } from "@/lib/whatsapp";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Frequently Asked Questions — Gurleen Kaur Pannu" },
+      { title: "Frequently Asked Questions — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Answers to common questions about bridal makeup, trials, destination weddings, academy courses and booking with Gurleen Kaur Pannu.",
+          "Answers to common questions about bridal makeup, trials, destination weddings, academy courses and booking with GKP Artistry & Makeovers.",
       },
-      { property: "og:title", content: "Frequently Asked Questions — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Frequently Asked Questions — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Answers on bookings, trials, destination weddings and academy courses." },
       { property: "og:url", content: "/faq" },
     ],

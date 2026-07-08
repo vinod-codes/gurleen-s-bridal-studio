@@ -9,13 +9,13 @@ import { FOUNDER } from "@/lib/images";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Gurleen Kaur Pannu" },
+      { title: "Contact — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
           "Enquire about bridal makeup, destination weddings, editorial work or academy courses. WhatsApp is the fastest way to reach the studio.",
       },
-      { property: "og:title", content: "Contact — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Contact — GKP Artistry & Makeovers" },
       { property: "og:description", content: "WhatsApp the studio for bookings and enquiries." },
       { property: "og:url", content: "/contact" },
       { property: "og:image", content: FOUNDER.marble.url },
@@ -28,10 +28,10 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Contact — Gurleen Kaur Pannu",
+          name: "Contact — GKP Artistry & Makeovers",
           mainEntity: {
             "@type": "Person",
-            name: "Gurleen Kaur Pannu",
+            name: "GKP Artistry & Makeovers",
             telephone: PHONE,
             address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
             sameAs: [IG_BUSINESS, IG_PERSONAL, THREADS],

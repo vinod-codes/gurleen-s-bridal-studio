@@ -1,5 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
@@ -10,10 +9,10 @@ import { FOUNDER } from "@/lib/images";
 export const Route = createFileRoute("/academy")({
   head: () => ({
     meta: [
-      { title: "The Academy — Gurleen Kaur Pannu" },
-      { name: "description", content: "Three formats of professional makeup education: 5-Day Masterclass, 1-Day Look & Learn (city editions), and a 2-Month Professional Course." },
-      { property: "og:title", content: "The Academy — Gurleen Kaur Pannu" },
-      { property: "og:description", content: "Professional bridal makeup education from Gurleen Kaur Pannu." },
+      { title: "The Academy — GKP Artistry & Makeovers" },
+      { name: "description", content: "Four formats of professional makeup education: 5-Day Masterclass, 1-Day Look & Learn (city editions), a 2-Month Professional Course, and One-on-One Training." },
+      { property: "og:title", content: "The Academy — GKP Artistry & Makeovers" },
+      { property: "og:description", content: "Professional bridal makeup education from GKP Artistry & Makeovers." },
       { property: "og:url", content: "/academy" },
       { property: "og:image", content: FOUNDER.lipShot.url },
       { name: "twitter:image", content: FOUNDER.lipShot.url },
@@ -29,19 +28,19 @@ export const Route = createFileRoute("/academy")({
               "@type": "Course",
               name: "5-Day Bridal Makeup Masterclass",
               description: "Intensive hands-on training for aspiring makeup artists.",
-              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy", sameAs: "https://www.instagram.com/gurleenkaurpannu_mua" },
+              provider: { "@type": "Organization", name: "GKP Professional Makeup Academy", sameAs: "https://www.instagram.com/gurleenkaurpannu_mua" },
             },
             {
               "@type": "Course",
               name: "1-Day Look & Learn",
               description: "Focused city-wise day covering a complete signature bridal look.",
-              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy" },
+              provider: { "@type": "Organization", name: "GKP Professional Makeup Academy" },
             },
             {
               "@type": "Course",
               name: "2-Month Professional Makeup Course",
               description: "End-to-end professional formation for the working artist.",
-              provider: { "@type": "Organization", name: "Gurleen Kaur Pannu Academy" },
+              provider: { "@type": "Organization", name: "GKP Professional Makeup Academy" },
             },
           ],
         }),
@@ -50,8 +49,6 @@ export const Route = createFileRoute("/academy")({
   }),
   component: AcademyPage,
 });
-
-const CITIES = ["Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chandigarh", "Jaipur"];
 
 const COURSES = [
   {
@@ -66,8 +63,8 @@ const COURSES = [
       "Hair sculpting basics",
       "Camera-ready finishing",
     ],
-    ctaHref: WA.masterclass,
-    ctaLabel: "Reserve Your Seat",
+    ctaHref: "/academy/masterclass",
+    ctaLabel: "View Course Details",
   },
   {
     title: "1-Day Look & Learn",
@@ -83,7 +80,8 @@ const COURSES = [
       "Luxury Client Experience",
       "Industry Insights",
     ],
-    citySelect: true,
+    ctaHref: "/academy/look-and-learn",
+    ctaLabel: "View City Editions",
   },
   {
     title: "2-Month Professional Course",
@@ -95,14 +93,26 @@ const COURSES = [
       "Business & Branding", "Social Media for Makeup Artists",
       "Pricing Strategy", "Client Communication", "Certification", "Mentorship",
     ],
-    ctaHref: WA.twoMonth,
-    ctaLabel: "Enrol Now",
+    ctaHref: "/academy/two-month-professional",
+    ctaLabel: "View Course Details",
+  },
+  {
+    title: "One-on-One Makeup Training",
+    kicker: "Personalised",
+    desc: "Bespoke, private training sessions focused entirely on your specific goals — whether refining your base technique, mastering bridal hairstyling, or building business acumen.",
+    topics: [
+      "Skin Preparation & Base Technique",
+      "Bridal Hairstyling Courses",
+      "Portfolio Building for Makeup Artists",
+      "Business & Client Management",
+      "Custom Skill Focus",
+    ],
+    ctaHref: WA.academyGeneral,
+    ctaLabel: "Enquire on WhatsApp",
   },
 ];
 
 function AcademyPage() {
-  const [city, setCity] = useState("Delhi");
-
   return (
     <div className="bg-ivory text-ink min-h-screen">
       <Nav />
@@ -114,7 +124,7 @@ function AcademyPage() {
             Learn the craft<br /><em className="text-gold/90">behind the look.</em>
           </h1>
           <p className="text-ivory/75 mt-8 max-w-2xl text-[17px] leading-relaxed">
-            Three formats, one philosophy: build artists who understand bridal beauty,
+            Four formats, one philosophy: build artists who understand bridal beauty,
             the business around it, and the calm that defines a luxury client experience.
           </p>
           <a href={WA.academyGeneral} target="_blank" rel="noreferrer" className="btn-ghost-light mt-10">
@@ -133,27 +143,17 @@ function AcademyPage() {
                   <h2 className="font-display text-3xl md:text-5xl mt-4 leading-tight">{c.title}</h2>
                   <p className="text-taupe mt-6 text-[16px] leading-relaxed">{c.desc}</p>
 
-                  {c.citySelect ? (
-                    <div className="mt-8">
-                      <label className="text-[10px] tracking-[0.28em] uppercase text-taupe">Select city</label>
-                      <select
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-wine py-2 text-ink text-sm tracking-wider outline-none"
-                      >
-                        {CITIES.map((cc) => (
-                          <option key={cc} value={cc}>{cc}</option>
-                        ))}
-                      </select>
-                      <a href={WA.lookLearn(city)} target="_blank" rel="noreferrer" className="btn-wine mt-6">
-                        Enquire — {city}
+                  <div className="mt-8">
+                    {c.ctaHref.startsWith("http") ? (
+                      <a href={c.ctaHref} target="_blank" rel="noreferrer" className="btn-wine">
+                        {c.ctaLabel}
                       </a>
-                    </div>
-                  ) : (
-                    <a href={c.ctaHref} target="_blank" rel="noreferrer" className="btn-wine mt-8">
-                      {c.ctaLabel}
-                    </a>
-                  )}
+                    ) : (
+                      <Link to={c.ctaHref as any} className="btn-wine">
+                        {c.ctaLabel}
+                      </Link>
+                    )}
+                  </div>
                 </div>
 
                 <div className="md:col-span-8">

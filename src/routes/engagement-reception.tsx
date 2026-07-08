@@ -9,14 +9,14 @@ import { ENGAGEMENT, WESTERN, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/engagement-reception")({
   head: () => ({
     meta: [
-      { title: "Engagement & Reception Makeup — Gurleen Kaur Pannu, Mumbai" },
+      { title: "Engagement, Party & Reception Makeup — GKP Artistry & Makeovers, Mumbai" },
       {
         name: "description",
         content:
-          "Engagement, roka and reception makeup by Gurleen Kaur Pannu. Soft luminous artistry for the softer moments and contemporary glamour for the evening.",
+          "Engagement, roka, party, cocktail, and reception makeup by GKP Artistry & Makeovers. Soft luminous artistry for the softer moments and contemporary glamour for the evening.",
       },
-      { property: "og:title", content: "Engagement & Reception Makeup" },
-      { property: "og:description", content: "Soft luminous engagement looks and modern reception glamour." },
+      { property: "og:title", content: "Engagement, Party & Reception Makeup" },
+      { property: "og:description", content: "Soft luminous engagement looks, party makeup, and modern reception glamour." },
       { property: "og:url", content: "/engagement-reception" },
       { property: "og:image", content: ENGAGEMENT.url },
       { name: "twitter:image", content: ENGAGEMENT.url },
@@ -32,14 +32,14 @@ export const Route = createFileRoute("/engagement-reception")({
               "@type": "Service",
               name: "Engagement Makeup",
               serviceType: "Event Makeup",
-              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
               description: "Soft, luminous engagement and roka looks.",
             },
             {
               "@type": "Service",
               name: "Reception Makeup",
               serviceType: "Event Makeup",
-              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
               description: "Polished, contemporary glamour for the reception evening.",
             },
           ],
@@ -58,6 +58,14 @@ const LOOKS = [
     desc: "A daylight-honest look — glowing skin, a considered wash of colour, hair that moves. Made for close-up portraits and warm afternoon light.",
     cta: WA.engagement,
     label: "Enquire — Engagement",
+  },
+  {
+    kicker: "Social Events",
+    title: "Party & Cocktail",
+    img: TRADITIONAL[2],
+    desc: "Refined party makeup and cocktail glam tailored to your outfit and the occasion.",
+    cta: WA.general,
+    label: "Enquire — Party",
   },
   {
     kicker: "The Reception Evening",

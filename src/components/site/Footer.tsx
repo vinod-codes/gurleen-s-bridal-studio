@@ -6,9 +6,9 @@ export function Footer() {
     <footer className="bg-ink text-ivory">
       <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
-          <p className="eyebrow !text-gold">Gurleen Kaur Pannu</p>
+          <p className="eyebrow !text-gold">GKP Artistry & Makeovers</p>
           <h3 className="font-display text-3xl mt-3 text-ivory">
-            Luxury bridal artistry,<br />on your most important day.
+            Elevating Beauty.<br />Empowering Artists.
           </h3>
           <p className="text-ivory/70 mt-5 max-w-md leading-relaxed text-[15px]">
             Based in Mumbai. Available for destination weddings worldwide.
@@ -72,7 +72,7 @@ export function Footer() {
 
       <div className="border-t border-ivory/10 py-6">
         <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-ivory/50">
-          <span>© {new Date().getFullYear()} Gurleen Kaur Pannu. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} GKP Artistry & Makeovers. All rights reserved.</span>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-gold transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-gold transition-colors">Terms</Link>

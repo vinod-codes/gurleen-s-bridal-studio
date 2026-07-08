@@ -10,10 +10,10 @@ import { WA } from "@/lib/whatsapp";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Gurleen Kaur Pannu" },
-      { name: "description", content: "A curated portfolio of bridal, destination, engagement, reception, editorial and western bridal work by Gurleen Kaur Pannu." },
-      { property: "og:title", content: "Portfolio — Gurleen Kaur Pannu" },
-      { property: "og:description", content: "Full bridal portfolio of Mumbai luxury makeup artist Gurleen Kaur Pannu." },
+      { title: "Portfolio — GKP Artistry & Makeovers" },
+      { name: "description", content: "A curated portfolio of bridal, destination, engagement, reception, editorial and western bridal work by GKP Artistry & Makeovers." },
+      { property: "og:title", content: "Portfolio — GKP Artistry & Makeovers" },
+      { property: "og:description", content: "Full bridal portfolio of Mumbai luxury makeup artist GKP Artistry & Makeovers." },
       { property: "og:url", content: "/portfolio" },
       { property: "og:image", content: ALL_PORTFOLIO[0].url },
       { name: "twitter:image", content: ALL_PORTFOLIO[0].url },
@@ -25,8 +25,8 @@ export const Route = createFileRoute("/portfolio")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Bridal Portfolio — Gurleen Kaur Pannu",
-          author: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+          name: "Bridal Portfolio — GKP Artistry & Makeovers",
+          author: { "@type": "Person", name: "GKP Artistry & Makeovers" },
           image: ALL_PORTFOLIO.slice(0, 12).map((i) => i.url),
         }),
       },

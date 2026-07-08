@@ -9,13 +9,13 @@ import { TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — Gurleen Kaur Pannu" },
+      { title: "Testimonials — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Words from brides and clients who trusted Gurleen Kaur Pannu with their wedding day and editorial work.",
+          "Words from brides and clients who trusted GKP Artistry & Makeovers with their wedding day and editorial work.",
       },
-      { property: "og:title", content: "Testimonials — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Testimonials — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Words from brides and clients." },
       { property: "og:url", content: "/testimonials" },
       { property: "og:image", content: TRADITIONAL[1].url },

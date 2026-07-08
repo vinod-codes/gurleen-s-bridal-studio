@@ -9,13 +9,13 @@ import { FOUNDER, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Gurleen Kaur Pannu — Luxury Bridal Makeup Artist, Mumbai" },
+      { title: "About GKP Artistry & Makeovers — Luxury Bridal Makeup Artist, Mumbai" },
       {
         name: "description",
         content:
-          "Meet Gurleen Kaur Pannu — Mumbai-based luxury bridal makeup artist and educator, known for soft, luminous artistry that photographs beautifully.",
+          "Meet Gurleen, the founder of GKP Artistry & Makeovers — a Mumbai-based luxury bridal makeup artist and educator.",
       },
-      { property: "og:title", content: "About Gurleen Kaur Pannu" },
+      { property: "og:title", content: "About GKP Artistry & Makeovers" },
       {
         property: "og:description",
         content: "Mumbai-based luxury bridal artist and educator.",
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Gurleen Kaur Pannu",
+          name: "GKP Artistry & Makeovers",
           jobTitle: "Luxury Bridal Makeup Artist & Educator",
           image: FOUNDER.marble.url,
           address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
@@ -65,7 +65,7 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="eyebrow">The Artist</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">
-            Gurleen Kaur Pannu.
+            GKP Artistry<br/>& Makeovers.
           </h1>
           <div className="hairline w-32 mx-auto mt-10" />
           <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
@@ -90,7 +90,7 @@ function AboutPage() {
             <div className="hairline w-24 my-8" />
             <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
               <p>
-                Gurleen approaches every bride the same way she approaches an editorial cover —
+                With over 8 years of luxury bridal experience, Gurleen approaches every bride the same way she approaches an editorial cover —
                 with quiet direction, a curated palette and a finish that reads as skin first,
                 makeup second.
               </p>

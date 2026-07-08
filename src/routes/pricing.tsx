@@ -9,13 +9,13 @@ import { TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Bridal Makeup Price & Packages — Gurleen Kaur Pannu, Mumbai" },
+      { title: "Bridal Makeup Price & Packages — GKP Artistry & Makeovers, Mumbai" },
       {
         name: "description",
         content:
-          "Bridal makeup pricing and packages by Gurleen Kaur Pannu. Signature bridal, engagement, reception and destination wedding packages — and what shapes the final quote.",
+          "Bridal makeup pricing and packages by GKP Artistry & Makeovers. Signature bridal, engagement, reception and destination wedding packages — and what shapes the final quote.",
       },
-      { property: "og:title", content: "Bridal Makeup Price & Packages — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Bridal Makeup Price & Packages — GKP Artistry & Makeovers" },
       {
         property: "og:description",
         content: "Luxury bridal makeup packages and pricing guidance for Mumbai and destination weddings.",
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/pricing")({
               serviceType: "Bridal Makeup — Wedding Day",
               description:
                 "Consultation and studio trial, full bridal makeup on the wedding day, hair styling, drape assistance and touch-ups through the ceremony.",
-              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
               areaServed: "Mumbai",
             },
             {
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/pricing")({
               serviceType: "Event Makeup",
               description:
                 "Consultation call, full makeup and hair styling for a single engagement or reception event, on-location or studio.",
-              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
             },
             {
               "@type": "Service",
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/pricing")({
               serviceType: "Destination Bridal Makeup",
               description:
                 "Multi-day artist availability with transparent travel, stay and logistics; bridal and family looks with editorial-quality finishing.",
-              provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
               areaServed: "Worldwide",
             },
           ],

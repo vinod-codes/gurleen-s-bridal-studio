@@ -9,13 +9,13 @@ import { TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/bridal")({
   head: () => ({
     meta: [
-      { title: "Bridal Makeup — Gurleen Kaur Pannu, Mumbai" },
+      { title: "Bridal Makeup — GKP Artistry & Makeovers, Mumbai" },
       {
         name: "description",
         content:
-          "Signature bridal makeup by Gurleen Kaur Pannu — soft, luminous, camera-honest artistry for the most photographed day of your life. Mumbai and beyond.",
+          "Signature bridal makeup by GKP Artistry & Makeovers — soft, luminous, camera-honest artistry for the most photographed day of your life. Mumbai and beyond.",
       },
-      { property: "og:title", content: "Bridal Makeup — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Bridal Makeup — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Signature luxury bridal makeup in Mumbai." },
       { property: "og:url", content: "/bridal" },
       { property: "og:image", content: TRADITIONAL[0].url },
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/bridal")({
           "@type": "Service",
           name: "Signature Bridal Makeup",
           serviceType: "Bridal Makeup",
-          provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+          provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
           areaServed: ["Mumbai", "India", "Worldwide"],
           description:
             "Luxury bridal makeup — consultation, studio trial, full wedding-day artistry, hair styling, drape assistance and touch-ups.",
@@ -44,8 +44,9 @@ export const Route = createFileRoute("/bridal")({
 const INCLUDES = [
   { t: "Consultation", d: "A private conversation to understand your look, attire, jewellery and timeline." },
   { t: "Studio Trial", d: "A full trial in the studio — refine the palette, the eye, the finish." },
-  { t: "Wedding-Day Artistry", d: "Full bridal makeup on the day, calmly and unhurried." },
-  { t: "Hair & Drape", d: "Hair sculpting and drape assistance for a complete finish." },
+  { t: "Wedding-Day Artistry", d: "Full bridal makeup on the day, calmly and unhurried. Includes HD & Airbrush options tailored to your skin." },
+  { t: "Hair & Drape", d: "Professional bridal hairstyling and Saree & Dupatta Draping for a complete finish." },
+  { t: "Lash Application", d: "Premium false lash application tailored to your eye shape." },
   { t: "Touch-Ups", d: "On-hand through key ceremony moments so the last portrait mirrors the first." },
 ];
 

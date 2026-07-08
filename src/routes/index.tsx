@@ -19,13 +19,13 @@ import { WA, PHONE, PHONE_DISPLAY, IG_BUSINESS } from "@/lib/whatsapp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gurleen Kaur Pannu — Luxury Bridal Makeup Artist, Mumbai" },
+      { title: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist, Mumbai" },
       {
         name: "description",
         content:
-          "Editorial bridal artistry by Gurleen Kaur Pannu. Mumbai-based, worldwide destination weddings, and a professional makeup academy.",
+          "Editorial bridal artistry by GKP Artistry & Makeovers. Mumbai-based, worldwide destination weddings, and a professional makeup academy.",
       },
-      { property: "og:title", content: "Gurleen Kaur Pannu — Luxury Bridal Makeup Artist" },
+      { property: "og:title", content: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist" },
       {
         property: "og:description",
         content: "Mumbai-based luxury bridal artistry. Available worldwide.",
@@ -41,10 +41,10 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "Gurleen Kaur Pannu — Luxury Bridal Makeup",
+          name: "GKP Artistry & Makeovers — Luxury Bridal Makeup",
           image: HERO,
           description:
-            "Luxury bridal makeup artistry by Gurleen Kaur Pannu. Mumbai-based, available worldwide.",
+            "Luxury bridal makeup artistry by GKP Artistry & Makeovers. Mumbai-based, available worldwide.",
           telephone: "+91 74003 53112",
           address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
           areaServed: ["Mumbai", "India", "Worldwide"],
@@ -120,7 +120,7 @@ function Hero() {
           transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight"
         >
-          Gurleen Kaur<br />Pannu
+          GKP Artistry<br />& Makeovers
           <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
             Luxury Bridal Makeup Artist · Mumbai
           </span>
@@ -274,7 +274,7 @@ function About() {
           <div className="hairline w-24 my-8" />
           <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
             <p>
-              Gurleen Kaur Pannu is a Mumbai-based bridal makeup artist and educator,
+              With over 8 years of experience, Gurleen is the artist behind GKP Artistry & Makeovers — a Mumbai-based bridal makeup brand and educator,
               known for a soft, luminous approach to traditional Indian bridal beauty —
               skin that breathes, eyes with quiet depth, lips with real colour.
             </p>

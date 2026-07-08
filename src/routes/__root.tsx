@@ -76,20 +76,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gurleen Kaur Pannu — Luxury Bridal Makeup, Mumbai" },
+      { title: "GKP Artistry & Makeovers — Luxury Bridal Makeup, Mumbai" },
       {
         name: "description",
         content:
-          "Luxury bridal makeup artistry by Gurleen Kaur Pannu. Mumbai-based, available worldwide for destination weddings. Professional makeup education and academy.",
+          "Luxury bridal makeup artistry by GKP Artistry & Makeovers. Mumbai-based, available worldwide for destination weddings. Professional makeup education and academy.",
       },
-      { name: "author", content: "Gurleen Kaur Pannu" },
-      { property: "og:title", content: "Gurleen Kaur Pannu — Luxury Bridal Makeup Artist" },
+      { name: "author", content: "GKP Artistry & Makeovers" },
+      { property: "og:title", content: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist" },
       {
         property: "og:description",
         content: "Mumbai-based luxury bridal artistry & academy. Available worldwide.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Gurleen Kaur Pannu" },
+      { property: "og:site_name", content: "GKP Artistry & Makeovers" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     scripts: [
@@ -98,8 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Gurleen Kaur Pannu",
-          alternateName: "Gurleen Kaur Pannu Luxury Bridal Makeup & Academy",
+          name: "GKP Artistry & Makeovers",
+          alternateName: "GKP Professional Makeup Academy",
           description:
             "Luxury bridal makeup artist and academy based in Mumbai, available worldwide for destination weddings.",
         }),

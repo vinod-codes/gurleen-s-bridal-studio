@@ -9,13 +9,13 @@ import { DESTINATION, TRADITIONAL, WESTERN } from "@/lib/images";
 export const Route = createFileRoute("/destination-weddings")({
   head: () => ({
     meta: [
-      { title: "Destination Wedding Makeup — Gurleen Kaur Pannu, Worldwide" },
+      { title: "Destination Wedding Makeup — GKP Artistry & Makeovers, Worldwide" },
       {
         name: "description",
         content:
-          "Destination bridal makeup by Gurleen Kaur Pannu — worldwide travel for weddings across India, Southeast Asia, the Middle East and Europe.",
+          "Destination bridal makeup by GKP Artistry & Makeovers — worldwide travel for weddings across India, Southeast Asia, the Middle East and Europe.",
       },
-      { property: "og:title", content: "Destination Wedding Makeup — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Destination Wedding Makeup — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Worldwide destination bridal artistry." },
       { property: "og:url", content: "/destination-weddings" },
       { property: "og:image", content: DESTINATION.url },
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/destination-weddings")({
           name: "Destination Wedding Makeup",
           serviceType: "Destination Bridal Makeup",
           areaServed: "Worldwide",
-          provider: { "@type": "Person", name: "Gurleen Kaur Pannu" },
+          provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
           description:
             "Multi-day destination bridal artistry with transparent travel, stay and logistics — India and worldwide.",
         }),
@@ -52,8 +52,9 @@ const REGIONS = [
 
 const NOTES = [
   { t: "Travel & stay", d: "Costed transparently, invoiced at actuals — no hidden mark-ups." },
-  { t: "Kit & climate", d: "Products tuned to humidity, altitude and light on-site." },
+  { t: "Kit & climate", d: "Products tuned to humidity, altitude and light on-site, including HD & Airbrush options." },
   { t: "Multi-day cover", d: "Roka, mehndi, sangeet, wedding, reception — one calm hand across every event." },
+  { t: "Complete Styling", d: "We provide comprehensive Saree & Dupatta Draping and hair styling on-site." },
   { t: "Family looks", d: "Mother-of-the-bride, sisters and close family, on request." },
 ];
 

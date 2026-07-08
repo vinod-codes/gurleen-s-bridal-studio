@@ -37,7 +37,7 @@ export function Nav() {
               scrolled ? "text-ink" : "text-ivory"
             }`}
           >
-            Gurleen Kaur Pannu
+            GKP Artistry & Makeovers
           </span>
           <span
             className={`text-[10px] tracking-[0.32em] uppercase mt-1 ${

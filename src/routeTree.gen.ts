@@ -9,9 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RefundRouteImport } from './routes/refund'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
@@ -24,7 +26,15 @@ import { Route as BridalRouteImport } from './routes/bridal'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcademyTwoMonthProfessionalRouteImport } from './routes/academy.two-month-professional'
+import { Route as AcademyMasterclassRouteImport } from './routes/academy.masterclass'
+import { Route as AcademyLookAndLearnRouteImport } from './routes/academy.look-and-learn'
 
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -38,6 +48,11 @@ const TermsRoute = TermsRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -100,11 +115,27 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcademyTwoMonthProfessionalRoute =
+  AcademyTwoMonthProfessionalRouteImport.update({
+    id: '/two-month-professional',
+    path: '/two-month-professional',
+    getParentRoute: () => AcademyRoute,
+  } as any)
+const AcademyMasterclassRoute = AcademyMasterclassRouteImport.update({
+  id: '/masterclass',
+  path: '/masterclass',
+  getParentRoute: () => AcademyRoute,
+} as any)
+const AcademyLookAndLearnRoute = AcademyLookAndLearnRouteImport.update({
+  id: '/look-and-learn',
+  path: '/look-and-learn',
+  getParentRoute: () => AcademyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
+  '/academy': typeof AcademyRouteWithChildren
   '/bridal': typeof BridalRoute
   '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
@@ -114,14 +145,19 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
+  '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
+  '/academy': typeof AcademyRouteWithChildren
   '/bridal': typeof BridalRoute
   '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
@@ -131,15 +167,20 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
+  '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
+  '/academy': typeof AcademyRouteWithChildren
   '/bridal': typeof BridalRoute
   '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
@@ -149,9 +190,14 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
+  '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -168,9 +214,14 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing'
     | '/privacy'
+    | '/refund'
     | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/academy/look-and-learn'
+    | '/academy/masterclass'
+    | '/academy/two-month-professional'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -185,9 +236,14 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing'
     | '/privacy'
+    | '/refund'
     | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/academy/look-and-learn'
+    | '/academy/masterclass'
+    | '/academy/two-month-professional'
   id:
     | '__root__'
     | '/'
@@ -202,15 +258,20 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing'
     | '/privacy'
+    | '/refund'
     | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/academy/look-and-learn'
+    | '/academy/masterclass'
+    | '/academy/two-month-professional'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AcademyRoute: typeof AcademyRoute
+  AcademyRoute: typeof AcademyRouteWithChildren
   BridalRoute: typeof BridalRoute
   ContactRoute: typeof ContactRoute
   DestinationWeddingsRoute: typeof DestinationWeddingsRoute
@@ -220,13 +281,22 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  RefundRoute: typeof RefundRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  ThankYouRoute: typeof ThankYouRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -246,6 +316,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -332,13 +409,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/academy/two-month-professional': {
+      id: '/academy/two-month-professional'
+      path: '/two-month-professional'
+      fullPath: '/academy/two-month-professional'
+      preLoaderRoute: typeof AcademyTwoMonthProfessionalRouteImport
+      parentRoute: typeof AcademyRoute
+    }
+    '/academy/masterclass': {
+      id: '/academy/masterclass'
+      path: '/masterclass'
+      fullPath: '/academy/masterclass'
+      preLoaderRoute: typeof AcademyMasterclassRouteImport
+      parentRoute: typeof AcademyRoute
+    }
+    '/academy/look-and-learn': {
+      id: '/academy/look-and-learn'
+      path: '/look-and-learn'
+      fullPath: '/academy/look-and-learn'
+      preLoaderRoute: typeof AcademyLookAndLearnRouteImport
+      parentRoute: typeof AcademyRoute
+    }
   }
 }
+
+interface AcademyRouteChildren {
+  AcademyLookAndLearnRoute: typeof AcademyLookAndLearnRoute
+  AcademyMasterclassRoute: typeof AcademyMasterclassRoute
+  AcademyTwoMonthProfessionalRoute: typeof AcademyTwoMonthProfessionalRoute
+}
+
+const AcademyRouteChildren: AcademyRouteChildren = {
+  AcademyLookAndLearnRoute: AcademyLookAndLearnRoute,
+  AcademyMasterclassRoute: AcademyMasterclassRoute,
+  AcademyTwoMonthProfessionalRoute: AcademyTwoMonthProfessionalRoute,
+}
+
+const AcademyRouteWithChildren =
+  AcademyRoute._addFileChildren(AcademyRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AcademyRoute: AcademyRoute,
+  AcademyRoute: AcademyRouteWithChildren,
   BridalRoute: BridalRoute,
   ContactRoute: ContactRoute,
   DestinationWeddingsRoute: DestinationWeddingsRoute,
@@ -348,9 +461,11 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  RefundRoute: RefundRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  ThankYouRoute: ThankYouRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

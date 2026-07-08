@@ -6,13 +6,13 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Gurleen Kaur Pannu" },
+      { title: "Privacy Policy — GKP Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "How Gurleen Kaur Pannu collects, uses and protects personal information shared through this website and WhatsApp.",
+          "How GKP Artistry & Makeovers collects, uses and protects personal information shared through this website and WhatsApp.",
       },
-      { property: "og:title", content: "Privacy Policy — Gurleen Kaur Pannu" },
+      { property: "og:title", content: "Privacy Policy — GKP Artistry & Makeovers" },
       { property: "og:description", content: "Our approach to personal information and privacy." },
       { property: "og:url", content: "/privacy" },
     ],
@@ -38,7 +38,7 @@ function PrivacyPage() {
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-3xl px-6 prose-editorial space-y-10 text-[16px] text-taupe leading-relaxed">
           <Block title="1. Who we are">
-            This website is operated by Gurleen Kaur Pannu ("we", "us", "our"), a luxury bridal
+            This website is operated by GKP Artistry & Makeovers ("we", "us", "our"), a luxury bridal
             makeup artist and educator based in Mumbai, India. For any privacy-related question,
             you can reach us on WhatsApp at +91 74003 53112.
           </Block>
