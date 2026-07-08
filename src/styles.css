@@ -48,7 +48,7 @@
   --radius: 0.25rem;
 
   /* Brand palette (hex per brief) */
-  --bridal-wine: #7A1F2B;
+  --bridal-wine: #8A3A44;
   --antique-gold: #A9802F;
   --ink-espresso: #2B2420;
   --ivory-canvas: #FBF6EF;
@@ -128,18 +128,19 @@
   gap: 0.5rem;
   padding: 0.95rem 1.6rem;
   background: var(--bridal-wine);
-  color: var(--ivory-canvas);
+  color: #F8F3EE;
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid var(--bridal-wine);
+  border: none;
+  border-radius: 2px;
   transition: all 0.35s ease;
   cursor: pointer;
   &:hover {
     background: var(--ink-espresso);
-    border-color: var(--ink-espresso);
+    color: #F8F3EE;
   }
 }
 

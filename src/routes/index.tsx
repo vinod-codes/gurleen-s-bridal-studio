@@ -170,10 +170,10 @@ function Hero() {
       {/* Background image — face is right-side, keep right clear */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="https://res.cloudinary.com/w1ahlvct/image/upload/v1783522564/gurleen-bridal/hero/hero_editorial_bride.jpg"
+          src={HERO}
           alt="Luxury Bridal Makeup"
           fetchPriority="high"
-          style={{ objectPosition: '70% 30%' }}
+          style={{ objectPosition: '73% 0%' }}
           className="hero-bg w-full h-full object-cover"
         />
         {/* Gradient: strong on left where text sits, fades to transparent on right so face shows */}
