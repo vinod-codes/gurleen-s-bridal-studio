@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Reveal } from "@/components/site/Reveal";
-import CircularGallery from "@/components/site/CircularGallery";
+import Masonry from "@/components/site/Masonry";
 import {
   HERO,
   TRADITIONAL,
@@ -344,17 +344,23 @@ function PortfolioPreview() {
         </Reveal>
       </div>
 
-      {/* Mobile: Circular Gallery from React Bits */}
-      <div className="md:hidden w-full h-[500px] relative pb-10">
-        <CircularGallery
-          items={picks.map(img => ({ image: img.url, text: 'Studio' }))}
-          bend={3}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          scrollSpeed={2}
-          scrollEase={0.05}
-          fontUrl="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap"
-          font="italic 24px 'Playfair Display'"
+      {/* Mobile: Masonry Gallery from React Bits */}
+      <div className="md:hidden w-full min-h-[600px] relative pb-10 px-4">
+        <Masonry
+          items={picks.map((img, i) => ({
+            id: String(i),
+            img: img.url,
+            url: img.url,
+            height: i % 2 === 0 ? 300 : 220,
+          }))}
+          ease="power3.out"
+          duration={0.6}
+          stagger={0.05}
+          animateFrom="bottom"
+          scaleOnHover={true}
+          hoverScale={0.95}
+          blurToFocus={true}
+          colorShiftOnHover={false}
         />
       </div>
 
