@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Reveal } from "@/components/site/Reveal";
+// @ts-ignore
 import Masonry from "@/components/site/Masonry";
 import {
   HERO,
@@ -98,10 +99,10 @@ function Home() {
 function Hero() {
   const container = React.useRef<HTMLElement>(null);
   
-  // Advanced Image Controls
+  // Advanced Image Controls (hidden)
   const [heroImg, setHeroImg] = useState(HERO);
-  const [posX, setPosX] = useState(50);
-  const [posY, setPosY] = useState(100);
+  const [posX, setPosX] = useState(73);
+  const [posY, setPosY] = useState(0);
   const [zoom, setZoom] = useState(1);
 
   const allImages = [
@@ -184,11 +185,11 @@ function Hero() {
           }}
           className="hero-bg w-full h-full object-cover transition-all duration-300" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/40 to-ink/90 pointer-events-none" />
       </div>
 
-      {/* Dev Position Picker Tool */}
-      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
+      {/* Dev Position Picker Tool (Hidden for production) */}
+      <div className="hidden absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
         <div>
           <label className="font-bold mb-1 block">Test Hero Image</label>
           <select 
