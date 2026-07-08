@@ -97,8 +97,12 @@ function Home() {
 /* -------- Hero -------- */
 function Hero() {
   const container = React.useRef<HTMLElement>(null);
-  const [imgPos, setImgPos] = useState("center 100%");
+  
+  // Advanced Image Controls
   const [heroImg, setHeroImg] = useState(HERO);
+  const [posX, setPosX] = useState(50);
+  const [posY, setPosY] = useState(100);
+  const [zoom, setZoom] = useState(1);
 
   const allImages = [
     { label: "Current Hero", url: HERO },
@@ -169,40 +173,80 @@ function Hero() {
 
   return (
     <section ref={container} className="relative min-h-screen flex items-end overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <img 
           src={heroImg} 
           alt="" 
           fetchPriority="high"
-          style={{ objectPosition: imgPos }}
-          className="hero-bg w-full h-full object-cover transition-all duration-500" 
+          style={{ 
+            objectPosition: `${posX}% ${posY}%`,
+            transform: `scale(${zoom})`
+          }}
+          className="hero-bg w-full h-full object-cover transition-all duration-300" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
       </div>
 
       {/* Dev Position Picker Tool */}
-      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-64">
-        <label className="font-bold">Test Hero Image</label>
-        <select 
-          value={heroImg} 
-          onChange={(e) => setHeroImg(e.target.value)}
-          className="border border-ink/20 p-1 bg-white text-ink mb-2"
-        >
-          {allImages.map((img, i) => (
-            <option key={i} value={img.url}>{img.label}</option>
-          ))}
-        </select>
+      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
+        <div>
+          <label className="font-bold mb-1 block">Test Hero Image</label>
+          <select 
+            value={heroImg} 
+            onChange={(e) => setHeroImg(e.target.value)}
+            className="border border-ink/20 p-1 bg-white text-ink w-full"
+          >
+            {allImages.map((img, i) => (
+              <option key={i} value={img.url}>{img.label}</option>
+            ))}
+          </select>
+        </div>
 
-        <label className="font-bold">Image Position (e.g. center 100%)</label>
-        <input 
-          type="text" 
-          value={imgPos} 
-          onChange={(e) => setImgPos(e.target.value)} 
-          className="border border-ink/20 p-1 bg-white text-ink"
-        />
+        <div>
+          <label className="font-bold flex justify-between">
+            <span>Zoom</span>
+            <span>{zoom.toFixed(2)}x</span>
+          </label>
+          <input 
+            type="range" 
+            min="1" max="3" step="0.05" 
+            value={zoom} 
+            onChange={(e) => setZoom(parseFloat(e.target.value))} 
+            className="w-full"
+          />
+        </div>
+
+        <div>
+          <label className="font-bold flex justify-between">
+            <span>Position X (Left/Right)</span>
+            <span>{posX}%</span>
+          </label>
+          <input 
+            type="range" 
+            min="0" max="100" step="1" 
+            value={posX} 
+            onChange={(e) => setPosX(parseInt(e.target.value))} 
+            className="w-full"
+          />
+        </div>
+
+        <div>
+          <label className="font-bold flex justify-between">
+            <span>Position Y (Up/Down)</span>
+            <span>{posY}%</span>
+          </label>
+          <input 
+            type="range" 
+            min="0" max="100" step="1" 
+            value={posY} 
+            onChange={(e) => setPosY(parseInt(e.target.value))} 
+            className="w-full"
+          />
+        </div>
+
         <button 
           onClick={() => {
-            const data = `Image URL: ${heroImg}\nPosition: ${imgPos}`;
+            const data = `Image URL: ${heroImg}\nZoom: scale(${zoom})\nPosition: ${posX}% ${posY}%`;
             navigator.clipboard.writeText(data);
             alert("Copied!\n" + data);
           }}
