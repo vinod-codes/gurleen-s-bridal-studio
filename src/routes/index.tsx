@@ -457,9 +457,16 @@ function Services() {
   );
 }
 
-/* -------- About -------- */
+/* -------- About (Founder on Home) -------- */
 function About() {
   const container = React.useRef<HTMLElement>(null);
+  const [posXMain, setPosXMain] = useState(50);
+  const [posYMain, setPosYMain] = useState(50);
+  const [zoomMain, setZoomMain] = useState(1);
+  
+  const [posXSub, setPosXSub] = useState(50);
+  const [posYSub, setPosYSub] = useState(50);
+  const [zoomSub, setZoomSub] = useState(1);
 
   useGSAP(() => {
     // Parallax the main image
@@ -489,13 +496,47 @@ function About() {
 
   return (
     <section id="about" ref={container} className="bg-ivory py-24 md:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center relative">
+        {/* Dev Tools (Main Image) */}
+        <div className="absolute top-0 left-0 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48">
+          <label className="font-bold">Main Image X</label>
+          <input type="range" min="0" max="100" value={posXMain} onChange={(e) => setPosXMain(parseInt(e.target.value))} />
+          <label className="font-bold">Main Image Y</label>
+          <input type="range" min="0" max="100" value={posYMain} onChange={(e) => setPosYMain(parseInt(e.target.value))} />
+          <label className="font-bold">Main Image Zoom</label>
+          <input type="range" min="1" max="3" step="0.1" value={zoomMain} onChange={(e) => setZoomMain(parseFloat(e.target.value))} />
+          <button onClick={() => alert(`Main Image (Reading):\nPos: ${posXMain}% ${posYMain}%\nZoom: scale(${zoomMain})`)} className="bg-ink text-ivory p-1">Copy</button>
+        </div>
+
+        {/* Dev Tools (Sub Image) */}
+        <div className="absolute top-0 left-52 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48 hidden md:flex">
+          <label className="font-bold">Sub Image X</label>
+          <input type="range" min="0" max="100" value={posXSub} onChange={(e) => setPosXSub(parseInt(e.target.value))} />
+          <label className="font-bold">Sub Image Y</label>
+          <input type="range" min="0" max="100" value={posYSub} onChange={(e) => setPosYSub(parseInt(e.target.value))} />
+          <label className="font-bold">Sub Image Zoom</label>
+          <input type="range" min="1" max="3" step="0.1" value={zoomSub} onChange={(e) => setZoomSub(parseFloat(e.target.value))} />
+          <button onClick={() => alert(`Sub Image (Close-up):\nPos: ${posXSub}% ${posYSub}%\nZoom: scale(${zoomSub})`)} className="bg-ink text-ivory p-1">Copy</button>
+        </div>
+
         <Reveal className="md:col-span-5 relative">
           <div className="relative aspect-[3/4] overflow-hidden bg-sand">
-            <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="about-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
+            <img 
+              src={FOUNDER.marble.url} 
+              alt={FOUNDER.marble.alt} 
+              style={{ objectPosition: `${posXMain}% ${posYMain}%`, transform: `scale(${zoomMain})` }}
+              className="about-img-main w-full h-[120%] object-cover -top-[10%] relative transition-all duration-300" 
+              loading="lazy" 
+            />
           </div>
           <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
-            <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="about-img-sub w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
+            <img 
+              src={FOUNDER.lipShot.url} 
+              alt={FOUNDER.lipShot.alt} 
+              style={{ objectPosition: `${posXSub}% ${posYSub}%`, transform: `scale(${zoomSub})` }}
+              className="about-img-sub w-full h-[120%] object-cover -top-[10%] relative transition-all duration-300" 
+              loading="lazy" 
+            />
           </div>
         </Reveal>
 
