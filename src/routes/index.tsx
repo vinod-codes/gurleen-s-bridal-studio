@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Reveal } from "@/components/site/Reveal";
+import CircularGallery from "@/components/site/CircularGallery";
 import {
   HERO,
   TRADITIONAL,
@@ -95,8 +96,20 @@ function Home() {
 
 /* -------- Hero -------- */
 function Hero() {
-  const container = React.useRef<HTMLDivElement>(null);
+  const container = React.useRef<HTMLElement>(null);
   const [imgPos, setImgPos] = useState("center 100%");
+  const [heroImg, setHeroImg] = useState(HERO);
+
+  const allImages = [
+    { label: "Current Hero", url: HERO },
+    ...EDITORIAL.map((img, i) => ({ label: `Editorial ${i+1}`, url: img.url })),
+    ...TRADITIONAL.map((img, i) => ({ label: `Traditional ${i+1}`, url: img.url })),
+    ...WESTERN.map((img, i) => ({ label: `Western ${i+1}`, url: img.url })),
+    { label: "Founder Close-up", url: FOUNDER.lipShot.url },
+    { label: "Founder Reading", url: FOUNDER.marble.url },
+    { label: "Destination", url: DESTINATION.url },
+    { label: "Engagement", url: ENGAGEMENT.url },
+  ];
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -158,17 +171,28 @@ function Hero() {
     <section ref={container} className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
         <img 
-          src={HERO} 
+          src={heroImg} 
           alt="" 
           fetchPriority="high"
           style={{ objectPosition: imgPos }}
-          className="hero-bg w-full h-full object-cover" 
+          className="hero-bg w-full h-full object-cover transition-all duration-500" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
       </div>
 
       {/* Dev Position Picker Tool */}
-      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto">
+      <div className="absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-64">
+        <label className="font-bold">Test Hero Image</label>
+        <select 
+          value={heroImg} 
+          onChange={(e) => setHeroImg(e.target.value)}
+          className="border border-ink/20 p-1 bg-white text-ink mb-2"
+        >
+          {allImages.map((img, i) => (
+            <option key={i} value={img.url}>{img.label}</option>
+          ))}
+        </select>
+
         <label className="font-bold">Image Position (e.g. center 100%)</label>
         <input 
           type="text" 
@@ -178,12 +202,13 @@ function Hero() {
         />
         <button 
           onClick={() => {
-            navigator.clipboard.writeText(imgPos);
-            alert("Copied: " + imgPos);
+            const data = `Image URL: ${heroImg}\nPosition: ${imgPos}`;
+            navigator.clipboard.writeText(data);
+            alert("Copied!\n" + data);
           }}
           className="bg-ink text-ivory py-1 px-2 hover:bg-wine transition-colors"
         >
-          Copy Position
+          Copy Image & Position
         </button>
       </div>
 
@@ -275,27 +300,18 @@ function PortfolioPreview() {
         </Reveal>
       </div>
 
-      {/* Mobile: native CSS swipe carousel */}
-      <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10">
-        <div className="flex gap-4 px-6 w-[max-content]">
-          {picks.map((img, i) => (
-            <figure
-              key={i}
-              className={`group relative overflow-hidden bg-sand shrink-0 snap-center ${
-                i % 2 === 0
-                  ? "w-[72vw] aspect-[4/5]"
-                  : "w-[58vw] aspect-[3/4] mt-10"
-              }`}
-            >
-              <img
-                src={img.url}
-                alt={img.alt}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </figure>
-          ))}
-        </div>
+      {/* Mobile: Circular Gallery from React Bits */}
+      <div className="md:hidden w-full h-[500px] relative pb-10">
+        <CircularGallery
+          items={picks.map(img => ({ image: img.url, text: 'Studio' }))}
+          bend={3}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          scrollSpeed={2}
+          scrollEase={0.05}
+          fontUrl="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap"
+          font="italic 24px 'Playfair Display'"
+        />
       </div>
 
       {/* Desktop: GSAP horizontal scroll */}
