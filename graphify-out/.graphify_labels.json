@@ -53,5 +53,6 @@
   "51": "separator.tsx",
   "52": "sitemap[.]xml.ts",
   "53": "upload_new.mjs",
-  "54": "Route"
+  "54": "Route",
+  "55": "upload_hero.mjs"
 }

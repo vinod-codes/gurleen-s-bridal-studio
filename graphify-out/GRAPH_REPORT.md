@@ -1,16 +1,16 @@
 # Graph Report - gurleen-s-bridal-studio  (2026-07-08)
 
 ## Corpus Check
-- 114 files · ~35,848 words
+- 115 files · ~35,893 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 693 nodes · 1107 edges · 55 communities (45 shown, 10 thin omitted)
+- 694 nodes · 1107 edges · 56 communities (46 shown, 10 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 29 edges (avg confidence: 0.54)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `72cbed08`
+- Built from commit: `df4c8144`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -93,7 +93,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (55 total, 10 thin omitted)
+## Communities (56 total, 10 thin omitted)
 
 ### Community 0 - "Layout and Navigation Components"
 Cohesion: 0.07
@@ -264,11 +264,11 @@ Nodes (3): AccordionContent, AccordionItem, AccordionTrigger
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `react` to `Frontend Dependencies`, `sheet.tsx`, `Sidebar Component`, `form.tsx`, `alert-dialog.tsx`?**
-  _High betweenness centrality (0.375) - this node is a cross-community bridge._
+  _High betweenness centrality (0.374) - this node is a cross-community bridge._
 - **Why does `cn()` connect `Core UI Elements` to `Sidebar Component`, `Interactive UI Components`, `Command and Dialog Components`, `menubar.tsx`, `form.tsx`, `carousel.tsx`, `context-menu.tsx`, `alert-dialog.tsx`, `table.tsx`, `breadcrumb.tsx`, `drawer.tsx`, `navigation-menu.tsx`, `select.tsx`, `card.tsx`, `toggle-group.tsx`, `input-otp.tsx`, `alert.tsx`, `avatar.tsx`, `tabs.tsx`, `sheet.tsx`, `badge.tsx`, `tabs.tsx`, `separator.tsx`?**
-  _High betweenness centrality (0.290) - this node is a cross-community bridge._
+  _High betweenness centrality (0.289) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Frontend Dependencies` to `Project Configuration and Linting`, `input-otp.tsx`, `react`, `sonner.tsx`?**
-  _High betweenness centrality (0.198) - this node is a cross-community bridge._
+  _High betweenness centrality (0.197) - this node is a cross-community bridge._
 - **What connects `$schema`, `style`, `rsc` to the rest of the system?**
   _400 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Layout and Navigation Components` be split into smaller, more focused modules?**

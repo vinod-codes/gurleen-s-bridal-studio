@@ -109,23 +109,6 @@ function Home() {
 /* -------- Hero -------- */
 function Hero() {
   const container = React.useRef<HTMLElement>(null);
-  
-  // Advanced Image Controls (hidden)
-  const [heroImg, setHeroImg] = useState(HERO);
-  const [posX, setPosX] = useState(73);
-  const [posY, setPosY] = useState(0);
-  const [zoom, setZoom] = useState(1);
-
-  const allImages = [
-    { label: "Current Hero", url: HERO },
-    ...EDITORIAL.map((img, i) => ({ label: `Editorial ${i+1}`, url: img.url })),
-    ...TRADITIONAL.map((img, i) => ({ label: `Traditional ${i+1}`, url: img.url })),
-    ...WESTERN.map((img, i) => ({ label: `Western ${i+1}`, url: img.url })),
-    { label: "Founder Close-up", url: FOUNDER.lipShot.url },
-    { label: "Founder Reading", url: FOUNDER.marble.url },
-    { label: "Destination", url: DESTINATION.url },
-    { label: "Engagement", url: ENGAGEMENT.url },
-  ];
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -133,8 +116,8 @@ function Hero() {
     // Image scale animation
     tl.fromTo(
       ".hero-bg",
-      { scale: 1.08 },
-      { scale: 1, duration: 1.6, ease: "power3.out" }
+      { scale: 1.05 },
+      { scale: 1, duration: 1.8, ease: "power3.out" }
     );
 
     // Text reveal sequence
@@ -153,10 +136,17 @@ function Hero() {
     );
 
     tl.fromTo(
+      ".hero-divider",
+      { opacity: 0, scale: 0.5 },
+      { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" },
+      "-=0.5"
+    );
+
+    tl.fromTo(
       ".hero-subtitle",
       { opacity: 0, y: 16 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.6"
+      "-=0.4"
     );
 
     tl.fromTo(
@@ -166,92 +156,74 @@ function Hero() {
       "-=0.6"
     );
 
+    tl.fromTo(
+      ".hero-featured",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.4"
+    );
+
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative min-h-screen flex items-start overflow-hidden">
+    <section ref={container} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image — face is right-side, keep right clear */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src={heroImg}
-          alt=""
+          src="https://res.cloudinary.com/w1ahlvct/image/upload/v1783522564/gurleen-bridal/hero/hero_editorial_bride.jpg"
+          alt="Luxury Bridal Makeup"
           fetchPriority="high"
-          style={{
-            objectPosition: `${posX}% ${posY}%`,
-            transform: `scale(${zoom})`
-          }}
+          style={{ objectPosition: '70% 30%' }}
           className="hero-bg w-full h-full object-cover"
         />
         {/* Gradient: strong on left where text sits, fades to transparent on right so face shows */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/50 to-ink/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-transparent pointer-events-none" />
         {/* Subtle top vignette for nav readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Dev Position Picker Tool (Hidden for production) */}
-      <div className="hidden absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
-        <div>
-          <label className="font-bold mb-1 block">Test Hero Image</label>
-          <select
-            value={heroImg}
-            onChange={(e) => setHeroImg(e.target.value)}
-            className="border border-ink/20 p-1 bg-white text-ink w-full"
-          >
-            {allImages.map((img, i) => (
-              <option key={i} value={img.url}>{img.label}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Zoom</span><span>{zoom.toFixed(2)}x</span>
-          </label>
-          <input type="range" min="1" max="3" step="0.05" value={zoom}
-            onChange={(e) => setZoom(parseFloat(e.target.value))} className="w-full" />
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Position X</span><span>{posX}%</span>
-          </label>
-          <input type="range" min="0" max="100" step="1" value={posX}
-            onChange={(e) => setPosX(parseInt(e.target.value))} className="w-full" />
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Position Y</span><span>{posY}%</span>
-          </label>
-          <input type="range" min="0" max="100" step="1" value={posY}
-            onChange={(e) => setPosY(parseInt(e.target.value))} className="w-full" />
-        </div>
-        <button
-          onClick={() => {
-            const data = `Image URL: ${heroImg}\nZoom: scale(${zoom})\nPosition: ${posX}% ${posY}%`;
-            navigator.clipboard.writeText(data);
-            alert("Copied!\n" + data);
-          }}
-          className="bg-ink text-ivory py-1 px-2 hover:bg-wine transition-colors"
-        >Copy Image & Position</button>
-      </div>
-
-      {/* Text — anchored top-left, constrained to left half, clears the nav */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-44 md:pt-52 pb-24 pointer-events-none">
-        <div className="max-w-lg md:max-w-xl">
-          <p className="hero-eyebrow eyebrow !text-gold opacity-0">
-            Mumbai · Available Worldwide
+      {/* Text — anchored left, constrained, clears the nav */}
+      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 pt-32 pb-16 pointer-events-none">
+        <div className="max-w-lg md:max-w-2xl mt-12 md:mt-24">
+          <p className="hero-eyebrow font-sans text-[11px] font-bold tracking-[0.25em] uppercase text-gold opacity-0 mb-6">
+            MUMBAI · AVAILABLE WORLDWIDE
           </p>
-          <h1 className="hero-title font-display text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-5 leading-[1.04] tracking-tight opacity-0">
-            Bridal Makeup Artist,<br />Mumbai.
+          
+          <h1 className="hero-title font-display text-ivory text-5xl sm:text-6xl md:text-[80px] lg:text-[88px] leading-[1.05] tracking-tight opacity-0">
+            Timeless Beauty.<br />Artistry You Feel.
           </h1>
-          <p className="hero-subtitle font-display italic text-ivory/85 text-base md:text-xl mt-6 leading-relaxed opacity-0">
-            Soft, luminous, camera-honest artistry for the most photographed day of your life.
+          
+          <div className="hero-divider opacity-0 my-10">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gold/80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="currentColor"/>
+            </svg>
+          </div>
+          
+          <p className="hero-subtitle font-sans font-light text-ivory/80 text-lg md:text-[20px] leading-relaxed opacity-0 max-w-md">
+            Luxury bridal makeup and professional training<br/>crafted with precision, passion and perfection.
           </p>
-          <span className="block font-sans not-italic text-[10px] tracking-[0.3em] uppercase text-gold/80 mt-5 opacity-0 hero-eyebrow">
-            GKP Artistry & Makeovers
-          </span>
-          <div className="hero-cta mt-10 pointer-events-auto opacity-0">
-            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine">
-              Enquire for Your Date
+          
+          <div className="hero-cta mt-12 pointer-events-auto opacity-0">
+            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-6 py-4 text-[11px] font-bold tracking-[0.15em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-colors">
+              ENQUIRE FOR YOUR DATE
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </a>
+          </div>
+
+          <div className="hero-featured mt-24 opacity-0">
+            <p className="text-[9px] font-bold tracking-[0.25em] uppercase text-ivory/50 mb-5">FEATURED IN</p>
+            <div className="flex gap-8 items-center text-ivory/90">
+               <span className="font-display text-2xl tracking-widest">VOGUE</span>
+               <span className="font-display text-lg tracking-widest uppercase flex flex-col items-center leading-none">
+                 <span className="text-xl">WEDDINGS</span>
+                 <span className="text-[7px] tracking-[0.35em] mt-1.5 text-ivory/70">INDIA</span>
+               </span>
+               <span className="font-display text-xl tracking-widest uppercase flex flex-col items-center leading-none">
+                 <span>ELLE</span>
+                 <span className="text-[6.5px] tracking-[0.35em] mt-1.5 text-ivory/70">INDIA</span>
+               </span>
+               <span className="font-display text-xl tracking-widest uppercase">FEMINA</span>
+            </div>
           </div>
         </div>
       </div>

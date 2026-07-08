@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/components/site/Nav.tsx": {
-    "mtime": 1783505842.868424,
-    "ast_hash": "5774ed5febc01d1821cff744e19c25ce",
+    "mtime": 1783523032.8218942,
+    "ast_hash": "a7b7abb3304a53620a6f2d64f7b46678",
     "semantic_hash": ""
   },
   "src/components/site/Reveal.tsx": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "src/routes/index.tsx": {
-    "mtime": 1783519036.1856458,
-    "ast_hash": "ce2e6bc9f82a9eab751cc85ab30667c6",
+    "mtime": 1783523088.286067,
+    "ast_hash": "b133a4853c5d275444c12b676928844a",
     "semantic_hash": ""
   },
   "src/routes/portfolio.tsx": {
@@ -577,6 +577,11 @@
   "upload_new.mjs": {
     "mtime": 1783512994.999902,
     "ast_hash": "bb0ff0cdce14f2c3341eefe1bd472070",
+    "semantic_hash": ""
+  },
+  "upload_hero.mjs": {
+    "mtime": 1783522541.0052273,
+    "ast_hash": "28381d8eb4b3c3f2bee71de62c43f5e5",
     "semantic_hash": ""
   }
 }

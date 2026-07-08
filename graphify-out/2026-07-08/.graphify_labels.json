@@ -50,5 +50,8 @@
   "48": "input.tsx",
   "49": "badge.tsx",
   "50": "tabs.tsx",
-  "51": "separator.tsx"
+  "51": "separator.tsx",
+  "52": "sitemap[.]xml.ts",
+  "53": "upload_new.mjs",
+  "54": "Route"
 }
