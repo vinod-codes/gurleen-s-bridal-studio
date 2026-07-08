@@ -121,9 +121,9 @@ function AboutPage() {
           {/* Dev Tools (Main Image) */}
           <div className="absolute top-0 left-0 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48">
             <label className="font-bold">Main Image X</label>
-            <input type="range" min="0" max="100" value={posXMain} onChange={(e) => setPosXMain(parseInt(e.target.value))} />
+            <input type="range" min="-100" max="200" value={posXMain} onChange={(e) => setPosXMain(parseInt(e.target.value))} />
             <label className="font-bold">Main Image Y</label>
-            <input type="range" min="0" max="100" value={posYMain} onChange={(e) => setPosYMain(parseInt(e.target.value))} />
+            <input type="range" min="-100" max="200" value={posYMain} onChange={(e) => setPosYMain(parseInt(e.target.value))} />
             <label className="font-bold">Main Image Zoom</label>
             <input type="range" min="1" max="3" step="0.1" value={zoomMain} onChange={(e) => setZoomMain(parseFloat(e.target.value))} />
             <button onClick={() => alert(`Main Image (Reading):\nPos: ${posXMain}% ${posYMain}%\nZoom: scale(${zoomMain})`)} className="bg-ink text-ivory p-1">Copy</button>
@@ -132,9 +132,9 @@ function AboutPage() {
           {/* Dev Tools (Sub Image) */}
           <div className="absolute top-0 left-52 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48 hidden md:flex">
             <label className="font-bold">Sub Image X</label>
-            <input type="range" min="0" max="100" value={posXSub} onChange={(e) => setPosXSub(parseInt(e.target.value))} />
+            <input type="range" min="-100" max="200" value={posXSub} onChange={(e) => setPosXSub(parseInt(e.target.value))} />
             <label className="font-bold">Sub Image Y</label>
-            <input type="range" min="0" max="100" value={posYSub} onChange={(e) => setPosYSub(parseInt(e.target.value))} />
+            <input type="range" min="-100" max="200" value={posYSub} onChange={(e) => setPosYSub(parseInt(e.target.value))} />
             <label className="font-bold">Sub Image Zoom</label>
             <input type="range" min="1" max="3" step="0.1" value={zoomSub} onChange={(e) => setZoomSub(parseFloat(e.target.value))} />
             <button onClick={() => alert(`Sub Image (Close-up):\nPos: ${posXSub}% ${posYSub}%\nZoom: scale(${zoomSub})`)} className="bg-ink text-ivory p-1">Copy</button>
