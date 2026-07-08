@@ -521,22 +521,26 @@ function About() {
 
         <Reveal className="md:col-span-5 relative">
           <div className="relative aspect-[3/4] overflow-hidden bg-sand">
-            <img 
-              src={FOUNDER.marble.url} 
-              alt={FOUNDER.marble.alt} 
-              style={{ objectPosition: `${posXMain}% ${posYMain}%`, transform: `scale(${zoomMain})` }}
-              className="about-img-main w-full h-[120%] object-cover -top-[10%] relative transition-all duration-300" 
-              loading="lazy" 
-            />
+            <div className="about-img-main w-full h-[120%] -top-[10%] relative">
+              <img 
+                src={FOUNDER.marble.url} 
+                alt={FOUNDER.marble.alt} 
+                style={{ objectPosition: `${posXMain}% ${posYMain}%`, transform: `scale(${zoomMain})` }}
+                className="w-full h-full object-cover transition-all duration-300" 
+                loading="lazy" 
+              />
+            </div>
           </div>
           <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
-            <img 
-              src={FOUNDER.lipShot.url} 
-              alt={FOUNDER.lipShot.alt} 
-              style={{ objectPosition: `${posXSub}% ${posYSub}%`, transform: `scale(${zoomSub})` }}
-              className="about-img-sub w-full h-[120%] object-cover -top-[10%] relative transition-all duration-300" 
-              loading="lazy" 
-            />
+            <div className="about-img-sub w-full h-[120%] -top-[10%] relative">
+              <img 
+                src={FOUNDER.lipShot.url} 
+                alt={FOUNDER.lipShot.alt} 
+                style={{ objectPosition: `${posXSub}% ${posYSub}%`, transform: `scale(${zoomSub})` }}
+                className="w-full h-full object-cover transition-all duration-300" 
+                loading="lazy" 
+              />
+            </div>
           </div>
         </Reveal>
 
