@@ -17,16 +17,16 @@ if (typeof window !== "undefined") {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About GKP Artistry & Makeovers — Luxury Bridal Makeup Artist, Mumbai" },
+      { title: "About Gurleen Kaur Pannu — Bridal Makeup Artist Mumbai | GKP Artistry" },
       {
         name: "description",
         content:
-          "Meet Gurleen, the founder of GKP Artistry & Makeovers — a Mumbai-based luxury bridal makeup artist and educator.",
+          "Meet Gurleen — Mumbai-based luxury bridal makeup artist with 8+ years of experience. Founder of GKP Artistry & Makeovers and GKP Professional Makeup Academy.",
       },
-      { property: "og:title", content: "About GKP Artistry & Makeovers" },
+      { property: "og:title", content: "About Gurleen Kaur Pannu — Bridal Makeup Artist Mumbai" },
       {
         property: "og:description",
-        content: "Mumbai-based luxury bridal artist and educator.",
+        content: "Mumbai's trusted bridal makeup artist and educator. 8+ years of luxury Indian bridal artistry.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:image", content: FOUNDER.marble.url },
@@ -39,10 +39,13 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "GKP Artistry & Makeovers",
+          name: "Gurleen Kaur Pannu",
           jobTitle: "Luxury Bridal Makeup Artist & Educator",
           image: FOUNDER.marble.url,
-          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
+          url: "https://gkpartistry.com/about",
+          worksFor: { "@type": "Organization", name: "GKP Artistry & Makeovers" },
+          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
+          knowsAbout: ["Bridal Makeup", "Indian Bridal Artistry", "Makeup Education", "Airbrush Makeup", "HD Makeup", "Bridal Hair Styling"],
           sameAs: [IG_BUSINESS],
         }),
       },
@@ -52,16 +55,16 @@ export const Route = createFileRoute("/about")({
 });
 
 const PILLARS = [
-  { t: "Restraint", d: "Skin left to breathe. Colour placed with intention. Nothing added that the camera doesn't ask for." },
-  { t: "Ritual", d: "A calm, unhurried studio — trials that feel like a conversation, mornings that feel like the softest possible start." },
-  { t: "Longevity", d: "Products and techniques chosen so the last portrait of the night looks like the first." },
+  { t: "Skin First", d: "Every look starts with skincare — prep, prime, protect. A healthy base is the foundation of every bridal look that lasts all day and photographs beautifully." },
+  { t: "Restraint", d: "Colour placed with intention. Nothing added that the camera doesn't ask for. Indian bridal beauty is most powerful when it's edited, not accumulated." },
+  { t: "Longevity", d: "Products and techniques chosen so the last portrait of the evening looks exactly like the first. Because your wedding photos last a lifetime." },
 ];
 
 const CHAPTERS = [
-  { y: "The training", d: "Years of assisting, editorial sets and back-to-back bridal seasons — the years that build a hand." },
-  { y: "The studio", d: "A private atelier in Mumbai, built around one bride at a time." },
-  { y: "The academy", d: "A quiet transfer of craft — one masterclass, one Look & Learn, one professional cohort at a time." },
-  { y: "Today", d: "Weddings across India and destination editions overseas; a growing archive of quiet, luminous portraits." },
+  { y: "The training", d: "Years on set, assisting senior artists, editorial projects and back-to-back bridal seasons across Mumbai and beyond — the work that builds a hand." },
+  { y: "The studio", d: "A private atelier in Mumbai, built around one bride at a time. No rush, no assembly line — just the quiet focus a bride deserves." },
+  { y: "The academy", d: "A structured transfer of craft — masterclasses, city-edition look & learns, and a full 2-month professional course for aspiring makeup artists." },
+  { y: "Today", d: "Weddings across India and destination editions overseas — Jaipur, Goa, Dubai, Bali and beyond — with a growing archive of quiet, luminous portraits." },
 ];
 
 function AboutPage() {
@@ -97,14 +100,13 @@ function AboutPage() {
 
       <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="eyebrow">The Artist</p>
+          <p className="eyebrow">The Artist Behind the Look</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">
-            GKP Artistry<br/>& Makeovers.
+            Bridal Makeup Artist<br />based in Mumbai.
           </h1>
           <div className="hairline w-32 mx-auto mt-10" />
           <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
-            A Mumbai-based bridal makeup artist and educator, working with a light hand,
-            a considered palette and a lens-first eye.
+            Gurleen Kaur Pannu is a Mumbai-based luxury bridal makeup artist with 8+ years of experience across Indian weddings, destination brides and editorial shoots.
           </p>
         </div>
       </section>
@@ -122,27 +124,22 @@ function AboutPage() {
           <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
             <p className="eyebrow">Her philosophy</p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.05]">
-              An eye for romance.<br />A hand for restraint.
+              Skin-first.<br />Always luminous.
             </h2>
             <div className="hairline w-24 my-8" />
             <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
               <p>
-                With over 8 years of luxury bridal experience, Gurleen approaches every bride the same way she approaches an editorial cover —
-                with quiet direction, a curated palette and a finish that reads as skin first,
-                makeup second.
+                With 8+ years of luxury bridal experience across Mumbai, Gurleen Kaur Pannu has developed a signature that is deliberately understated: skin-first prep, a curated palette, and a finish that reads honest in every photograph.
               </p>
               <p>
-                Her signature is a soft, luminous, camera-honest bridal look — traditional
-                Indian beauty pared back to its most flattering essentials, and photographed
-                to last.
+                She is the founder of GKP Artistry & Makeovers and the GKP Professional Makeup Academy — bringing the same philosophy of precision, calm and longevity to every bride and every student she works with.
               </p>
               <p>
-                Beyond weddings, she leads a growing academy — three formats, one philosophy —
-                shaping the next generation of Indian bridal artists.
+                Her bridal work spans traditional Indian ceremonies, destination weddings from Goa to Dubai, and editorial projects across the country.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-10">
-              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Chat on WhatsApp</a>
+              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Enquire on WhatsApp</a>
               <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost">@gurleenkaurpannu_mua</a>
             </div>
           </Reveal>
@@ -152,8 +149,8 @@ function AboutPage() {
       <section className="bg-sand py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="text-center max-w-2xl mx-auto mb-14">
-            <p className="eyebrow">The pillars</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4">What guides the work.</h2>
+            <p className="eyebrow">Philosophy</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4">What makes the work different.</h2>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {PILLARS.map((p, i) => (
@@ -171,8 +168,8 @@ function AboutPage() {
       <section className="bg-ivory py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <Reveal className="text-center mb-14">
-            <p className="eyebrow">The chapters</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4">A quiet timeline.</h2>
+            <p className="eyebrow">The Journey</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4">How 8 years become a studio.</h2>
           </Reveal>
           <ol className="space-y-10">
             {CHAPTERS.map((c, i) => (
@@ -192,7 +189,7 @@ function AboutPage() {
           <Reveal>
             <p className="eyebrow !text-gold">Work with Gurleen</p>
             <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-ivory">
-              Every bride, personally.
+              Every bride deserves a personal artist.
             </h2>
             <div className="hairline w-24 mx-auto my-10" />
             <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">

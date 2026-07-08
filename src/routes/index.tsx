@@ -28,16 +28,16 @@ if (typeof window !== "undefined") {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist, Mumbai" },
+      { title: "Bridal Makeup Artist Mumbai — GKP Artistry & Makeovers | Book Your Date" },
       {
         name: "description",
         content:
-          "Editorial bridal artistry by GKP Artistry & Makeovers. Mumbai-based, worldwide destination weddings, and a professional makeup academy.",
+          "GKP Artistry & Makeovers — Mumbai's trusted luxury bridal makeup artist. Soft, luminous, camera-honest looks for Indian weddings, destination brides & editorial shoots. Book your trial today.",
       },
-      { property: "og:title", content: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist" },
+      { property: "og:title", content: "Bridal Makeup Artist Mumbai — GKP Artistry & Makeovers" },
       {
         property: "og:description",
-        content: "Mumbai-based luxury bridal artistry. Available worldwide.",
+        content: "Luxury bridal makeup artist based in Mumbai. Serving weddings across India and worldwide. Enquire for your date.",
       },
       { property: "og:url", content: "/" },
       { property: "og:image", content: HERO },
@@ -49,16 +49,27 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "GKP Artistry & Makeovers — Luxury Bridal Makeup",
+          "@type": "BeautySalon",
+          name: "GKP Artistry & Makeovers",
+          url: "https://gkpartistry.com",
           image: HERO,
           description:
-            "Luxury bridal makeup artistry by GKP Artistry & Makeovers. Mumbai-based, available worldwide.",
+            "Mumbai's luxury bridal makeup artist and academy — soft, luminous, camera-honest artistry for Indian brides, destination weddings and editorial shoots.",
           telephone: "+91 74003 53112",
-          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
-          areaServed: ["Mumbai", "India", "Worldwide"],
+          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
+          areaServed: ["Mumbai", "Maharashtra", "India", "Worldwide"],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Bridal Makeup Services",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bridal Makeup" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Destination Wedding Makeup" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Engagement Makeup" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Reception Makeup" } },
+            ],
+          },
           sameAs: ["https://www.instagram.com/gurleenkaurpannu_mua"],
-          priceRange: "$$$",
+          priceRange: "₹₹₹",
         }),
       },
     ],
@@ -67,15 +78,15 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
-  { name: "Bridal Makeup", img: TRADITIONAL[0], wa: WA.bridal, desc: "Signature bridal artistry tailored to your features, attire and rituals." },
-  { name: "Destination Bridal Makeup", img: DESTINATION, wa: WA.destination, desc: "On-location bridal artistry for weddings across India and worldwide." },
-  { name: "Engagement Makeup", img: ENGAGEMENT, wa: WA.engagement, desc: "Soft, luminous looks for engagements and roka ceremonies." },
-  { name: "Reception Makeup", img: WESTERN[0], wa: WA.reception, desc: "Polished, contemporary glamour for the reception evening." },
-  { name: "Editorial Makeup", img: FOUNDER.lipShot as any, wa: WA.editorial, desc: "Magazine and editorial looks crafted for the lens." },
-  { name: "Fashion & Campaign Shoots", img: WESTERN[1], wa: WA.fashion, desc: "Beauty direction for campaigns, lookbooks and runway." },
-  { name: "Airbrush & HD Makeup", img: TRADITIONAL[2], wa: WA.general, desc: "Advanced techniques for flawless, long-lasting, camera-ready skin." },
-  { name: "Photoshoot Makeup", img: TRADITIONAL[3], wa: WA.photoshoot, desc: "Pre-wedding, portfolio and personal-brand photoshoots." },
-  { name: "Bridal Styling", img: TRADITIONAL[7], wa: WA.styling, desc: "Complete styling — drape, hair, jewellery placement and finish." },
+  { name: "Bridal Makeup", img: TRADITIONAL[0], wa: WA.bridal, desc: "Personalised bridal artistry — skin prep, trial and full wedding-day coverage tailored to your features, attire and rituals." },
+  { name: "Destination Bridal Makeup", img: DESTINATION, wa: WA.destination, desc: "On-location bridal artistry for Indian and international destination weddings. Travel, stay and logistics quoted at actuals." },
+  { name: "Engagement Makeup", img: ENGAGEMENT, wa: WA.engagement, desc: "Luminous, effortless looks for your roka or engagement ceremony — soft enough to feel like you, striking enough to photograph beautifully." },
+  { name: "Reception Makeup", img: WESTERN[0], wa: WA.reception, desc: "Polished evening glamour for the reception. HD and airbrush techniques for a finish that holds from first dance to last." },
+  { name: "Editorial Makeup", img: FOUNDER.lipShot as any, wa: WA.editorial, desc: "Camera-first artistry for magazine covers, brand campaigns and editorial projects. A different language — built for the lens." },
+  { name: "Fashion & Campaign Shoots", img: WESTERN[1], wa: WA.fashion, desc: "Beauty direction for lookbooks, runway and commercial campaigns — working with photographers and art directors." },
+  { name: "Airbrush & HD Makeup", img: TRADITIONAL[2], wa: WA.general, desc: "Advanced formulas and airbrushing for a flawless, long-lasting, camera-ready finish — ideal for Indian climate and lighting." },
+  { name: "Photoshoot Makeup", img: TRADITIONAL[3], wa: WA.photoshoot, desc: "Pre-wedding, portfolio and personal-brand photoshoots — makeup calibrated for professional photography, not just the room." },
+  { name: "Bridal Styling", img: TRADITIONAL[7], wa: WA.styling, desc: "Complete bridal styling — saree & dupatta drape, hair, jewellery placement and finishing, coordinated with your wedding-day artist." },
 ];
 
 function Home() {
@@ -259,21 +270,21 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full pointer-events-none">
         <p className="hero-eyebrow eyebrow !text-gold opacity-0">
-          Mumbai · Worldwide
+          Mumbai · Available Worldwide
         </p>
         <h1 className="hero-title font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight opacity-0">
-          GKP Artistry<br />& Makeovers
+          Bridal Makeup Artist<br />Mumbai
           <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
-            Luxury Bridal Makeup Artist · Mumbai
+            GKP Artistry & Makeovers · Luxury Bridal Artistry
           </span>
         </h1>
         <p className="hero-subtitle font-display italic text-ivory/90 text-lg md:text-2xl mt-6 max-w-2xl opacity-0">
-          Luxury bridal makeup artistry, made for the most photographed day of your life.
+          Soft, luminous, camera-honest looks for the most photographed day of your life.
         </p>
         
         <div className="hero-cta flex flex-wrap gap-4 mt-10 pointer-events-auto opacity-0">
           <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3">
-            Inquire Availability
+            Enquire for Your Date
           </a>
         </div>
       </div>
@@ -418,8 +429,9 @@ function Services() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <p className="eyebrow">The Services</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4">A curated atelier of work.</h2>
+          <h2 className="font-display text-4xl md:text-6xl mt-4">Everything your wedding day needs.</h2>
           <div className="hairline w-32 mx-auto mt-8" />
+          <p className="text-taupe mt-6 text-[16px] leading-relaxed">From the bridal trial to the last touch-up — every look is built personally by Gurleen.</p>
         </Reveal>
 
         <div className="services-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -502,22 +514,19 @@ function About() {
         <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
           <p className="eyebrow">Meet Gurleen</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
-            An eye for romance.<br />A hand for restraint.
+            8+ years of bridal artistry.<br />Every bride, personally.
           </h2>
           <div className="hairline w-24 my-8" />
           <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
             <p>
-              With over 8 years of experience, Gurleen is the artist behind GKP Artistry & Makeovers — a Mumbai-based bridal makeup brand and educator,
-              known for a soft, luminous approach to traditional Indian bridal beauty —
-              skin that breathes, eyes with quiet depth, lips with real colour.
+              Gurleen Kaur Pannu is the founder of GKP Artistry & Makeovers — a Mumbai-based bridal makeup studio known for a soft, luminous approach that photographs honestly and lasts through every ceremony.
             </p>
             <p>
-              Her work travels with her brides — across India and overseas — and her
-              academy carries the same philosophy into the next generation of artists.
+              Her work travels with her brides — across India and to destinations overseas — and her academy carries the same philosophy into the next generation of artists.
             </p>
           </div>
           <div className="flex flex-wrap gap-4 mt-10">
-            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Chat on WhatsApp</a>
+            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Enquire on WhatsApp</a>
             <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost">@gurleenkaurpannu_mua</a>
           </div>
         </Reveal>
@@ -646,11 +655,10 @@ function Academy() {
             <Reveal>
               <p className="eyebrow !text-gold">The Academy</p>
               <h2 className="font-display text-4xl md:text-6xl mt-4 text-ivory">
-                For the next generation of artists.
+                Become a bridal makeup artist.
               </h2>
               <p className="text-ivory/70 mt-6 text-[17px] leading-relaxed max-w-md">
-                Three formats. One philosophy. Learn the craft, the business and the bedside
-                manner of luxury bridal artistry — directly from Gurleen.
+                Three formats. One philosophy. Learn luxury bridal artistry, the business behind it, and the calm that defines a premium client experience — directly from Gurleen.
               </p>
               <Link to="/academy" className="inline-block mt-10 text-sm tracking-[0.18em] uppercase text-ivory/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
                 See Full Curriculum →
@@ -736,10 +744,10 @@ function InstagramCallout() {
         <Reveal>
           <p className="eyebrow">On Instagram</p>
           <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight">
-            Follow the studio.
+            See the work.
           </h2>
           <p className="text-taupe mt-6 text-[17px] leading-relaxed max-w-md">
-            New brides, behind-the-scenes, and the day-to-day of a working makeup atelier — shared on Instagram.
+            Real brides, real weddings — Mumbai and beyond. Behind-the-scenes of a working bridal makeup studio, shared daily on Instagram.
           </p>
           <a
             href={IG_BUSINESS}
@@ -772,14 +780,14 @@ function FinalCTA() {
       </div>
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <Reveal>
-          <p className="eyebrow !text-gold">Begin</p>
+          <p className="eyebrow !text-gold">Ready to Book</p>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl mt-5 text-ivory leading-[1.05]">
-            Let's design the look<br /><em className="text-gold/90">you'll remember.</em>
+            Book your bridal<br /><em className="text-gold/90">makeup artist.</em>
           </h2>
           <div className="hairline w-24 mx-auto my-10" />
           <div className="flex flex-wrap justify-center gap-4">
             <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">
-              Book Your Bridal Makeup
+              Enquire on WhatsApp
             </a>
             <a href={`tel:${PHONE}`} className="inline-flex items-center px-6 py-4 text-sm tracking-[0.18em] uppercase text-ivory/90 hover:text-gold transition-colors">
               Call {PHONE_DISPLAY}
