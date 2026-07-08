@@ -13,6 +13,7 @@ import {
   DESTINATION,
   ENGAGEMENT,
   WESTERN,
+  EDITORIAL,
   FOUNDER,
   ALL_PORTFOLIO,
 } from "@/lib/images";
@@ -196,43 +197,46 @@ function Hero() {
 /* -------- Portfolio Preview -------- */
 function PortfolioPreview() {
   const container = React.useRef<HTMLElement>(null);
-  const scrollWrapper = React.useRef<HTMLDivElement>(null);
   const scrollContent = React.useRef<HTMLDivElement>(null);
 
+  // Mix editorial + bridal for visual variety
   const picks = [
-    TRADITIONAL[1], TRADITIONAL[2], DESTINATION,
-    TRADITIONAL[4], WESTERN[0], ENGAGEMENT,
-    TRADITIONAL[6], TRADITIONAL[3],
+    EDITORIAL[0], TRADITIONAL[0], EDITORIAL[2],
+    TRADITIONAL[1], EDITORIAL[3], DESTINATION,
+    EDITORIAL[4], TRADITIONAL[4], EDITORIAL[1],
   ];
 
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
+    // Desktop only: GSAP horizontal scroll pinned to the section
     mm.add("(min-width: 768px)", () => {
-      if (!scrollWrapper.current || !scrollContent.current) return;
-      
-      const getScrollAmount = () => -(scrollContent.current!.scrollWidth - window.innerWidth);
-      
+      if (!scrollContent.current || !container.current) return;
+
+      const getScrollAmount = () =>
+        -(scrollContent.current!.scrollWidth - window.innerWidth + 48);
+
       const tween = gsap.to(scrollContent.current, {
         x: getScrollAmount,
-        ease: "none"
+        ease: "none",
       });
 
       ScrollTrigger.create({
         trigger: container.current,
         start: "top top",
-        end: () => `+=${getScrollAmount() * -1.5}`,
+        end: () => `+=${getScrollAmount() * -1.4}`,
         pin: true,
         animation: tween,
-        scrub: 1,
+        scrub: 1.2,
         invalidateOnRefresh: true,
       });
     });
   }, { scope: container });
 
   return (
-    <section id="portfolio" ref={container} className="bg-ivory py-24 md:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 mb-14">
+    <section id="portfolio" ref={container} className="bg-ivory overflow-hidden">
+      {/* Header — always visible, padding only on mobile */}
+      <div className="mx-auto max-w-7xl px-6 pt-24 pb-10 md:pt-32 md:pb-14">
         <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="eyebrow">The Portfolio</p>
@@ -240,19 +244,48 @@ function PortfolioPreview() {
               Brides, in their first frame.
             </h2>
           </div>
-          <Link to="/portfolio" className="text-sm tracking-[0.18em] uppercase text-ink hover:text-wine border-b border-gold/60 hover:border-wine pb-1 w-fit transition-colors">
+          <Link
+            to="/portfolio"
+            className="text-sm tracking-[0.18em] uppercase text-ink hover:text-wine border-b border-gold/60 hover:border-wine pb-1 w-fit transition-colors"
+          >
             View Full Gallery →
           </Link>
         </Reveal>
       </div>
 
-      <div ref={scrollWrapper} className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar">
-        <div ref={scrollContent} className="flex gap-4 md:gap-8 px-6 pb-10 w-[max-content]">
+      {/* Mobile: native CSS swipe carousel */}
+      <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10">
+        <div className="flex gap-4 px-6 w-[max-content]">
           {picks.map((img, i) => (
-            <figure 
-              key={i} 
+            <figure
+              key={i}
               className={`group relative overflow-hidden bg-sand shrink-0 snap-center ${
-                i % 2 === 0 ? "w-[280px] md:w-[450px] aspect-[4/5]" : "w-[220px] md:w-[320px] aspect-[3/4] mt-10 md:mt-20"
+                i % 2 === 0
+                  ? "w-[72vw] aspect-[4/5]"
+                  : "w-[58vw] aspect-[3/4] mt-10"
+              }`}
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: GSAP horizontal scroll */}
+      <div className="hidden md:block w-full pb-10">
+        <div ref={scrollContent} className="flex gap-8 px-6 w-[max-content]">
+          {picks.map((img, i) => (
+            <figure
+              key={i}
+              className={`group relative overflow-hidden bg-sand shrink-0 ${
+                i % 2 === 0
+                  ? "w-[450px] aspect-[4/5]"
+                  : "w-[320px] aspect-[3/4] mt-20"
               }`}
             >
               <img
