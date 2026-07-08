@@ -186,11 +186,11 @@ function Hero() {
       <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 pt-32 pb-16 pointer-events-none">
         <div className="max-w-lg md:max-w-2xl mt-12 md:mt-24">
           <p className="hero-eyebrow font-sans text-[11px] font-bold tracking-[0.25em] uppercase text-gold opacity-0 mb-6">
-            MUMBAI · AVAILABLE WORLDWIDE
+            MUMBAI · DESTINATION WEDDINGS
           </p>
           
           <h1 className="hero-title font-display text-ivory text-5xl sm:text-6xl md:text-[80px] lg:text-[88px] leading-[1.05] tracking-tight opacity-0">
-            Timeless Beauty.<br />Artistry You Feel.
+            Luxury Bridal<br />Makeup Artist.
           </h1>
           
           <div className="hero-divider opacity-0 my-10">
@@ -200,7 +200,7 @@ function Hero() {
           </div>
           
           <p className="hero-subtitle font-sans font-light text-ivory/80 text-lg md:text-[20px] leading-relaxed opacity-0 max-w-md">
-            Luxury bridal makeup and professional training<br/>crafted with precision, passion and perfection.
+            Flawless, luminous, and camera-honest artistry for the modern bride. Experience elevated beauty for your most photographed day.
           </p>
           
           <div className="hero-cta mt-12 pointer-events-auto opacity-0">
