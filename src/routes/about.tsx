@@ -1,0 +1,172 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { Reveal } from "@/components/site/Reveal";
+import { WA, IG_BUSINESS } from "@/lib/whatsapp";
+import { FOUNDER, TRADITIONAL } from "@/lib/images";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About Gurleen Kaur Pannu — Luxury Bridal Makeup Artist, Mumbai" },
+      {
+        name: "description",
+        content:
+          "Meet Gurleen Kaur Pannu — Mumbai-based luxury bridal makeup artist and educator, known for soft, luminous artistry that photographs beautifully.",
+      },
+      { property: "og:title", content: "About Gurleen Kaur Pannu" },
+      {
+        property: "og:description",
+        content: "Mumbai-based luxury bridal artist and educator.",
+      },
+      { property: "og:url", content: "/about" },
+      { property: "og:image", content: FOUNDER.marble.url },
+      { name: "twitter:image", content: FOUNDER.marble.url },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Gurleen Kaur Pannu",
+          jobTitle: "Luxury Bridal Makeup Artist & Educator",
+          image: FOUNDER.marble.url,
+          address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressCountry: "IN" },
+          sameAs: [IG_BUSINESS],
+        }),
+      },
+    ],
+  }),
+  component: AboutPage,
+});
+
+const PILLARS = [
+  { t: "Restraint", d: "Skin left to breathe. Colour placed with intention. Nothing added that the camera doesn't ask for." },
+  { t: "Ritual", d: "A calm, unhurried studio — trials that feel like a conversation, mornings that feel like the softest possible start." },
+  { t: "Longevity", d: "Products and techniques chosen so the last portrait of the night looks like the first." },
+];
+
+const CHAPTERS = [
+  { y: "The training", d: "Years of assisting, editorial sets and back-to-back bridal seasons — the years that build a hand." },
+  { y: "The studio", d: "A private atelier in Mumbai, built around one bride at a time." },
+  { y: "The academy", d: "A quiet transfer of craft — one masterclass, one Look & Learn, one professional cohort at a time." },
+  { y: "Today", d: "Weddings across India and destination editions overseas; a growing archive of quiet, luminous portraits." },
+];
+
+function AboutPage() {
+  return (
+    <div className="bg-ivory text-ink min-h-screen">
+      <Nav />
+
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="eyebrow">The Artist</p>
+          <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">
+            Gurleen Kaur Pannu.
+          </h1>
+          <div className="hairline w-32 mx-auto mt-10" />
+          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
+            A Mumbai-based bridal makeup artist and educator, working with a light hand,
+            a considered palette and a lens-first eye.
+          </p>
+        </div>
+      </section>
+
+      <section className="pb-24 md:pb-32">
+        <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <Reveal className="md:col-span-5">
+            <div className="relative aspect-[3/4] overflow-hidden bg-sand">
+              <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </Reveal>
+          <Reveal delay={0.15} className="md:col-span-7 md:pl-6">
+            <p className="eyebrow">Her philosophy</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-[1.05]">
+              An eye for romance.<br />A hand for restraint.
+            </h2>
+            <div className="hairline w-24 my-8" />
+            <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
+              <p>
+                Gurleen approaches every bride the same way she approaches an editorial cover —
+                with quiet direction, a curated palette and a finish that reads as skin first,
+                makeup second.
+              </p>
+              <p>
+                Her signature is a soft, luminous, camera-honest bridal look — traditional
+                Indian beauty pared back to its most flattering essentials, and photographed
+                to last.
+              </p>
+              <p>
+                Beyond weddings, she leads a growing academy — three formats, one philosophy —
+                shaping the next generation of Indian bridal artists.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 mt-10">
+              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Chat on WhatsApp</a>
+              <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost">@gurleenkaurpannu_mua</a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-sand py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <p className="eyebrow">The pillars</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4">What guides the work.</h2>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {PILLARS.map((p, i) => (
+              <Reveal key={p.t} delay={i * 0.08}>
+                <div className="border-t border-gold/40 pt-6">
+                  <h3 className="font-display text-2xl">{p.t}</h3>
+                  <p className="text-taupe mt-3 leading-relaxed text-[15px]">{p.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ivory py-24 md:py-32">
+        <div className="mx-auto max-w-5xl px-6">
+          <Reveal className="text-center mb-14">
+            <p className="eyebrow">The chapters</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4">A quiet timeline.</h2>
+          </Reveal>
+          <ol className="space-y-10">
+            {CHAPTERS.map((c, i) => (
+              <Reveal key={c.y} delay={i * 0.06}>
+                <li className="grid md:grid-cols-12 gap-6 border-t border-ink/10 pt-8">
+                  <p className="md:col-span-4 font-display italic text-2xl text-wine">{c.y}</p>
+                  <p className="md:col-span-8 text-taupe text-[17px] leading-relaxed">{c.d}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="bg-ink text-ivory py-24 md:py-32">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <Reveal>
+            <p className="eyebrow !text-gold">Work with Gurleen</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-ivory">
+              Every bride, personally.
+            </h2>
+            <div className="hairline w-24 mx-auto my-10" />
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">
+              Enquire on WhatsApp
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+}

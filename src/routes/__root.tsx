@@ -14,20 +14,19 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="min-h-screen bg-ivory text-ink flex items-center justify-center px-6">
+      <div className="max-w-lg text-center">
+        <p className="eyebrow">Off the map</p>
+        <h1 className="font-display text-7xl md:text-8xl mt-4 leading-none">404</h1>
+        <div className="hairline w-24 mx-auto my-8" />
+        <h2 className="font-display text-2xl md:text-3xl">This page has been re-routed.</h2>
+        <p className="mt-4 text-taupe text-[15px] leading-relaxed">
+          The page you're looking for isn't here — it may have moved, or the link is
+          out of date.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link to="/" className="btn-wine">Return Home</Link>
+          <Link to="/portfolio" className="btn-ghost">View the Portfolio</Link>
         </div>
       </div>
     </div>
