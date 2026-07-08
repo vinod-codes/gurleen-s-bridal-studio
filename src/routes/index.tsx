@@ -160,7 +160,7 @@ function Hero() {
         <img 
           src={HERO} 
           alt="" 
-          fetchpriority="high"
+          fetchPriority="high"
           className="hero-bg w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
