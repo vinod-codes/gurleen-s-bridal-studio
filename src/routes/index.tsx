@@ -219,8 +219,8 @@ function PortfolioPreview() {
       });
 
       ScrollTrigger.create({
-        trigger: scrollWrapper.current,
-        start: "top 10%",
+        trigger: container.current,
+        start: "top top",
         end: () => `+=${getScrollAmount() * -1.5}`,
         pin: true,
         animation: tween,
