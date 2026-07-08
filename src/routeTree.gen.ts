@@ -17,6 +17,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EngagementReceptionRouteImport } from './routes/engagement-reception'
 import { Route as EditorialFashionRouteImport } from './routes/editorial-fashion'
 import { Route as DestinationWeddingsRouteImport } from './routes/destination-weddings'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BridalRouteImport } from './routes/bridal'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AboutRouteImport } from './routes/about'
@@ -62,6 +63,11 @@ const DestinationWeddingsRoute = DestinationWeddingsRouteImport.update({
   path: '/destination-weddings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BridalRoute = BridalRouteImport.update({
   id: '/bridal',
   path: '/bridal',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
   '/bridal': typeof BridalRoute
+  '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
   '/bridal': typeof BridalRoute
+  '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
   '/bridal': typeof BridalRoute
+  '/contact': typeof ContactRoute
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
@@ -133,6 +142,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/academy'
     | '/bridal'
+    | '/contact'
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/academy'
     | '/bridal'
+    | '/contact'
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/academy'
     | '/bridal'
+    | '/contact'
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AcademyRoute: typeof AcademyRoute
   BridalRoute: typeof BridalRoute
+  ContactRoute: typeof ContactRoute
   DestinationWeddingsRoute: typeof DestinationWeddingsRoute
   EditorialFashionRoute: typeof EditorialFashionRoute
   EngagementReceptionRoute: typeof EngagementReceptionRoute
@@ -244,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DestinationWeddingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bridal': {
       id: '/bridal'
       path: '/bridal'
@@ -280,6 +300,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AcademyRoute: AcademyRoute,
   BridalRoute: BridalRoute,
+  ContactRoute: ContactRoute,
   DestinationWeddingsRoute: DestinationWeddingsRoute,
   EditorialFashionRoute: EditorialFashionRoute,
   EngagementReceptionRoute: EngagementReceptionRoute,
