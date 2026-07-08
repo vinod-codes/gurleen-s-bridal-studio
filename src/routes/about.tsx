@@ -126,7 +126,14 @@ function AboutPage() {
             <input type="range" min="-100" max="200" value={posYMain} onChange={(e) => setPosYMain(parseInt(e.target.value))} />
             <label className="font-bold">Main Image Zoom</label>
             <input type="range" min="1" max="3" step="0.1" value={zoomMain} onChange={(e) => setZoomMain(parseFloat(e.target.value))} />
-            <button onClick={() => alert(`Main Image (Reading):\nPos: ${posXMain}% ${posYMain}%\nZoom: scale(${zoomMain})`)} className="bg-ink text-ivory p-1">Copy</button>
+            <button 
+              onClick={() => {
+                const text = `Main Image:\nPos: ${posXMain}% ${posYMain}%\nZoom: scale(${zoomMain})`;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!\n\n" + text);
+              }} 
+              className="bg-ink text-ivory p-1"
+            >Copy</button>
           </div>
 
           {/* Dev Tools (Sub Image) */}
@@ -137,7 +144,14 @@ function AboutPage() {
             <input type="range" min="-100" max="200" value={posYSub} onChange={(e) => setPosYSub(parseInt(e.target.value))} />
             <label className="font-bold">Sub Image Zoom</label>
             <input type="range" min="1" max="3" step="0.1" value={zoomSub} onChange={(e) => setZoomSub(parseFloat(e.target.value))} />
-            <button onClick={() => alert(`Sub Image (Close-up):\nPos: ${posXSub}% ${posYSub}%\nZoom: scale(${zoomSub})`)} className="bg-ink text-ivory p-1">Copy</button>
+            <button 
+              onClick={() => {
+                const text = `Sub Image:\nPos: ${posXSub}% ${posYSub}%\nZoom: scale(${zoomSub})`;
+                navigator.clipboard.writeText(text);
+                alert("Copied to clipboard!\n\n" + text);
+              }} 
+              className="bg-ink text-ivory p-1"
+            >Copy</button>
           </div>
 
           <Reveal className="md:col-span-5 relative">
