@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { WA } from "@/lib/whatsapp";
 
 const links = [
-  { label: "Portfolio", to: "/portfolio" },
-  { label: "Services", hash: "#services" },
-  { label: "Academy", to: "/academy" },
-  { label: "About", hash: "#about" },
+  { label: "Portfolio", to: "/portfolio" as const },
+  { label: "Bridal", to: "/bridal" as const },
+  { label: "Destination", to: "/destination-weddings" as const },
+  { label: "Academy", to: "/academy" as const },
+  { label: "About", to: "/about" as const },
+  { label: "Contact", to: "/contact" as const },
 ];
 
 export function Nav() {
@@ -46,30 +48,19 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-9">
-          {links.map((l) =>
-            l.to ? (
-              <Link
-                key={l.label}
-                to={l.to}
-                className={`text-sm tracking-[0.18em] uppercase transition-colors ${
-                  scrolled ? "text-ink hover:text-wine" : "text-ivory hover:text-gold"
-                }`}
-              >
-                {l.label}
-              </Link>
-            ) : (
-              <a
-                key={l.label}
-                href={l.hash}
-                className={`text-sm tracking-[0.18em] uppercase transition-colors ${
-                  scrolled ? "text-ink hover:text-wine" : "text-ivory hover:text-gold"
-                }`}
-              >
-                {l.label}
-              </a>
-            )
-          )}
+        <nav className="hidden lg:flex items-center gap-7">
+          {links.map((l) => (
+            <Link
+              key={l.label}
+              to={l.to}
+              className={`text-[13px] tracking-[0.18em] uppercase transition-colors ${
+                scrolled ? "text-ink hover:text-wine" : "text-ivory hover:text-gold"
+              }`}
+              activeProps={{ className: scrolled ? "text-wine" : "text-gold" }}
+            >
+              {l.label}
+            </Link>
+          ))}
           <a
             href={WA.general}
             target="_blank"
@@ -87,7 +78,7 @@ export function Nav() {
         <button
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
-          className={`md:hidden flex flex-col gap-1.5 ${
+          className={`lg:hidden flex flex-col gap-1.5 ${
             scrolled ? "text-ink" : "text-ivory"
           }`}
         >
@@ -98,28 +89,17 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-ivory border-t border-ink/10 px-6 py-6 flex flex-col gap-5">
-          {links.map((l) =>
-            l.to ? (
-              <Link
-                key={l.label}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="text-sm tracking-[0.18em] uppercase text-ink"
-              >
-                {l.label}
-              </Link>
-            ) : (
-              <a
-                key={l.label}
-                href={l.hash}
-                onClick={() => setOpen(false)}
-                className="text-sm tracking-[0.18em] uppercase text-ink"
-              >
-                {l.label}
-              </a>
-            )
-          )}
+        <div className="lg:hidden bg-ivory border-t border-ink/10 px-6 py-6 flex flex-col gap-5">
+          {links.map((l) => (
+            <Link
+              key={l.label}
+              to={l.to}
+              onClick={() => setOpen(false)}
+              className="text-sm tracking-[0.18em] uppercase text-ink"
+            >
+              {l.label}
+            </Link>
+          ))}
           <a
             href={WA.general}
             target="_blank"
