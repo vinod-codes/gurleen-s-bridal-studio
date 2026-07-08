@@ -118,6 +118,58 @@ const COURSES = [
   },
 ];
 
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+function MagneticButton({ children, className, as, href, to, target, rel }: any) {
+  const container = useRef<HTMLDivElement>(null);
+  
+  useGSAP(() => {
+    const el = container.current;
+    if (!el) return;
+
+    const xTo = gsap.quickTo(el, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
+    const yTo = gsap.quickTo(el, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const { height, width, left, top } = el.getBoundingClientRect();
+      const x = clientX - (left + width / 2);
+      const y = clientY - (top + height / 2);
+      xTo(x * 0.2);
+      yTo(y * 0.2);
+    };
+
+    const handleMouseLeave = () => {
+      xTo(0);
+      yTo(0);
+    };
+
+    el.addEventListener("mousemove", handleMouseMove);
+    el.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      el.removeEventListener("mousemove", handleMouseMove);
+      el.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, { scope: container });
+
+  const Inner = () => (
+    <div ref={container} className="inline-block relative">
+      {children}
+    </div>
+  );
+
+  if (as === "a") {
+    return <a href={href} className={className} target={target} rel={rel}><Inner /></a>;
+  }
+  if (as === "Link") {
+    return <Link to={to} className={className}><Inner /></Link>;
+  }
+  return <button className={className}><Inner /></button>;
+}
+
 function AcademyPage() {
   return (
     <div className="bg-ivory text-ink min-h-screen">
@@ -133,9 +185,11 @@ function AcademyPage() {
             Four formats, one philosophy: build artists who understand bridal beauty,
             the business around it, and the calm that defines a luxury client experience.
           </p>
-          <a href={WA.academyGeneral} target="_blank" rel="noreferrer" className="btn-ghost-light mt-10">
-            Enquire About Courses
-          </a>
+          <div className="mt-10 inline-block">
+            <MagneticButton as="a" href={WA.academyGeneral} target="_blank" rel="noreferrer" className="btn-ghost-light inline-block">
+              Enquire About Courses
+            </MagneticButton>
+          </div>
         </div>
       </section>
 
@@ -149,15 +203,15 @@ function AcademyPage() {
                   <h2 className="font-display text-3xl md:text-5xl mt-4 leading-tight">{c.title}</h2>
                   <p className="text-taupe mt-6 text-[16px] leading-relaxed">{c.desc}</p>
 
-                  <div className="mt-8">
+                  <div className="mt-8 inline-block">
                     {c.ctaHref.startsWith("http") ? (
-                      <a href={c.ctaHref} target="_blank" rel="noreferrer" className="btn-wine">
+                      <MagneticButton as="a" href={c.ctaHref} target="_blank" rel="noreferrer" className="btn-wine inline-block">
                         {c.ctaLabel}
-                      </a>
+                      </MagneticButton>
                     ) : (
-                      <Link to={c.ctaHref as any} className="btn-wine">
+                      <MagneticButton as="Link" to={c.ctaHref} className="btn-wine inline-block">
                         {c.ctaLabel}
-                      </Link>
+                      </MagneticButton>
                     )}
                   </div>
                 </div>
@@ -187,9 +241,11 @@ function AcademyPage() {
           <h2 className="font-display text-3xl md:text-5xl mt-4 text-ivory">
             Speak to us about dates and seats.
           </h2>
-          <a href={WA.academyGeneral} target="_blank" rel="noreferrer" className="btn-ghost-light mt-10">
-            Chat on WhatsApp
-          </a>
+          <div className="mt-10">
+            <MagneticButton as="a" href={WA.academyGeneral} target="_blank" rel="noreferrer" className="btn-ghost-light inline-block">
+              Chat on WhatsApp
+            </MagneticButton>
+          </div>
         </div>
       </section>
 

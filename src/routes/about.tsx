@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
@@ -5,6 +6,13 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Reveal } from "@/components/site/Reveal";
 import { WA, IG_BUSINESS } from "@/lib/whatsapp";
 import { FOUNDER, TRADITIONAL } from "@/lib/images";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -57,6 +65,32 @@ const CHAPTERS = [
 ];
 
 function AboutPage() {
+  const container = React.useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.to(".parallax-img-main", {
+      yPercent: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+
+    gsap.to(".parallax-img-sub", {
+      yPercent: -25,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+  }, { scope: container });
+
   return (
     <div className="bg-ivory text-ink min-h-screen">
       <Nav />
@@ -75,16 +109,19 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section ref={container} className="pb-24 md:pb-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-          <Reveal className="md:col-span-5">
+          <Reveal className="md:col-span-5 relative">
             <div className="relative aspect-[3/4] overflow-hidden bg-sand">
-              <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="w-full h-full object-cover" loading="lazy" />
+              <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="parallax-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
+            </div>
+            <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
+              <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="parallax-img-sub w-full h-[130%] object-cover -top-[15%] relative" loading="lazy" />
             </div>
           </Reveal>
-          <Reveal delay={0.15} className="md:col-span-7 md:pl-6">
+          <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
             <p className="eyebrow">Her philosophy</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-[1.05]">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.05]">
               An eye for romance.<br />A hand for restraint.
             </h2>
             <div className="hairline w-24 my-8" />

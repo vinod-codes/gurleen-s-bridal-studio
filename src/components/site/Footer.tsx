@@ -18,11 +18,11 @@ export function Footer() {
         <div>
           <p className="text-[11px] tracking-[0.28em] uppercase text-gold mb-5">Services</p>
           <ul className="space-y-3 text-sm text-ivory/80">
-            <li><Link to="/bridal" className="hover:text-gold transition-colors">Bridal Makeup</Link></li>
+            <li><Link to="/bridal" className="hover:text-gold transition-colors">Luxury Bridal Makeup</Link></li>
             <li><Link to="/destination-weddings" className="hover:text-gold transition-colors">Destination Weddings</Link></li>
             <li><Link to="/engagement-reception" className="hover:text-gold transition-colors">Engagement &amp; Reception</Link></li>
-            <li><Link to="/editorial-fashion" className="hover:text-gold transition-colors">Editorial &amp; Fashion</Link></li>
-            <li><Link to="/academy/one-on-one" className="hover:text-gold transition-colors">One-on-One Training</Link></li>
+            <li><Link to="/academy" className="hover:text-gold transition-colors">Professional Courses</Link></li>
+            <li><Link to="/academy/one-on-one" className="hover:text-gold transition-colors">1-on-1 Training</Link></li>
             <li><Link to="/pricing" className="hover:text-gold transition-colors">Pricing</Link></li>
           </ul>
         </div>

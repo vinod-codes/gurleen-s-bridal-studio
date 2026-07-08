@@ -44,7 +44,7 @@ export function Nav() {
               scrolled ? "text-taupe" : "text-ivory/80"
             }`}
           >
-            Bridal · Mumbai
+            Bridal · Pro Academy
           </span>
         </Link>
 

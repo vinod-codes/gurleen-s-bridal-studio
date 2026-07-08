@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import React, { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
@@ -15,6 +18,10 @@ import {
   ALL_PORTFOLIO,
 } from "@/lib/images";
 import { WA, PHONE, PHONE_DISPLAY, IG_BUSINESS } from "@/lib/whatsapp";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,92 +96,146 @@ function Home() {
 
 /* -------- Hero -------- */
 function Hero() {
+  const container = React.useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    // Image scale animation
+    tl.fromTo(
+      ".hero-bg",
+      { scale: 1.08 },
+      { scale: 1, duration: 1.6, ease: "power3.out" }
+    );
+
+    // Text reveal sequence
+    tl.fromTo(
+      ".hero-eyebrow",
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=1.2"
+    );
+
+    tl.fromTo(
+      ".hero-title",
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" },
+      "-=0.7"
+    );
+
+    tl.fromTo(
+      ".hero-subtitle",
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.6"
+    );
+
+    tl.fromTo(
+      ".hero-cta",
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.6"
+    );
+
+    tl.fromTo(
+      ".hero-scroll",
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.out" },
+      "-=0.2"
+    );
+
+    gsap.to(".hero-scroll-line", {
+      y: 8,
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+      ease: "power1.inOut"
+    });
+
+  }, { scope: container });
+
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
-      <motion.div
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0"
-      >
+    <section ref={container} className="relative min-h-screen flex items-end overflow-hidden">
+      <div className="absolute inset-0">
         <img 
           src={HERO} 
           alt="" 
           fetchpriority="high"
-          className="w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
+          className="hero-bg w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
-      </motion.div>
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-24 md:pb-32 w-full pointer-events-none">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="eyebrow !text-gold"
-        >
+        <p className="hero-eyebrow eyebrow !text-gold opacity-0">
           Mumbai · Worldwide
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight"
-        >
+        </p>
+        <h1 className="hero-title font-display text-ivory text-[40px] sm:text-6xl md:text-7xl lg:text-[88px] mt-5 max-w-4xl leading-[1.02] tracking-tight opacity-0">
           GKP Artistry<br />& Makeovers
           <span className="block font-sans not-italic text-[11px] md:text-xs tracking-[0.32em] uppercase text-gold/90 mt-6">
             Luxury Bridal Makeup Artist · Mumbai
           </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.8 }}
-          className="font-display italic text-ivory/90 text-lg md:text-2xl mt-6 max-w-2xl"
-        >
+        </h1>
+        <p className="hero-subtitle font-display italic text-ivory/90 text-lg md:text-2xl mt-6 max-w-2xl opacity-0">
           Luxury bridal makeup artistry, made for the most photographed day of your life.
-        </motion.p>
+        </p>
         
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.05, duration: 0.8 }}
-          className="flex flex-wrap gap-4 mt-10 pointer-events-auto"
-        >
+        <div className="hero-cta flex flex-wrap gap-4 mt-10 pointer-events-auto opacity-0">
           <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3">
             Inquire Availability
           </a>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 text-ivory/70"
-      >
+      <div className="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 text-ivory/70 opacity-0">
         <span className="text-[10px] tracking-[0.32em] uppercase">Scroll</span>
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="block w-px h-10 bg-ivory/50"
-        />
-      </motion.div>
+        <span className="hero-scroll-line block w-px h-10 bg-ivory/50" />
+      </div>
     </section>
   );
 }
 
 /* -------- Portfolio Preview -------- */
 function PortfolioPreview() {
+  const container = React.useRef<HTMLElement>(null);
+  const scrollWrapper = React.useRef<HTMLDivElement>(null);
+  const scrollContent = React.useRef<HTMLDivElement>(null);
+
   const picks = [
     TRADITIONAL[1], TRADITIONAL[2], DESTINATION,
     TRADITIONAL[4], WESTERN[0], ENGAGEMENT,
     TRADITIONAL[6], TRADITIONAL[3],
   ];
+
+  useGSAP(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      if (!scrollWrapper.current || !scrollContent.current) return;
+      
+      const getScrollAmount = () => -(scrollContent.current!.scrollWidth - window.innerWidth);
+      
+      const tween = gsap.to(scrollContent.current, {
+        x: getScrollAmount,
+        ease: "none"
+      });
+
+      ScrollTrigger.create({
+        trigger: scrollWrapper.current,
+        start: "top top",
+        end: () => `+=${getScrollAmount() * -1}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      });
+    });
+  }, { scope: container });
+
   return (
-    <section id="portfolio" className="bg-ivory py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+    <section id="portfolio" ref={container} className="bg-ivory py-24 md:py-32 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 mb-14">
+        <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="eyebrow">The Portfolio</p>
             <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
@@ -185,19 +246,24 @@ function PortfolioPreview() {
             View Full Gallery →
           </Link>
         </Reveal>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      <div ref={scrollWrapper} className="w-full">
+        <div ref={scrollContent} className="flex gap-4 md:gap-8 px-6 pb-10 w-[max-content]">
           {picks.map((img, i) => (
-            <Reveal key={i} delay={i * 0.05} className={i % 5 === 0 ? "md:row-span-2 md:col-span-2" : ""}>
-              <figure className="group relative overflow-hidden bg-sand aspect-[3/4] md:aspect-auto md:h-full">
-                <img
-                  src={img.url}
-                  alt={img.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                />
-              </figure>
-            </Reveal>
+            <figure 
+              key={i} 
+              className={`group relative overflow-hidden bg-sand shrink-0 ${
+                i % 2 === 0 ? "w-[280px] md:w-[450px] aspect-[4/5]" : "w-[220px] md:w-[320px] aspect-[3/4] mt-10 md:mt-20"
+              }`}
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+              />
+            </figure>
           ))}
         </div>
       </div>
@@ -207,8 +273,28 @@ function PortfolioPreview() {
 
 /* -------- Services -------- */
 function Services() {
+  const container = React.useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".service-card",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".services-grid",
+          start: "top 85%",
+        }
+      }
+    );
+  }, { scope: container });
+
   return (
-    <section id="services" className="bg-sand py-24 md:py-32">
+    <section id="services" ref={container} className="bg-sand py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <p className="eyebrow">The Services</p>
@@ -216,36 +302,34 @@ function Services() {
           <div className="hairline w-32 mx-auto mt-8" />
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="services-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.name} delay={(i % 3) * 0.08}>
-              {/* {s.placeholder ? <PLACEHOLDER: swap for real Celebrity Makeup photo /> : null} */}
-              <a
-                href={s.wa}
-                target="_blank"
-                rel="noreferrer"
-                className="group block relative overflow-hidden bg-ink aspect-[4/5]"
-              >
-                <img
-                  src={s.img.url}
-                  alt={s.img.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-90 transition-all duration-[1s] ease-out group-hover:scale-[1.04] group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
-                <div className="absolute inset-0 p-7 flex flex-col justify-end text-ivory">
-                  <h3 className="font-display text-2xl md:text-[28px] text-ivory leading-tight">
-                    {s.name}
-                  </h3>
-                  <p className="text-sm text-ivory/85 mt-3 max-w-[28ch] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    {s.desc}
-                  </p>
-                  <span className="mt-5 text-[11px] tracking-[0.28em] uppercase text-gold inline-flex items-center gap-2">
-                    Enquire <span className="block w-6 h-px bg-gold transition-all group-hover:w-10" />
-                  </span>
-                </div>
-              </a>
-            </Reveal>
+            <a
+              key={s.name}
+              href={s.wa}
+              target="_blank"
+              rel="noreferrer"
+              className="service-card group block relative overflow-hidden bg-ink aspect-[4/5] opacity-0"
+            >
+              <img
+                src={s.img.url}
+                alt={s.img.alt}
+                loading="lazy"
+                className="w-full h-full object-cover opacity-90 transition-all duration-[1s] ease-out group-hover:scale-[1.04] group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
+              <div className="absolute inset-0 p-7 flex flex-col justify-end text-ivory">
+                <h3 className="font-display text-2xl md:text-[28px] text-ivory leading-tight">
+                  {s.name}
+                </h3>
+                <p className="text-sm text-ivory/85 mt-3 max-w-[28ch] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  {s.desc}
+                </p>
+                <span className="mt-5 text-[11px] tracking-[0.28em] uppercase text-gold inline-flex items-center gap-2">
+                  Enquire <span className="block w-6 h-px bg-gold transition-all group-hover:w-10" />
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </div>
@@ -255,15 +339,43 @@ function Services() {
 
 /* -------- About -------- */
 function About() {
+  const container = React.useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    // Parallax the main image
+    gsap.to(".about-img-main", {
+      yPercent: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+
+    // Parallax the secondary image in the opposite direction
+    gsap.to(".about-img-sub", {
+      yPercent: -20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+  }, { scope: container });
+
   return (
-    <section id="about" className="bg-ivory py-24 md:py-32">
+    <section id="about" ref={container} className="bg-ivory py-24 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
         <Reveal className="md:col-span-5 relative">
           <div className="relative aspect-[3/4] overflow-hidden bg-sand">
-            <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="w-full h-full object-cover" loading="lazy" />
+            <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="about-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
           </div>
           <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
-            <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="w-full h-full object-cover" loading="lazy" />
+            <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="about-img-sub w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
           </div>
         </Reveal>
 
@@ -356,6 +468,22 @@ const CITIES = ["Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chandigarh", "Jaip
 function Academy() {
   const [city, setCity] = useState("Delhi");
   const [open, setOpen] = useState<number | null>(null);
+  const container = React.useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    // Pin the left column on desktop
+    let mm = gsap.matchMedia();
+    
+    mm.add("(min-width: 1024px)", () => {
+      ScrollTrigger.create({
+        trigger: container.current,
+        start: "top 20%",
+        end: "bottom bottom",
+        pin: ".academy-pin-content",
+        pinSpacing: false,
+      });
+    });
+  }, { scope: container });
 
   const courses = [
     {
@@ -391,22 +519,29 @@ function Academy() {
   ];
 
   return (
-    <section id="academy" className="bg-ink text-ivory py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="text-center max-w-3xl mx-auto mb-16">
-          <p className="eyebrow !text-gold">The Academy</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4 text-ivory">
-            For the next generation of artists.
-          </h2>
-          <p className="text-ivory/70 mt-6 text-[17px] leading-relaxed">
-            Three formats. One philosophy. Learn the craft, the business and the bedside
-            manner of luxury bridal artistry — directly from Gurleen.
-          </p>
-        </Reveal>
+    <section id="academy" ref={container} className="bg-ink text-ivory py-24 md:py-32 relative">
+      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-16 lg:gap-10">
+        <div className="lg:col-span-5 relative">
+          <div className="academy-pin-content">
+            <Reveal>
+              <p className="eyebrow !text-gold">The Academy</p>
+              <h2 className="font-display text-4xl md:text-6xl mt-4 text-ivory">
+                For the next generation of artists.
+              </h2>
+              <p className="text-ivory/70 mt-6 text-[17px] leading-relaxed max-w-md">
+                Three formats. One philosophy. Learn the craft, the business and the bedside
+                manner of luxury bridal artistry — directly from Gurleen.
+              </p>
+              <Link to="/academy" className="inline-block mt-10 text-sm tracking-[0.18em] uppercase text-ivory/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
+                See Full Curriculum →
+              </Link>
+            </Reveal>
+          </div>
+        </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-10">
           {courses.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.1}>
+            <Reveal key={c.title} delay={0.1}>
               <article className="relative h-full border border-ivory/15 bg-ink/40 hover:border-gold/60 transition-colors duration-500 p-8 md:p-10 flex flex-col">
                 <p className="text-[11px] tracking-[0.28em] uppercase text-gold">{c.kicker}</p>
                 <h3 className="font-display text-3xl md:text-[32px] text-ivory mt-3 leading-tight">
@@ -465,12 +600,6 @@ function Academy() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="text-center mt-14">
-          <Link to="/academy" className="text-sm tracking-[0.18em] uppercase text-ivory/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
-            See Full Curriculum →
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

@@ -15,9 +15,9 @@
     "semantic_hash": "20097f0c1a669549b3a8d3a194c3c25d"
   },
   "package.json": {
-    "mtime": 1783490528.3104744,
-    "ast_hash": "8f335d02dd3ff33a4da946438aee3724",
-    "semantic_hash": "8f335d02dd3ff33a4da946438aee3724"
+    "mtime": 1783505415.187698,
+    "ast_hash": "6333afd12cff5f8a1a58693219945db5",
+    "semantic_hash": ""
   },
   "src/assets/bridal/466970031.jpg.asset.json": {
     "mtime": 1782848636.2919543,
@@ -100,13 +100,13 @@
     "semantic_hash": "398fec7b6e0651f449c5420aa69a927f"
   },
   "src/components/site/Footer.tsx": {
-    "mtime": 1783498616.5261362,
-    "ast_hash": "70500f2d9bbf0df23f5a65e5f1779878",
+    "mtime": 1783505895.8918333,
+    "ast_hash": "bf2606553a3d9731ea6458b6869b112c",
     "semantic_hash": ""
   },
   "src/components/site/Nav.tsx": {
-    "mtime": 1783494309.611932,
-    "ast_hash": "31e68a94c85855ef13bfa1d875729f04",
+    "mtime": 1783505842.868424,
+    "ast_hash": "5774ed5febc01d1821cff744e19c25ce",
     "semantic_hash": ""
   },
   "src/components/site/Reveal.tsx": {
@@ -390,18 +390,18 @@
     "semantic_hash": "1399708ae830799467737d473ea53a30"
   },
   "src/routes/__root.tsx": {
-    "mtime": 1783494305.5163517,
-    "ast_hash": "fca5d95b3dc991869970b77d8ec1fa7c",
+    "mtime": 1783505548.2532885,
+    "ast_hash": "68a095ba630d3fe7baedf3ad5b8868f3",
     "semantic_hash": ""
   },
   "src/routes/about.tsx": {
-    "mtime": 1783494366.273881,
-    "ast_hash": "2ebc18f49bcd6738d31a36f499e8a646",
+    "mtime": 1783506952.4546769,
+    "ast_hash": "f81db7d22a01cebac060c9c263a3dda2",
     "semantic_hash": ""
   },
   "src/routes/academy.tsx": {
-    "mtime": 1783498593.5339692,
-    "ast_hash": "1be7923591020e843455b9f141562332",
+    "mtime": 1783507238.3508973,
+    "ast_hash": "f956c5299b7eac88305342c6660c3a58",
     "semantic_hash": ""
   },
   "src/routes/bridal.tsx": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "src/routes/index.tsx": {
-    "mtime": 1783499060.2414465,
-    "ast_hash": "958ee83c2859ca83b4ecde98d0a02f8a",
+    "mtime": 1783506849.4844177,
+    "ast_hash": "9fb6609ed5e22b86241265a6089115ba",
     "semantic_hash": ""
   },
   "src/routes/portfolio.tsx": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "plan.md": {
-    "mtime": 1783500873.9373932,
-    "ast_hash": "ca76caed74ff35e66819d66655eea34e",
+    "mtime": 1783501141.6936913,
+    "ast_hash": "76be2aac264334d74bf0d044db130d8e",
     "semantic_hash": ""
   },
   "public/llms.txt": {

@@ -84,7 +84,7 @@
     border-color: var(--color-border);
   }
   html {
-    scroll-behavior: smooth;
+    /* Lenis handles smooth scrolling, removed native scroll-behavior */
   }
   body {
     background-color: var(--color-background);
@@ -191,6 +191,16 @@
     background: var(--ivory-canvas);
     color: var(--bridal-wine);
   }
+}
+
+/* GSAP Utilities */
+.gsap-reveal {
+  opacity: 0;
+  visibility: hidden;
+}
+.gsap-pin-container {
+  overflow: hidden;
+  position: relative;
 }
 
 @media (prefers-reduced-motion: reduce) {
