@@ -66,13 +66,6 @@ const CHAPTERS = [
 
 function AboutPage() {
   const container = React.useRef<HTMLElement>(null);
-  const [posXMain, setPosXMain] = React.useState(50);
-  const [posYMain, setPosYMain] = React.useState(50);
-  const [zoomMain, setZoomMain] = React.useState(1);
-  
-  const [posXSub, setPosXSub] = React.useState(50);
-  const [posYSub, setPosYSub] = React.useState(50);
-  const [zoomSub, setZoomSub] = React.useState(1);
 
   useGSAP(() => {
     gsap.to(".parallax-img-main", {
@@ -117,65 +110,13 @@ function AboutPage() {
       </section>
 
       <section ref={container} className="pb-24 md:pb-32 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center relative">
-          {/* Dev Tools (Main Image) */}
-          <div className="absolute top-0 left-0 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48">
-            <label className="font-bold">Main Image X</label>
-            <input type="range" min="-100" max="200" value={posXMain} onChange={(e) => setPosXMain(parseInt(e.target.value))} />
-            <label className="font-bold">Main Image Y</label>
-            <input type="range" min="-100" max="200" value={posYMain} onChange={(e) => setPosYMain(parseInt(e.target.value))} />
-            <label className="font-bold">Main Image Zoom</label>
-            <input type="range" min="1" max="3" step="0.1" value={zoomMain} onChange={(e) => setZoomMain(parseFloat(e.target.value))} />
-            <button 
-              onClick={() => {
-                const text = `Main Image:\nPos: ${posXMain}% ${posYMain}%\nZoom: scale(${zoomMain})`;
-                navigator.clipboard.writeText(text);
-                alert("Copied to clipboard!\n\n" + text);
-              }} 
-              className="bg-ink text-ivory p-1"
-            >Copy</button>
-          </div>
-
-          {/* Dev Tools (Sub Image) */}
-          <div className="absolute top-0 left-52 z-50 bg-white p-4 shadow-xl text-xs flex flex-col gap-2 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-48 hidden md:flex">
-            <label className="font-bold">Sub Image X</label>
-            <input type="range" min="-100" max="200" value={posXSub} onChange={(e) => setPosXSub(parseInt(e.target.value))} />
-            <label className="font-bold">Sub Image Y</label>
-            <input type="range" min="-100" max="200" value={posYSub} onChange={(e) => setPosYSub(parseInt(e.target.value))} />
-            <label className="font-bold">Sub Image Zoom</label>
-            <input type="range" min="1" max="3" step="0.1" value={zoomSub} onChange={(e) => setZoomSub(parseFloat(e.target.value))} />
-            <button 
-              onClick={() => {
-                const text = `Sub Image:\nPos: ${posXSub}% ${posYSub}%\nZoom: scale(${zoomSub})`;
-                navigator.clipboard.writeText(text);
-                alert("Copied to clipboard!\n\n" + text);
-              }} 
-              className="bg-ink text-ivory p-1"
-            >Copy</button>
-          </div>
-
+        <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <Reveal className="md:col-span-5 relative">
             <div className="relative aspect-[3/4] overflow-hidden bg-sand">
-              <div className="parallax-img-main w-full h-[120%] -top-[10%] relative">
-                <img 
-                  src={FOUNDER.marble.url} 
-                  alt={FOUNDER.marble.alt} 
-                  style={{ objectPosition: `${posXMain}% ${posYMain}%`, transform: `scale(${zoomMain})` }}
-                  className="w-full h-full object-cover transition-all duration-300" 
-                  loading="lazy" 
-                />
-              </div>
+              <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="parallax-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
             </div>
             <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
-              <div className="parallax-img-sub w-full h-[130%] -top-[15%] relative">
-                <img 
-                  src={FOUNDER.lipShot.url} 
-                  alt={FOUNDER.lipShot.alt} 
-                  style={{ objectPosition: `${posXSub}% ${posYSub}%`, transform: `scale(${zoomSub})` }}
-                  className="w-full h-full object-cover transition-all duration-300" 
-                  loading="lazy" 
-                />
-              </div>
+              <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="parallax-img-sub w-full h-[130%] object-cover -top-[15%] relative" loading="lazy" />
             </div>
           </Reveal>
           <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
