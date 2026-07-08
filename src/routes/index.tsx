@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
-import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Reveal } from "@/components/site/Reveal";
 import {
   HERO,
@@ -89,7 +88,6 @@ function Home() {
       <InstagramCallout />
       <FinalCTA />
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }
@@ -222,8 +220,8 @@ function PortfolioPreview() {
 
       ScrollTrigger.create({
         trigger: scrollWrapper.current,
-        start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`,
+        start: "top 10%",
+        end: () => `+=${getScrollAmount() * -1.5}`,
         pin: true,
         animation: tween,
         scrub: 1,
