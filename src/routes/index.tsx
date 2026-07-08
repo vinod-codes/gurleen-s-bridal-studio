@@ -246,12 +246,13 @@ function PortfolioPreview() {
         </Reveal>
       </div>
 
-      <div ref={scrollWrapper} className="w-full">
+      <div ref={scrollWrapper} className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
         <div ref={scrollContent} className="flex gap-4 md:gap-8 px-6 pb-10 w-[max-content]">
           {picks.map((img, i) => (
             <figure 
               key={i} 
-              className={`group relative overflow-hidden bg-sand shrink-0 ${
+              className={`group relative overflow-hidden bg-sand shrink-0 snap-center ${
                 i % 2 === 0 ? "w-[280px] md:w-[450px] aspect-[4/5]" : "w-[220px] md:w-[320px] aspect-[3/4] mt-10 md:mt-20"
               }`}
             >
