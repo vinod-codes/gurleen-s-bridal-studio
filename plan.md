@@ -29,9 +29,9 @@ Rules:
 |---|---|
 | Current Phase | Project Complete |
 | Overall Progress | 100% |
-| Build Status | Passing (Cloudflare Nitro) |
+| Build Status | Passing (Vercel) |
 | Routes Complete | 23/23 |
-| Next | Deployment & DNS Binding |
+| Next | Custom Domain Binding (Vercel) |
 
 ---
 
