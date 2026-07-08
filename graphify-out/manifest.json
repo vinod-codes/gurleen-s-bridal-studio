@@ -430,13 +430,13 @@
     "semantic_hash": ""
   },
   "src/routes/faq.tsx": {
-    "mtime": 1783497896.1459622,
-    "ast_hash": "be4e591083aafcc7e496898ecc8433f4",
+    "mtime": 1783498967.5005677,
+    "ast_hash": "dd9f91e6752a60e082ff6955350ba55b",
     "semantic_hash": ""
   },
   "src/routes/index.tsx": {
-    "mtime": 1783494334.2272582,
-    "ast_hash": "512ff313d03a004e7da093e44c67f59e",
+    "mtime": 1783499060.2414465,
+    "ast_hash": "958ee83c2859ca83b4ecde98d0a02f8a",
     "semantic_hash": ""
   },
   "src/routes/portfolio.tsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "src/routes/pricing.tsx": {
-    "mtime": 1783497920.4098363,
-    "ast_hash": "dedc6c24f790acd49b9f0b2f2d93d494",
+    "mtime": 1783498969.527165,
+    "ast_hash": "c09e8232bdc50ea939e08e312022fd65",
     "semantic_hash": ""
   },
   "src/routes/privacy.tsx": {
@@ -465,8 +465,8 @@
     "semantic_hash": ""
   },
   "src/routes/testimonials.tsx": {
-    "mtime": 1783498023.349798,
-    "ast_hash": "586c5acb00b0ad1e8d4016214fcc6171",
+    "mtime": 1783498816.896836,
+    "ast_hash": "5a16725de57aa56fffa83b671728b72c",
     "semantic_hash": ""
   },
   "src/server.ts": {
@@ -500,18 +500,18 @@
     "semantic_hash": "b4e8af3f0f230eee39d6bd32d195195f"
   },
   "src/routes/academy.look-and-learn.tsx": {
-    "mtime": 1783497737.8683586,
-    "ast_hash": "46b9d6ad7942e3561fd17ba75dfd74c9",
+    "mtime": 1783498925.1351922,
+    "ast_hash": "fb37755d426bc519797b79377a256f97",
     "semantic_hash": ""
   },
   "src/routes/academy.masterclass.tsx": {
-    "mtime": 1783497653.529948,
-    "ast_hash": "649e7d385c1924ee43a321c6f8a922c5",
+    "mtime": 1783498921.0477083,
+    "ast_hash": "527f15ab5ec612e0ebad93663f9cd4ed",
     "semantic_hash": ""
   },
   "src/routes/academy.two-month-professional.tsx": {
-    "mtime": 1783497655.592456,
-    "ast_hash": "d9f7e56977bfc81ac1bddc22d096e6f7",
+    "mtime": 1783498923.1166544,
+    "ast_hash": "0866324d514de613a90bdb1eec4e3278",
     "semantic_hash": ""
   },
   "src/routes/refund.tsx": {
@@ -545,13 +545,13 @@
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1783490528.3115332,
-    "ast_hash": "6eb27eaae440142184916446b031614c",
+    "mtime": 1783498940.1827095,
+    "ast_hash": "b57322265e33720838f74987cda2d431",
     "semantic_hash": ""
   },
   "public/robots.txt": {
-    "mtime": 1783490528.3120506,
-    "ast_hash": "987497bfb623e1059632e5a607d56454",
+    "mtime": 1783498938.099318,
+    "ast_hash": "8cbced8404efa111104c30c682c2522c",
     "semantic_hash": ""
   },
   "src/routes/README.md": {
