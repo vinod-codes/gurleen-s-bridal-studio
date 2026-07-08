@@ -27,6 +27,7 @@ import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AcademyTwoMonthProfessionalRouteImport } from './routes/academy.two-month-professional'
+import { Route as AcademyOneOnOneRouteImport } from './routes/academy.one-on-one'
 import { Route as AcademyMasterclassRouteImport } from './routes/academy.masterclass'
 import { Route as AcademyLookAndLearnRouteImport } from './routes/academy.look-and-learn'
 
@@ -121,6 +122,11 @@ const AcademyTwoMonthProfessionalRoute =
     path: '/two-month-professional',
     getParentRoute: () => AcademyRoute,
   } as any)
+const AcademyOneOnOneRoute = AcademyOneOnOneRouteImport.update({
+  id: '/one-on-one',
+  path: '/one-on-one',
+  getParentRoute: () => AcademyRoute,
+} as any)
 const AcademyMasterclassRoute = AcademyMasterclassRouteImport.update({
   id: '/masterclass',
   path: '/masterclass',
@@ -152,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/thank-you': typeof ThankYouRoute
   '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
   '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/one-on-one': typeof AcademyOneOnOneRoute
   '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRoutesByTo {
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/thank-you': typeof ThankYouRoute
   '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
   '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/one-on-one': typeof AcademyOneOnOneRoute
   '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRoutesById {
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/thank-you': typeof ThankYouRoute
   '/academy/look-and-learn': typeof AcademyLookAndLearnRoute
   '/academy/masterclass': typeof AcademyMasterclassRoute
+  '/academy/one-on-one': typeof AcademyOneOnOneRoute
   '/academy/two-month-professional': typeof AcademyTwoMonthProfessionalRoute
 }
 export interface FileRouteTypes {
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/academy/look-and-learn'
     | '/academy/masterclass'
+    | '/academy/one-on-one'
     | '/academy/two-month-professional'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/academy/look-and-learn'
     | '/academy/masterclass'
+    | '/academy/one-on-one'
     | '/academy/two-month-professional'
   id:
     | '__root__'
@@ -265,6 +276,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/academy/look-and-learn'
     | '/academy/masterclass'
+    | '/academy/one-on-one'
     | '/academy/two-month-professional'
   fileRoutesById: FileRoutesById
 }
@@ -416,6 +428,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AcademyTwoMonthProfessionalRouteImport
       parentRoute: typeof AcademyRoute
     }
+    '/academy/one-on-one': {
+      id: '/academy/one-on-one'
+      path: '/one-on-one'
+      fullPath: '/academy/one-on-one'
+      preLoaderRoute: typeof AcademyOneOnOneRouteImport
+      parentRoute: typeof AcademyRoute
+    }
     '/academy/masterclass': {
       id: '/academy/masterclass'
       path: '/masterclass'
@@ -436,12 +455,14 @@ declare module '@tanstack/react-router' {
 interface AcademyRouteChildren {
   AcademyLookAndLearnRoute: typeof AcademyLookAndLearnRoute
   AcademyMasterclassRoute: typeof AcademyMasterclassRoute
+  AcademyOneOnOneRoute: typeof AcademyOneOnOneRoute
   AcademyTwoMonthProfessionalRoute: typeof AcademyTwoMonthProfessionalRoute
 }
 
 const AcademyRouteChildren: AcademyRouteChildren = {
   AcademyLookAndLearnRoute: AcademyLookAndLearnRoute,
   AcademyMasterclassRoute: AcademyMasterclassRoute,
+  AcademyOneOnOneRoute: AcademyOneOnOneRoute,
   AcademyTwoMonthProfessionalRoute: AcademyTwoMonthProfessionalRoute,
 }
 

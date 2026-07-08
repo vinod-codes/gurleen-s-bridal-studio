@@ -22,6 +22,7 @@ export function Footer() {
             <li><Link to="/destination-weddings" className="hover:text-gold transition-colors">Destination Weddings</Link></li>
             <li><Link to="/engagement-reception" className="hover:text-gold transition-colors">Engagement &amp; Reception</Link></li>
             <li><Link to="/editorial-fashion" className="hover:text-gold transition-colors">Editorial &amp; Fashion</Link></li>
+            <li><Link to="/academy/one-on-one" className="hover:text-gold transition-colors">One-on-One Training</Link></li>
             <li><Link to="/pricing" className="hover:text-gold transition-colors">Pricing</Link></li>
           </ul>
         </div>

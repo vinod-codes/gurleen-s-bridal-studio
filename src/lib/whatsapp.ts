@@ -24,4 +24,5 @@ export const WA = {
     wa(`Hi Gurleen, I'd like to enquire about the 1-Day Look & Learn (${city} edition).`),
   twoMonth: wa("Hi Gurleen, I'd like to enrol in the 2-Month Professional Makeup Course."),
   academyGeneral: wa("Hi Gurleen, I'd like to enquire about your academy courses."),
+  oneOnOne: wa("Hi Gurleen, I'd like to enquire about One-on-One private makeup training."),
 };

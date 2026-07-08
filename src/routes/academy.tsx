@@ -42,6 +42,12 @@ export const Route = createFileRoute("/academy")({
               description: "End-to-end professional formation for the working artist.",
               provider: { "@type": "Organization", name: "GKP Professional Makeup Academy" },
             },
+            {
+              "@type": "Course",
+              name: "One-on-One Private Makeup Training",
+              description: "Bespoke private training sessions tailored to your specific goals.",
+              provider: { "@type": "Organization", name: "GKP Professional Makeup Academy" },
+            },
           ],
         }),
       },
@@ -107,8 +113,8 @@ const COURSES = [
       "Business & Client Management",
       "Custom Skill Focus",
     ],
-    ctaHref: WA.academyGeneral,
-    ctaLabel: "Enquire on WhatsApp",
+    ctaHref: "/academy/one-on-one",
+    ctaLabel: "View Private Training",
   },
 ];
 
