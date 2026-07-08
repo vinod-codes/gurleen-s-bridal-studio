@@ -13,6 +13,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EngagementReceptionRouteImport } from './routes/engagement-reception'
 import { Route as EditorialFashionRouteImport } from './routes/editorial-fashion'
 import { Route as DestinationWeddingsRouteImport } from './routes/destination-weddings'
@@ -39,6 +40,11 @@ const PricingRoute = PricingRouteImport.update({
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EngagementReceptionRoute = EngagementReceptionRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
+  '/faq': typeof FaqRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
+  '/faq': typeof FaqRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/destination-weddings': typeof DestinationWeddingsRoute
   '/editorial-fashion': typeof EditorialFashionRoute
   '/engagement-reception': typeof EngagementReceptionRoute
+  '/faq': typeof FaqRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
+    | '/faq'
     | '/portfolio'
     | '/pricing'
     | '/sitemap.xml'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
+    | '/faq'
     | '/portfolio'
     | '/pricing'
     | '/sitemap.xml'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/destination-weddings'
     | '/editorial-fashion'
     | '/engagement-reception'
+    | '/faq'
     | '/portfolio'
     | '/pricing'
     | '/sitemap.xml'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   DestinationWeddingsRoute: typeof DestinationWeddingsRoute
   EditorialFashionRoute: typeof EditorialFashionRoute
   EngagementReceptionRoute: typeof EngagementReceptionRoute
+  FaqRoute: typeof FaqRoute
   PortfolioRoute: typeof PortfolioRoute
   PricingRoute: typeof PricingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/engagement-reception': {
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationWeddingsRoute: DestinationWeddingsRoute,
   EditorialFashionRoute: EditorialFashionRoute,
   EngagementReceptionRoute: EngagementReceptionRoute,
+  FaqRoute: FaqRoute,
   PortfolioRoute: PortfolioRoute,
   PricingRoute: PricingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
