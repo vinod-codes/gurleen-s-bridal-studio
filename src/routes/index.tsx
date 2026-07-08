@@ -159,7 +159,7 @@ function Hero() {
           src={HERO} 
           alt="" 
           fetchPriority="high"
-          className="hero-bg w-full h-full object-cover object-[center_30%] md:object-[0%_0%] md:scale-[1.01] md:translate-x-[10%] md:translate-y-[0%]" 
+          className="hero-bg w-full h-full object-cover object-center" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80 pointer-events-none" />
       </div>
@@ -246,8 +246,7 @@ function PortfolioPreview() {
         </Reveal>
       </div>
 
-      <div ref={scrollWrapper} className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
+      <div ref={scrollWrapper} className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar">
         <div ref={scrollContent} className="flex gap-4 md:gap-8 px-6 pb-10 w-[max-content]">
           {picks.map((img, i) => (
             <figure 

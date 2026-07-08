@@ -84,7 +84,7 @@
     border-color: var(--color-border);
   }
   html {
-    /* Lenis handles smooth scrolling, removed native scroll-behavior */
+    scroll-behavior: auto;
   }
   body {
     background-color: var(--color-background);
@@ -137,8 +137,6 @@
   border: 1px solid var(--bridal-wine);
   transition: all 0.35s ease;
   cursor: pointer;
-}
-@utility btn-wine {
   &:hover {
     background: var(--ink-espresso);
     border-color: var(--ink-espresso);
@@ -161,8 +159,6 @@
   border: 1px solid var(--ink-espresso);
   transition: all 0.35s ease;
   cursor: pointer;
-}
-@utility btn-ghost {
   &:hover {
     background: var(--ink-espresso);
     color: var(--ivory-canvas);
@@ -185,8 +181,6 @@
   border: 1px solid var(--ivory-canvas);
   transition: all 0.35s ease;
   cursor: pointer;
-}
-@utility btn-ghost-light {
   &:hover {
     background: var(--ivory-canvas);
     color: var(--bridal-wine);
@@ -201,6 +195,15 @@
 .gsap-pin-container {
   overflow: hidden;
   position: relative;
+}
+
+/* Hide scrollbar for portfolio horizontal scroll */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
