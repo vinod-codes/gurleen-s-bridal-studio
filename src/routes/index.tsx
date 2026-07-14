@@ -169,8 +169,8 @@ function Hero() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative min-h-screen flex items-start overflow-hidden">
-      {/* Background image — face is right-side, keep right clear */}
+    <section ref={container} className="relative min-h-screen flex items-end overflow-hidden bg-ink">
+      {/* Background — grayscale, high-contrast, 60% opacity */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroImg}
@@ -178,82 +178,80 @@ function Hero() {
           fetchPriority="high"
           style={{
             objectPosition: `${posX}% ${posY}%`,
-            transform: `scale(${zoom})`
+            transform: `scale(${zoom})`,
+            filter: "grayscale(1) contrast(1.15) brightness(0.85)",
+            opacity: 0.6,
           }}
           className="hero-bg w-full h-full object-cover"
         />
-        {/* Gradient: strong on left where text sits, fades to transparent on right so face shows */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/50 to-ink/10 pointer-events-none" />
-        {/* Subtle top vignette for nav readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent pointer-events-none" />
       </div>
 
-      {/* Dev Position Picker Tool (Hidden for production) */}
-      <div className="hidden absolute top-24 right-6 z-50 bg-white p-4 shadow-xl text-xs flex-col gap-3 rounded text-ink border border-ink/20 font-sans pointer-events-auto w-72">
-        <div>
-          <label className="font-bold mb-1 block">Test Hero Image</label>
-          <select
-            value={heroImg}
-            onChange={(e) => setHeroImg(e.target.value)}
-            className="border border-ink/20 p-1 bg-white text-ink w-full"
-          >
-            {allImages.map((img, i) => (
-              <option key={i} value={img.url}>{img.label}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Zoom</span><span>{zoom.toFixed(2)}x</span>
-          </label>
-          <input type="range" min="1" max="3" step="0.05" value={zoom}
-            onChange={(e) => setZoom(parseFloat(e.target.value))} className="w-full" />
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Position X</span><span>{posX}%</span>
-          </label>
-          <input type="range" min="0" max="100" step="1" value={posX}
-            onChange={(e) => setPosX(parseInt(e.target.value))} className="w-full" />
-        </div>
-        <div>
-          <label className="font-bold flex justify-between">
-            <span>Position Y</span><span>{posY}%</span>
-          </label>
-          <input type="range" min="0" max="100" step="1" value={posY}
-            onChange={(e) => setPosY(parseInt(e.target.value))} className="w-full" />
-        </div>
-        <button
-          onClick={() => {
-            const data = `Image URL: ${heroImg}\nZoom: scale(${zoom})\nPosition: ${posX}% ${posY}%`;
-            navigator.clipboard.writeText(data);
-            alert("Copied!\n" + data);
-          }}
-          className="bg-ink text-ivory py-1 px-2 hover:bg-wine transition-colors"
-        >Copy Image & Position</button>
+      {/* Top-right technical metadata */}
+      <div className="absolute top-24 right-6 md:right-10 z-10 text-right hero-eyebrow opacity-0">
+        <p className="mono text-[11px] tracking-[0.28em] uppercase" style={{ color: "#E3E2DE" }}>
+          IDX/04 — Bridal
+        </p>
+        <p className="mono text-[10px] tracking-[0.28em] uppercase mt-2" style={{ color: "#31EF07" }}>
+          ● Booking · 25/26
+        </p>
       </div>
 
-      {/* Text — anchored top-left, constrained to left half, clears the nav */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-44 md:pt-52 pb-24 pointer-events-none">
-        <div className="max-w-lg md:max-w-xl">
-          <p className="hero-eyebrow eyebrow !text-gold opacity-0">
-            Mumbai · Available Worldwide
-          </p>
-          <h1 className="hero-title font-display text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-5 leading-[1.04] tracking-tight opacity-0">
-            Bridal Makeup Artist,<br />Mumbai.
-          </h1>
-          <p className="hero-subtitle font-display italic text-ivory/85 text-base md:text-xl mt-6 leading-relaxed opacity-0">
-            Soft, luminous, camera-honest artistry for the most photographed day of your life.
-          </p>
-          <span className="block font-sans not-italic text-[10px] tracking-[0.3em] uppercase text-gold/80 mt-5 opacity-0 hero-eyebrow">
-            GKP Artistry & Makeovers
-          </span>
-          <div className="hero-cta mt-10 pointer-events-auto opacity-0">
+      {/* Hidden dev picker preserved */}
+      <div className="hidden">
+        <select value={heroImg} onChange={(e) => setHeroImg(e.target.value)}>
+          {allImages.map((img, i) => (<option key={i} value={img.url}>{img.label}</option>))}
+        </select>
+        <input type="range" value={zoom} onChange={(e) => setZoom(parseFloat(e.target.value))} />
+        <input type="range" value={posX} onChange={(e) => setPosX(parseInt(e.target.value))} />
+        <input type="range" value={posY} onChange={(e) => setPosY(parseInt(e.target.value))} />
+      </div>
+
+      {/* Bottom content — split-indented headline */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-10 pb-12 md:pb-16">
+        {/* Thin top hairline + technical row */}
+        <div className="border-t pt-5 flex flex-wrap items-end justify-between gap-4" style={{ borderColor: "rgba(227,226,222,0.6)" }}>
+          <div className="hero-eyebrow opacity-0">
+            <p className="mono text-[11px] tracking-[0.32em] uppercase" style={{ color: "#E3E2DE" }}>
+              Season 04 / Bridal · Editorial · Academy
+            </p>
+            <p className="mono text-[10px] tracking-[0.28em] uppercase mt-1" style={{ color: "rgba(227,226,222,0.65)" }}>
+              Mumbai — Available Worldwide
+            </p>
+          </div>
+          <div className="hero-cta opacity-0">
             <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine">
-              Enquire for Your Date
+              Book a Trial →
             </a>
           </div>
         </div>
+
+        {/* Massive split-indented headline */}
+        <h1
+          className="hero-title font-display font-bold uppercase opacity-0"
+          style={{
+            color: "#E3E2DE",
+            fontSize: "clamp(3rem, 13.5vw, 15rem)",
+            lineHeight: 0.82,
+            letterSpacing: "-0.05em",
+            marginTop: "1rem",
+          }}
+        >
+          <span className="block">Bridal,</span>
+          <span
+            className="block"
+            style={{
+              paddingLeft: "20vw",
+              color: "#C72A09",
+            }}
+          >
+            Refined.
+          </span>
+        </h1>
+
+        <p className="hero-subtitle mono text-[12px] md:text-[13px] tracking-[0.24em] uppercase mt-6 max-w-md opacity-0" style={{ color: "rgba(227,226,222,0.8)" }}>
+          [ Camera-honest artistry — for the most photographed day of your life. ]
+        </p>
       </div>
     </section>
   );

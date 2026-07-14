@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { WA } from "@/lib/whatsapp";
 
 const links = [
@@ -12,90 +12,79 @@ const links = [
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-ivory/95 backdrop-blur-md border-b border-ink/10 py-3"
-          : "bg-transparent py-5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 py-5"
+      style={{ mixBlendMode: "difference" }}
     >
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+      <div
+        className="mx-auto max-w-[1600px] px-6 md:px-10 flex items-center justify-between"
+        style={{ color: "#E3E2DE" }}
+      >
+        {/* Brand — left */}
         <Link to="/" className="flex flex-col leading-none">
-          <span
-            className={`font-display text-lg md:text-xl tracking-tight ${
-              scrolled ? "text-ink" : "text-ivory"
-            }`}
-          >
-            GKP Artistry & Makeovers
+          <span className="font-display text-[20px] md:text-[22px] font-bold tracking-tight uppercase">
+            GKP / Artistry
           </span>
-          <span
-            className={`text-[10px] tracking-[0.32em] uppercase mt-1 ${
-              scrolled ? "text-taupe" : "text-ivory/80"
-            }`}
-          >
-            Bridal · Pro Academy
+          <span className="mono text-[10px] tracking-[0.28em] uppercase mt-1 opacity-80">
+            Season 04 — Mumbai
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Centered links */}
+        <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {links.map((l) => (
             <Link
               key={l.label}
               to={l.to}
-              className={`text-[13px] tracking-[0.18em] uppercase transition-colors ${
-                scrolled ? "text-ink hover:text-wine" : "text-ivory hover:text-gold"
-              }`}
-              activeProps={{ className: scrolled ? "text-wine" : "text-gold" }}
+              className="link-neon mono text-[12px] tracking-[0.22em] uppercase"
+              activeProps={{ style: { color: "#31EF07" } }}
             >
               {l.label}
             </Link>
           ))}
+        </nav>
+
+        {/* Right — WhatsApp CTA */}
+        <div className="hidden lg:flex items-center gap-6">
           <a
             href={WA.general}
             target="_blank"
             rel="noreferrer"
-            className={
-              scrolled
-                ? "btn-wine !py-2.5 !px-5 !text-xs"
-                : "btn-ghost-light !py-2.5 !px-5 !text-xs"
-            }
+            className="link-neon mono text-[12px] tracking-[0.22em] uppercase"
           >
-            WhatsApp
+            [ WhatsApp → ]
           </a>
-        </nav>
+        </div>
 
         <button
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
-          className={`lg:hidden flex flex-col gap-1.5 ${
-            scrolled ? "text-ink" : "text-ivory"
-          }`}
+          className="lg:hidden flex flex-col gap-1.5"
         >
-          <span className="block w-6 h-px bg-current" />
-          <span className="block w-6 h-px bg-current" />
-          <span className="block w-6 h-px bg-current" />
+          <span className="block w-7 h-[2px] bg-current" />
+          <span className="block w-7 h-[2px] bg-current" />
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden bg-ivory border-t border-ink/10 px-6 py-6 flex flex-col gap-5">
+        <div
+          className="lg:hidden px-6 py-8 flex flex-col gap-5 border-t"
+          style={{
+            mixBlendMode: "normal",
+            background: "#1B0E0D",
+            color: "#E3E2DE",
+            borderColor: "rgba(227,226,222,0.15)",
+          }}
+        >
           {links.map((l) => (
             <Link
               key={l.label}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="text-sm tracking-[0.18em] uppercase text-ink"
+              className="mono text-sm tracking-[0.22em] uppercase link-neon w-fit"
             >
               {l.label}
             </Link>
@@ -104,7 +93,7 @@ export function Nav() {
             href={WA.general}
             target="_blank"
             rel="noreferrer"
-            className="btn-wine !py-3 !text-xs"
+            className="btn-wine mt-2 w-fit"
           >
             WhatsApp
           </a>
