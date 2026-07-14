@@ -147,6 +147,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactLenis root>
+        {/* Persistent brutalist noise texture */}
+        <div className="noise-overlay" aria-hidden="true" />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </ReactLenis>
