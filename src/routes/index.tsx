@@ -166,13 +166,19 @@ function Hero() {
   }, { scope: container });
 
   return (
+<<<<<<< HEAD
     <section ref={container} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image — face is right-side, keep right clear */}
+=======
+    <section ref={container} className="relative min-h-screen flex items-end overflow-hidden bg-ink">
+      {/* Background — grayscale, high-contrast, 60% opacity */}
+>>>>>>> b39d0b645cf11b186ca3ff65c32392898490d896
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={HERO}
           alt="Luxury Bridal Makeup"
           fetchPriority="high"
+<<<<<<< HEAD
           style={{ objectPosition: '73% 0%' }}
           className="hero-bg w-full h-full object-cover"
         />
@@ -207,6 +213,54 @@ function Hero() {
             <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-6 py-4 text-[11px] font-bold tracking-[0.15em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-colors">
               ENQUIRE FOR YOUR DATE
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+=======
+          style={{
+            objectPosition: `${posX}% ${posY}%`,
+            transform: `scale(${zoom})`,
+            filter: "grayscale(1) contrast(1.15) brightness(0.85)",
+            opacity: 0.6,
+          }}
+          className="hero-bg w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Top-right technical metadata */}
+      <div className="absolute top-24 right-6 md:right-10 z-10 text-right hero-eyebrow opacity-0">
+        <p className="mono text-[11px] tracking-[0.28em] uppercase" style={{ color: "#E3E2DE" }}>
+          IDX/04 — Bridal
+        </p>
+        <p className="mono text-[10px] tracking-[0.28em] uppercase mt-2" style={{ color: "#31EF07" }}>
+          ● Booking · 25/26
+        </p>
+      </div>
+
+      {/* Hidden dev picker preserved */}
+      <div className="hidden">
+        <select value={heroImg} onChange={(e) => setHeroImg(e.target.value)}>
+          {allImages.map((img, i) => (<option key={i} value={img.url}>{img.label}</option>))}
+        </select>
+        <input type="range" value={zoom} onChange={(e) => setZoom(parseFloat(e.target.value))} />
+        <input type="range" value={posX} onChange={(e) => setPosX(parseInt(e.target.value))} />
+        <input type="range" value={posY} onChange={(e) => setPosY(parseInt(e.target.value))} />
+      </div>
+
+      {/* Bottom content — split-indented headline */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-10 pb-12 md:pb-16">
+        {/* Thin top hairline + technical row */}
+        <div className="border-t pt-5 flex flex-wrap items-end justify-between gap-4" style={{ borderColor: "rgba(227,226,222,0.6)" }}>
+          <div className="hero-eyebrow opacity-0">
+            <p className="mono text-[11px] tracking-[0.32em] uppercase" style={{ color: "#E3E2DE" }}>
+              Season 04 / Bridal · Editorial · Academy
+            </p>
+            <p className="mono text-[10px] tracking-[0.28em] uppercase mt-1" style={{ color: "rgba(227,226,222,0.65)" }}>
+              Mumbai — Available Worldwide
+            </p>
+          </div>
+          <div className="hero-cta opacity-0">
+            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine">
+              Book a Trial →
+>>>>>>> b39d0b645cf11b186ca3ff65c32392898490d896
             </a>
           </div>
 
@@ -226,6 +280,33 @@ function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Massive split-indented headline */}
+        <h1
+          className="hero-title font-display font-bold uppercase opacity-0"
+          style={{
+            color: "#E3E2DE",
+            fontSize: "clamp(3rem, 13.5vw, 15rem)",
+            lineHeight: 0.82,
+            letterSpacing: "-0.05em",
+            marginTop: "1rem",
+          }}
+        >
+          <span className="block">Bridal,</span>
+          <span
+            className="block"
+            style={{
+              paddingLeft: "20vw",
+              color: "#C72A09",
+            }}
+          >
+            Refined.
+          </span>
+        </h1>
+
+        <p className="hero-subtitle mono text-[12px] md:text-[13px] tracking-[0.24em] uppercase mt-6 max-w-md opacity-0" style={{ color: "rgba(227,226,222,0.8)" }}>
+          [ Camera-honest artistry — for the most photographed day of your life. ]
+        </p>
       </div>
     </section>
   );
