@@ -30,6 +30,7 @@
   "28": "input-otp.tsx",
   "29": "alert.tsx",
   "30": "sonner.tsx",
+  "31": "avatar.tsx",
   "32": "badge.tsx",
   "33": "tabs.tsx",
   "34": "upload.js",
@@ -46,8 +47,12 @@
   "45": "vite.config.ts",
   "46": "Route",
   "47": "AGENTS.md",
+  "48": "input.tsx",
   "49": "badge.tsx",
+  "50": "tabs.tsx",
   "51": "separator.tsx",
+  "52": "sitemap[.]xml.ts",
   "53": "upload_new.mjs",
+  "54": "Route",
   "55": "upload_hero.mjs"
 }

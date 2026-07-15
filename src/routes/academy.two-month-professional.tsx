@@ -53,38 +53,38 @@ const MODULES = [
 
 function ProfessionalCoursePage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <Link to="/academy" className="eyebrow hover:text-wine transition-colors">← Back to Academy</Link>
-          <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[1.03]">
+          <Link to="/academy" className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500 hover:text-black transition-colors">← Back to Academy</Link>
+          <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[1.03] text-black">
             2-Month Professional.
           </h1>
-          <div className="hairline w-32 mx-auto mt-10" />
-          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
+          <div className="border-t border-black/10 w-32 mx-auto mt-10" />
+          <p className="font-sans font-light text-gray-600 mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
             Our most comprehensive programme. Designed to take you from passionate beginner to confident professional. Learn the craft, build your portfolio, and understand the business of luxury bridal artistry.
           </p>
           <div className="mt-10">
-            <a href={WA.twoMonth} target="_blank" rel="noreferrer" className="btn-wine">Apply for Next Cohort</a>
+            <a href={WA.twoMonth} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Apply for Next Cohort</a>
           </div>
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-sand">
+      <section className="py-24 md:py-32 bg-gray-50 border-t border-black/5">
         <div className="mx-auto max-w-5xl px-6">
           <Reveal className="mb-14 text-center">
-            <p className="eyebrow">The Syllabus</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4">A complete foundation.</h2>
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Syllabus</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-black">A complete foundation.</h2>
           </Reveal>
           
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
             {MODULES.map((m, i) => (
               <Reveal key={m.title} delay={i * 0.05}>
                 <div className="border-t border-gold/40 pt-6">
-                  <h3 className="font-display text-2xl">{m.title}</h3>
-                  <p className="text-taupe mt-3 leading-relaxed text-[15px]">{m.desc}</p>
+                  <h3 className="font-display text-2xl text-black">{m.title}</h3>
+                  <p className="font-sans font-light text-gray-600 mt-3 leading-relaxed text-[15px]">{m.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -92,12 +92,12 @@ function ProfessionalCoursePage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <p className="eyebrow">Career Outcomes</p>
-            <h2 className="font-display text-4xl mt-4 mb-8">Built for the real world.</h2>
-            <div className="space-y-6 text-taupe text-[16px] leading-relaxed">
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Career Outcomes</p>
+            <h2 className="font-display text-4xl mt-4 mb-8 text-black">Built for the real world.</h2>
+            <div className="space-y-6 font-sans font-light text-gray-600 text-[16px] leading-relaxed">
               <p>
                 This isn't just a makeup class; it's a career incubator. We cover the unglamorous but essential aspects of being a working artist: lighting, photography, dealing with bridal anxiety, and structuring your contracts.
               </p>
@@ -106,22 +106,22 @@ function ProfessionalCoursePage() {
               </p>
             </div>
             <ul className="mt-10 space-y-4">
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
+              <li className="flex gap-4 border-b border-black/10 pb-4">
                 <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe text-[15px]">Extensive professional vanity kit included.</span>
+                <span className="font-sans font-light text-gray-600 text-[15px]">Extensive professional vanity kit included.</span>
               </li>
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
+              <li className="flex gap-4 border-b border-black/10 pb-4">
                 <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe text-[15px]">Professional studio photoshoot days.</span>
+                <span className="font-sans font-light text-gray-600 text-[15px]">Professional studio photoshoot days.</span>
               </li>
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
+              <li className="flex gap-4 border-b border-black/10 pb-4">
                 <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe text-[15px]">Lifetime alumni support group.</span>
+                <span className="font-sans font-light text-gray-600 text-[15px]">Lifetime alumni support group.</span>
               </li>
             </ul>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="aspect-[4/5] bg-sand overflow-hidden">
+            <div className="aspect-[4/5] bg-gray-50 overflow-hidden">
                <img src={TRADITIONAL[1].url} alt="Bridal final look" className="w-full h-full object-cover" />
             </div>
           </Reveal>

@@ -4,14 +4,18 @@ import { gsap } from 'gsap';
 import './Masonry.css';
 
 const useMedia = (queries, values, defaultValue) => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+  const get = () => {
+    if (typeof window === 'undefined') return defaultValue;
+    return values[queries.findIndex(q => window.matchMedia(q).matches)] ?? defaultValue;
+  };
 
   const [value, setValue] = useState(get);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handler = () => setValue(get);
-    queries.forEach(q => matchMedia(q).addEventListener('change', handler));
-    return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
+    queries.forEach(q => window.matchMedia(q).addEventListener('change', handler));
+    return () => queries.forEach(q => window.matchMedia(q).removeEventListener('change', handler));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queries]);
 

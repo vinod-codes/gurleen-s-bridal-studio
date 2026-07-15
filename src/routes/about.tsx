@@ -95,17 +95,17 @@ function AboutPage() {
   }, { scope: container });
 
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="eyebrow">The Artist Behind the Look</p>
-          <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Artist Behind the Look</p>
+          <h1 className="font-display text-black text-5xl md:text-7xl mt-4 leading-[1.03]">
             Bridal Makeup Artist<br />based in Mumbai.
           </h1>
-          <div className="hairline w-32 mx-auto mt-10" />
-          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
+          <div className="border-t border-black/10 w-32 mx-auto mt-10" />
+          <p className="font-sans font-light text-gray-600 mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
             Gurleen Kaur Pannu is a Mumbai-based luxury bridal makeup artist with 8+ years of experience across Indian weddings, destination brides and editorial shoots.
           </p>
         </div>
@@ -114,20 +114,20 @@ function AboutPage() {
       <section ref={container} className="pb-24 md:pb-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <Reveal className="md:col-span-5 relative">
-            <div className="relative aspect-[3/4] overflow-hidden bg-sand">
+            <div className="relative aspect-[3/4] overflow-hidden bg-gray-50">
               <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="parallax-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
             </div>
-            <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
+            <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-gray-50 hidden md:block shadow-2xl">
               <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="parallax-img-sub w-full h-[130%] object-cover -top-[15%] relative" loading="lazy" />
             </div>
           </Reveal>
           <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
-            <p className="eyebrow">Her philosophy</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.05]">
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Her philosophy</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.05] text-black">
               Skin-first.<br />Always luminous.
             </h2>
-            <div className="hairline w-24 my-8" />
-            <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
+            <div className="border-t border-black/10 w-24 my-8" />
+            <div className="space-y-5 text-[17px] font-sans font-light text-gray-600 leading-relaxed max-w-xl">
               <p>
                 With 8+ years of luxury bridal experience across Mumbai, Gurleen Kaur Pannu has developed a signature that is deliberately understated: skin-first prep, a curated palette, and a finish that reads honest in every photograph.
               </p>
@@ -139,25 +139,25 @@ function AboutPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-10">
-              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Enquire on WhatsApp</a>
-              <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost">@gurleenkaurpannu_mua</a>
+              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
+              <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-4 font-sans text-[12px] font-medium tracking-[0.2em] uppercase text-gray-600 hover:text-black transition-colors border border-transparent hover:border-black">@gurleenkaurpannu_mua</a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-sand py-24 md:py-32">
+      <section className="bg-gray-50 py-24 md:py-32 border-t border-black/5">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="text-center max-w-2xl mx-auto mb-14">
-            <p className="eyebrow">Philosophy</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4">What makes the work different.</h2>
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Philosophy</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-black">What makes the work different.</h2>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {PILLARS.map((p, i) => (
               <Reveal key={p.t} delay={i * 0.08}>
                 <div className="border-t border-gold/40 pt-6">
-                  <h3 className="font-display text-2xl">{p.t}</h3>
-                  <p className="text-taupe mt-3 leading-relaxed text-[15px]">{p.d}</p>
+                  <h3 className="font-display text-2xl text-black">{p.t}</h3>
+                  <p className="font-sans font-light text-gray-600 mt-3 leading-relaxed text-[15px]">{p.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -165,18 +165,18 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-ivory py-24 md:py-32">
+      <section className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <Reveal className="text-center mb-14">
-            <p className="eyebrow">The Journey</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4">How 8 years become a studio.</h2>
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Journey</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-black">How 8 years become a studio.</h2>
           </Reveal>
           <ol className="space-y-10">
             {CHAPTERS.map((c, i) => (
               <Reveal key={c.y} delay={i * 0.06}>
-                <li className="grid md:grid-cols-12 gap-6 border-t border-ink/10 pt-8">
-                  <p className="md:col-span-4 font-display italic text-2xl text-wine">{c.y}</p>
-                  <p className="md:col-span-8 text-taupe text-[17px] leading-relaxed">{c.d}</p>
+                <li className="grid md:grid-cols-12 gap-6 border-t border-black/10 pt-8">
+                  <p className="md:col-span-4 font-display italic text-2xl text-gold">{c.y}</p>
+                  <p className="md:col-span-8 font-sans font-light text-gray-600 text-[17px] leading-relaxed">{c.d}</p>
                 </li>
               </Reveal>
             ))}
@@ -184,15 +184,15 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-ink text-ivory py-24 md:py-32">
+      <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="eyebrow !text-gold">Work with Gurleen</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-ivory">
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Work with Gurleen</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-white">
               Every bride deserves a personal artist.
             </h2>
-            <div className="hairline w-24 mx-auto my-10" />
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">
+            <div className="border-t border-white/20 w-24 mx-auto my-10" />
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">
               Enquire on WhatsApp
             </a>
           </Reveal>

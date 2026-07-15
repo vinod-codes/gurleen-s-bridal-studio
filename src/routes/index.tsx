@@ -166,147 +166,48 @@ function Hero() {
   }, { scope: container });
 
   return (
-<<<<<<< HEAD
-    <section ref={container} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image — face is right-side, keep right clear */}
-=======
-    <section ref={container} className="relative min-h-screen flex items-end overflow-hidden bg-ink">
-      {/* Background — grayscale, high-contrast, 60% opacity */}
->>>>>>> b39d0b645cf11b186ca3ff65c32392898490d896
+    <section ref={container} className="relative min-h-screen flex items-center overflow-hidden bg-white">
+      {/* Background — high quality full-width image, clean, bright */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={HERO}
           alt="Luxury Bridal Makeup"
           fetchPriority="high"
-<<<<<<< HEAD
-          style={{ objectPosition: '73% 0%' }}
+          style={{
+            objectPosition: 'center 20%',
+            filter: "brightness(1.05) contrast(1.02)",
+            opacity: 1,
+          }}
           className="hero-bg w-full h-full object-cover"
         />
-        {/* Gradient: strong on left where text sits, fades to transparent on right so face shows */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-transparent pointer-events-none" />
-        {/* Subtle top vignette for nav readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-transparent pointer-events-none" />
+        {/* Subtle vignette to make text legible without washing out the image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/20 pointer-events-none" />
       </div>
 
-      {/* Text — anchored left, constrained, clears the nav */}
-      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 pt-32 pb-16 pointer-events-none">
-        <div className="max-w-lg md:max-w-2xl mt-12 md:mt-24">
-          <p className="hero-eyebrow font-sans text-[11px] font-bold tracking-[0.25em] uppercase text-gold opacity-0 mb-6">
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-32 pb-16 pointer-events-none">
+        <div className="max-w-xl md:max-w-2xl mt-12 md:mt-24">
+          <p className="hero-eyebrow font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-800 opacity-0 mb-6">
             MUMBAI · DESTINATION WEDDINGS
           </p>
           
-          <h1 className="hero-title font-display text-ivory text-5xl sm:text-6xl md:text-[80px] lg:text-[88px] leading-[1.05] tracking-tight opacity-0">
-            Luxury Bridal<br />Makeup Artist.
+          <h1 className="hero-title font-display text-black text-5xl sm:text-6xl md:text-[80px] lg:text-[90px] leading-[1.05] tracking-wide opacity-0">
+            Bridal,<br />Refined.
           </h1>
           
-          <div className="hero-divider opacity-0 my-10">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gold/80" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="currentColor"/>
-            </svg>
-          </div>
+          <div className="hero-divider opacity-0 my-10 border-l border-gold h-12 ml-2" />
           
-          <p className="hero-subtitle font-sans font-light text-ivory/80 text-lg md:text-[20px] leading-relaxed opacity-0 max-w-md">
+          <p className="hero-subtitle font-sans font-light text-gray-800 text-lg md:text-[18px] leading-relaxed opacity-0 max-w-md">
             Flawless, luminous, and camera-honest artistry for the modern bride. Experience elevated beauty for your most photographed day.
           </p>
           
           <div className="hero-cta mt-12 pointer-events-auto opacity-0">
-            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-6 py-4 text-[11px] font-bold tracking-[0.15em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-ink transition-colors">
-              ENQUIRE FOR YOUR DATE
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-=======
-          style={{
-            objectPosition: `${posX}% ${posY}%`,
-            transform: `scale(${zoom})`,
-            filter: "grayscale(1) contrast(1.15) brightness(0.85)",
-            opacity: 0.6,
-          }}
-          className="hero-bg w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent pointer-events-none" />
-      </div>
-
-      {/* Top-right technical metadata */}
-      <div className="absolute top-24 right-6 md:right-10 z-10 text-right hero-eyebrow opacity-0">
-        <p className="mono text-[11px] tracking-[0.28em] uppercase" style={{ color: "#E3E2DE" }}>
-          IDX/04 — Bridal
-        </p>
-        <p className="mono text-[10px] tracking-[0.28em] uppercase mt-2" style={{ color: "#31EF07" }}>
-          ● Booking · 25/26
-        </p>
-      </div>
-
-      {/* Hidden dev picker preserved */}
-      <div className="hidden">
-        <select value={heroImg} onChange={(e) => setHeroImg(e.target.value)}>
-          {allImages.map((img, i) => (<option key={i} value={img.url}>{img.label}</option>))}
-        </select>
-        <input type="range" value={zoom} onChange={(e) => setZoom(parseFloat(e.target.value))} />
-        <input type="range" value={posX} onChange={(e) => setPosX(parseInt(e.target.value))} />
-        <input type="range" value={posY} onChange={(e) => setPosY(parseInt(e.target.value))} />
-      </div>
-
-      {/* Bottom content — split-indented headline */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-10 pb-12 md:pb-16">
-        {/* Thin top hairline + technical row */}
-        <div className="border-t pt-5 flex flex-wrap items-end justify-between gap-4" style={{ borderColor: "rgba(227,226,222,0.6)" }}>
-          <div className="hero-eyebrow opacity-0">
-            <p className="mono text-[11px] tracking-[0.32em] uppercase" style={{ color: "#E3E2DE" }}>
-              Season 04 / Bridal · Editorial · Academy
-            </p>
-            <p className="mono text-[10px] tracking-[0.28em] uppercase mt-1" style={{ color: "rgba(227,226,222,0.65)" }}>
-              Mumbai — Available Worldwide
-            </p>
-          </div>
-          <div className="hero-cta opacity-0">
-            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine">
-              Book a Trial →
->>>>>>> b39d0b645cf11b186ca3ff65c32392898490d896
+            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black transition-colors border border-black hover:border-black">
+              Enquire For Your Date
             </a>
           </div>
-
-          <div className="hero-featured mt-24 opacity-0">
-            <p className="text-[9px] font-bold tracking-[0.25em] uppercase text-ivory/50 mb-5">FEATURED IN</p>
-            <div className="flex gap-8 items-center text-ivory/90">
-               <span className="font-display text-2xl tracking-widest">VOGUE</span>
-               <span className="font-display text-lg tracking-widest uppercase flex flex-col items-center leading-none">
-                 <span className="text-xl">WEDDINGS</span>
-                 <span className="text-[7px] tracking-[0.35em] mt-1.5 text-ivory/70">INDIA</span>
-               </span>
-               <span className="font-display text-xl tracking-widest uppercase flex flex-col items-center leading-none">
-                 <span>ELLE</span>
-                 <span className="text-[6.5px] tracking-[0.35em] mt-1.5 text-ivory/70">INDIA</span>
-               </span>
-               <span className="font-display text-xl tracking-widest uppercase">FEMINA</span>
-            </div>
-          </div>
         </div>
-
-        {/* Massive split-indented headline */}
-        <h1
-          className="hero-title font-display font-bold uppercase opacity-0"
-          style={{
-            color: "#E3E2DE",
-            fontSize: "clamp(3rem, 13.5vw, 15rem)",
-            lineHeight: 0.82,
-            letterSpacing: "-0.05em",
-            marginTop: "1rem",
-          }}
-        >
-          <span className="block">Bridal,</span>
-          <span
-            className="block"
-            style={{
-              paddingLeft: "20vw",
-              color: "#C72A09",
-            }}
-          >
-            Refined.
-          </span>
-        </h1>
-
-        <p className="hero-subtitle mono text-[12px] md:text-[13px] tracking-[0.24em] uppercase mt-6 max-w-md opacity-0" style={{ color: "rgba(227,226,222,0.8)" }}>
-          [ Camera-honest artistry — for the most photographed day of your life. ]
-        </p>
       </div>
     </section>
   );
@@ -352,19 +253,18 @@ function PortfolioPreview() {
   }, { scope: container });
 
   return (
-    <section id="portfolio" ref={container} className="bg-ivory overflow-hidden">
-      {/* Header — always visible, padding only on mobile */}
-      <div className="mx-auto max-w-7xl px-6 pt-24 pb-10 md:pt-32 md:pb-14">
-        <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <section ref={container} className="bg-white py-24 overflow-hidden">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <Reveal>
           <div>
-            <p className="eyebrow">The Portfolio</p>
-            <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl">
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Portfolio</p>
+            <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-2xl text-black">
               Brides, in their first frame.
             </h2>
           </div>
           <Link
             to="/portfolio"
-            className="text-sm tracking-[0.18em] uppercase text-ink hover:text-wine border-b border-gold/60 hover:border-wine pb-1 w-fit transition-colors"
+            className="mt-8 inline-block text-sm font-medium tracking-[0.18em] uppercase text-black border-b border-gold pb-1 hover:text-gold hover:border-black transition-colors"
           >
             View Full Gallery →
           </Link>
@@ -397,7 +297,7 @@ function PortfolioPreview() {
           {picks.map((img, i) => (
             <figure
               key={i}
-              className={`group relative overflow-hidden bg-sand shrink-0 ${
+              className={`group relative overflow-hidden bg-gray-50 shrink-0 ${
                 i % 2 === 0
                   ? "w-[450px] aspect-[4/5]"
                   : "w-[320px] aspect-[3/4] mt-20"
@@ -440,13 +340,13 @@ function Services() {
   }, { scope: container });
 
   return (
-    <section id="services" ref={container} className="bg-sand py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" ref={container} className="bg-gray-50 py-24 md:py-32">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10">
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
-          <p className="eyebrow">The Services</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4">Everything your wedding day needs.</h2>
-          <div className="hairline w-32 mx-auto mt-8" />
-          <p className="text-taupe mt-6 text-[16px] leading-relaxed">From the bridal trial to the last touch-up — every look is built personally by Gurleen.</p>
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Services</p>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 text-black">Everything your wedding day needs.</h2>
+          <div className="border-t border-gold w-16 mx-auto mt-8" />
+          <p className="font-sans font-light text-gray-600 mt-6 text-[16px] md:text-[18px] leading-relaxed">From the bridal trial to the last touch-up — every look is built personally by Gurleen.</p>
         </Reveal>
 
         <div className="services-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -456,24 +356,24 @@ function Services() {
               href={s.wa}
               target="_blank"
               rel="noreferrer"
-              className="service-card group block relative overflow-hidden bg-ink aspect-[4/5] opacity-0"
+              className="service-card group block relative overflow-hidden bg-white aspect-[4/5] opacity-0"
             >
               <img
                 src={s.img.url}
                 alt={s.img.alt}
                 loading="lazy"
-                className="w-full h-full object-cover opacity-90 transition-all duration-[1s] ease-out group-hover:scale-[1.04] group-hover:opacity-100"
+                className="w-full h-full object-cover transition-all duration-[1.5s] ease-out group-hover:scale-[1.05]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
-              <div className="absolute inset-0 p-7 flex flex-col justify-end text-ivory">
-                <h3 className="font-display text-2xl md:text-[28px] text-ivory leading-tight">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
+                <h3 className="font-display text-2xl md:text-[32px] text-white leading-tight">
                   {s.name}
                 </h3>
-                <p className="text-sm text-ivory/85 mt-3 max-w-[28ch] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <p className="font-sans font-light text-sm text-white/90 mt-4 max-w-[28ch] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                   {s.desc}
                 </p>
-                <span className="mt-5 text-[11px] tracking-[0.28em] uppercase text-gold inline-flex items-center gap-2">
-                  Enquire <span className="block w-6 h-px bg-gold transition-all group-hover:w-10" />
+                <span className="mt-6 text-[11px] font-medium tracking-[0.25em] uppercase text-gold inline-flex items-center gap-3">
+                  Enquire <span className="block w-8 h-px bg-gold transition-all group-hover:w-12" />
                 </span>
               </div>
             </a>
@@ -515,24 +415,24 @@ function About() {
   }, { scope: container });
 
   return (
-    <section id="about" ref={container} className="bg-ivory py-24 md:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+    <section id="about" ref={container} className="bg-white py-24 md:py-32 overflow-hidden">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10 grid md:grid-cols-12 gap-12 md:gap-20 items-center">
         <Reveal className="md:col-span-5 relative">
-          <div className="relative aspect-[3/4] overflow-hidden bg-sand">
+          <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
             <img src={FOUNDER.marble.url} alt={FOUNDER.marble.alt} className="about-img-main w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
           </div>
-          <div className="absolute -bottom-10 -right-6 w-2/3 aspect-[3/4] overflow-hidden bg-sand hidden md:block shadow-2xl">
+          <div className="absolute -bottom-12 -right-10 w-2/3 aspect-[3/4] overflow-hidden bg-gray-100 hidden md:block shadow-xl">
             <img src={FOUNDER.lipShot.url} alt={FOUNDER.lipShot.alt} className="about-img-sub w-full h-[120%] object-cover -top-[10%] relative" loading="lazy" />
           </div>
         </Reveal>
 
-        <Reveal delay={0.15} className="md:col-span-7 md:pl-10">
-          <p className="eyebrow">Meet Gurleen</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
+        <Reveal delay={0.15} className="md:col-span-7 md:pl-16">
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Meet Gurleen</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl mt-6 leading-[1.05] text-black">
             8+ years of bridal artistry.<br />Every bride, personally.
           </h2>
-          <div className="hairline w-24 my-8" />
-          <div className="space-y-5 text-[17px] text-taupe leading-relaxed max-w-xl">
+          <div className="border-t border-gold w-16 my-10" />
+          <div className="space-y-6 font-sans font-light text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-xl">
             <p>
               Gurleen Kaur Pannu is the founder of GKP Artistry & Makeovers — a Mumbai-based bridal makeup studio known for a soft, luminous approach that photographs honestly and lasts through every ceremony.
             </p>
@@ -540,9 +440,9 @@ function About() {
               Her work travels with her brides — across India and to destinations overseas — and her academy carries the same philosophy into the next generation of artists.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4 mt-10">
-            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Enquire on WhatsApp</a>
-            <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost">@gurleenkaurpannu_mua</a>
+          <div className="flex flex-wrap gap-4 mt-12">
+            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
+            <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost border border-black text-black hover:bg-black hover:text-white transition-colors">@gurleenkaurpannu_mua</a>
           </div>
         </Reveal>
       </div>
@@ -556,11 +456,11 @@ function GalleryFiltered() {
   const [active, setActive] = useState<typeof FILTERS[number]>("All");
   const filtered = active === "All" ? ALL_PORTFOLIO : ALL_PORTFOLIO.filter((i) => i.category === active);
   return (
-    <section id="gallery" className="bg-ivory py-24 md:py-32 border-t border-ink/5">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="gallery" className="bg-white py-24 md:py-32 border-t border-black/10">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10">
         <Reveal className="text-center mb-12">
-          <p className="eyebrow">The Gallery</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4">A closer look.</h2>
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Gallery</p>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 text-black">A closer look.</h2>
         </Reveal>
 
         <Reveal className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
@@ -568,10 +468,10 @@ function GalleryFiltered() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`px-5 py-2 text-[11px] tracking-[0.22em] uppercase border transition-all ${
+              className={`px-5 py-2 font-sans text-[11px] font-medium tracking-[0.22em] uppercase border transition-colors ${
                 active === f
-                  ? "bg-wine text-ivory border-wine"
-                  : "bg-transparent text-ink border-ink/20 hover:border-wine hover:text-wine"
+                  ? "bg-black text-white border-black"
+                  : "bg-transparent text-gray-600 border-gray-300 hover:border-black hover:text-black"
               }`}
             >
               {f}
@@ -579,7 +479,7 @@ function GalleryFiltered() {
           ))}
         </Reveal>
 
-        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {filtered.map((img, i) => (
             <motion.figure
               key={img.url + i}
@@ -587,15 +487,15 @@ function GalleryFiltered() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: (i % 6) * 0.05 }}
-              className="group relative overflow-hidden bg-sand aspect-[3/4]"
+              className="group relative overflow-hidden bg-gray-50 aspect-[3/4]"
             >
               <img
                 src={img.url}
                 alt={img.alt}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04]"
               />
-              <figcaption className="absolute bottom-3 left-3 text-[10px] tracking-[0.24em] uppercase text-ivory bg-ink/50 px-2 py-1 backdrop-blur-sm">
+              <figcaption className="absolute bottom-4 left-4 text-[10px] tracking-[0.24em] uppercase text-white bg-black/60 px-3 py-1.5 backdrop-blur-sm">
                 {img.category}
               </figcaption>
             </motion.figure>
@@ -663,45 +563,45 @@ function Academy() {
   ];
 
   return (
-    <section id="academy" ref={container} className="bg-ink text-ivory py-24 md:py-32 relative">
-      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-16 lg:gap-10">
+    <section id="academy" ref={container} className="bg-black text-white py-24 md:py-32 relative">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10 grid lg:grid-cols-12 gap-16 lg:gap-16">
         <div className="lg:col-span-5 relative">
           <div className="academy-pin-content">
             <Reveal>
-              <p className="eyebrow !text-gold">The Academy</p>
-              <h2 className="font-display text-4xl md:text-6xl mt-4 text-ivory">
+              <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">The Academy</p>
+              <h2 className="font-display text-4xl md:text-6xl mt-4 text-white">
                 Become a bridal makeup artist.
               </h2>
-              <p className="text-ivory/70 mt-6 text-[17px] leading-relaxed max-w-md">
+              <p className="font-sans font-light text-white/70 mt-6 text-[16px] md:text-[18px] leading-relaxed max-w-md">
                 Three formats. One philosophy. Learn luxury bridal artistry, the business behind it, and the calm that defines a premium client experience — directly from Gurleen.
               </p>
-              <Link to="/academy" className="inline-block mt-10 text-sm tracking-[0.18em] uppercase text-ivory/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
+              <Link to="/academy" className="inline-block mt-10 text-sm font-medium tracking-[0.18em] uppercase text-white/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
                 See Full Curriculum →
               </Link>
             </Reveal>
           </div>
         </div>
 
-        <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-10">
+        <div className="lg:col-span-7 flex flex-col gap-8 lg:gap-10">
           {courses.map((c, i) => (
             <Reveal key={c.title} delay={0.1}>
-              <article className="relative h-full border border-ivory/15 bg-ink/40 hover:border-gold/60 transition-colors duration-500 p-8 md:p-10 flex flex-col">
+              <article className="relative h-full border border-white/10 bg-white/5 hover:border-gold transition-colors duration-500 p-8 md:p-12 flex flex-col">
                 <p className="text-[11px] tracking-[0.28em] uppercase text-gold">{c.kicker}</p>
-                <h3 className="font-display text-3xl md:text-[32px] text-ivory mt-3 leading-tight">
+                <h3 className="font-display text-3xl md:text-[36px] text-white mt-3 leading-tight">
                   {c.title}
                 </h3>
-                <p className="text-ivory/70 mt-4 text-[15px] leading-relaxed">{c.desc}</p>
+                <p className="font-sans font-light text-white/70 mt-4 text-[16px] leading-relaxed">{c.desc}</p>
 
                 {c.citySelect && (
-                  <div className="mt-6">
-                    <label className="text-[10px] tracking-[0.28em] uppercase text-ivory/60">Select city</label>
+                  <div className="mt-8">
+                    <label className="text-[10px] tracking-[0.28em] uppercase text-white/50">Select city</label>
                     <select
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="mt-2 w-full bg-transparent border-b border-ivory/30 focus:border-gold py-2 text-ivory text-sm tracking-wider outline-none"
+                      className="mt-2 w-full bg-transparent border-b border-white/20 focus:border-gold py-3 font-sans text-white text-sm tracking-widest outline-none uppercase"
                     >
                       {CITIES.map((cc) => (
-                        <option key={cc} value={cc} className="bg-ink">{cc}</option>
+                        <option key={cc} value={cc} className="bg-black text-white">{cc}</option>
                       ))}
                     </select>
                   </div>
@@ -709,7 +609,7 @@ function Academy() {
 
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="mt-7 flex items-center justify-between w-full text-left text-[11px] tracking-[0.28em] uppercase text-ivory/80 hover:text-gold transition-colors border-t border-ivory/15 pt-5"
+                  className="mt-8 flex items-center justify-between w-full text-left font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/80 hover:text-gold transition-colors border-t border-white/10 pt-6"
                 >
                   What You'll Learn
                   <span className={`transition-transform ${open === i ? "rotate-45" : ""}`}>+</span>
@@ -720,10 +620,10 @@ function Academy() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <ul className="mt-4 space-y-2 text-[14px] text-ivory/75">
+                  <ul className="mt-6 grid md:grid-cols-2 gap-y-3 gap-x-6 text-[14px] text-white/75 font-sans font-light">
                     {c.topics.map((t) => (
                       <li key={t} className="flex gap-3">
-                        <span className="text-gold mt-1.5 block w-3 h-px bg-gold" />
+                        <span className="text-gold mt-2 block w-3 h-[1px] bg-gold" />
                         {t}
                       </li>
                     ))}
@@ -734,10 +634,10 @@ function Academy() {
                   href={c.cta.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 inline-flex items-center gap-3 text-sm tracking-[0.18em] uppercase text-gold hover:text-ivory transition-colors group/cta"
+                  className="mt-10 inline-flex items-center gap-3 text-sm tracking-[0.18em] uppercase text-gold hover:text-white transition-colors group/cta"
                 >
                   {c.cta.label}
-                  <span className="block w-8 h-px bg-gold transition-all group-hover/cta:w-14" />
+                  <span className="block w-8 h-[1px] bg-gold transition-all group-hover/cta:w-14 group-hover/cta:bg-white" />
                 </a>
               </article>
             </Reveal>
@@ -754,30 +654,30 @@ function Academy() {
 function InstagramCallout() {
   const tiles = [TRADITIONAL[5], TRADITIONAL[2], ENGAGEMENT, DESTINATION, WESTERN[1], TRADITIONAL[8]];
   return (
-    <section className="bg-sand py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <section className="bg-gray-50 py-24 md:py-32 border-t border-black/10">
+      <div className="mx-auto max-w-screen-2xl px-6 md:px-10 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
         <Reveal>
-          <p className="eyebrow">On Instagram</p>
-          <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight">
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">On Instagram</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-black">
             See the work.
           </h2>
-          <p className="text-taupe mt-6 text-[17px] leading-relaxed max-w-md">
+          <p className="font-sans font-light text-gray-600 mt-6 text-[16px] md:text-[18px] leading-relaxed max-w-md">
             Real brides, real weddings — Mumbai and beyond. Behind-the-scenes of a working bridal makeup studio, shared daily on Instagram.
           </p>
           <a
             href={IG_BUSINESS}
             target="_blank"
             rel="noreferrer"
-            className="btn-wine mt-8"
+            className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors mt-10"
           >
             @gurleenkaurpannu_mua
           </a>
         </Reveal>
 
-        <Reveal delay={0.15} className="grid grid-cols-3 gap-2 md:gap-3">
+        <Reveal delay={0.15} className="grid grid-cols-3 gap-3 md:gap-4">
           {tiles.map((t, i) => (
-            <a key={i} href={IG_BUSINESS} target="_blank" rel="noreferrer" className="group block aspect-square overflow-hidden bg-ivory">
-              <img src={t.url} alt={t.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+            <a key={i} href={IG_BUSINESS} target="_blank" rel="noreferrer" className="group block aspect-square overflow-hidden bg-white shadow-sm">
+              <img src={t.url} alt={t.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.06]" />
             </a>
           ))}
         </Reveal>
@@ -789,22 +689,23 @@ function InstagramCallout() {
 /* -------- Final CTA -------- */
 function FinalCTA() {
   return (
-    <section className="relative bg-wine text-ivory py-24 md:py-36 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.08]">
-        <img src={TRADITIONAL[0].url} alt="" className="w-full h-full object-cover" />
+    <section className="relative bg-black text-white py-24 md:py-36 overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.2]">
+        <img src={TRADITIONAL[0].url} alt="" className="w-full h-full object-cover grayscale" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-screen-md px-6 text-center">
         <Reveal>
-          <p className="eyebrow !text-gold">Ready to Book</p>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl mt-5 text-ivory leading-[1.05]">
-            Book your bridal<br /><em className="text-gold/90">makeup artist.</em>
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Ready to Book</p>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-[80px] mt-6 text-white leading-[1.05]">
+            Book your bridal<br /><em className="text-gold italic">makeup artist.</em>
           </h2>
-          <div className="hairline w-24 mx-auto my-10" />
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">
+          <div className="border-t border-white/20 w-16 mx-auto my-12" />
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">
               Enquire on WhatsApp
             </a>
-            <a href={`tel:${PHONE}`} className="inline-flex items-center px-6 py-4 text-sm tracking-[0.18em] uppercase text-ivory/90 hover:text-gold transition-colors">
+            <a href={`tel:${PHONE}`} className="inline-flex items-center px-6 py-4 font-sans text-[12px] font-medium tracking-[0.2em] uppercase text-white/90 hover:text-gold transition-colors border border-transparent hover:border-gold">
               Call {PHONE_DISPLAY}
             </a>
           </div>

@@ -36,8 +36,8 @@ export type BridalImage = {
 };
 
 // ── Hero image ─────────────────────────────────────────────────────────────────
-// The stunning red bridal at terracotta arches — high contrast, editorial feel
-export const HERO = img645461.url;
+// Founder (Gurleen) in white lace dress — matches the new white/luxurious aesthetic
+export const HERO = img474873.url;
 
 // ── Traditional / Bridal ───────────────────────────────────────────────────────
 export const TRADITIONAL: BridalImage[] = [
