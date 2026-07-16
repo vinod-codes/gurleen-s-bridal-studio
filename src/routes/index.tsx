@@ -28,13 +28,13 @@ if (typeof window !== "undefined") {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bridal Makeup Artist Mumbai — GKP Artistry & Makeovers | Book Your Date" },
+      { title: "Bridal Makeup Artist Mumbai — Gurleen Kaur Pannu Artistry & Makeovers | Book Your Date" },
       {
         name: "description",
         content:
-          "GKP Artistry & Makeovers — Mumbai's trusted luxury bridal makeup artist. Soft, luminous, camera-honest looks for Indian weddings, destination brides & editorial shoots. Book your trial today.",
+          "Gurleen Kaur Pannu Artistry & Makeovers — Mumbai's trusted luxury bridal makeup artist. Soft, luminous, camera-honest looks for Indian weddings, destination brides & editorial shoots. Book your trial today.",
       },
-      { property: "og:title", content: "Bridal Makeup Artist Mumbai — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Bridal Makeup Artist Mumbai — Gurleen Kaur Pannu Artistry & Makeovers" },
       {
         property: "og:description",
         content: "Luxury bridal makeup artist based in Mumbai. Serving weddings across India and worldwide. Enquire for your date.",
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BeautySalon",
-          name: "GKP Artistry & Makeovers",
+          name: "Gurleen Kaur Pannu Artistry & Makeovers",
           url: "https://gkpartistry.com",
           image: HERO,
           description:
@@ -91,7 +91,7 @@ const SERVICES = [
 
 function Home() {
   return (
-    <div className="bg-ivory text-ink overflow-x-hidden">
+    <div className="bg-white text-black overflow-x-hidden">
       <Nav />
       <Hero />
       <PortfolioPreview />
@@ -166,29 +166,30 @@ function Hero() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative min-h-screen flex items-center overflow-hidden bg-white">
-      {/* Background — high quality full-width image, clean, bright */}
+    <section ref={container} className="relative min-h-screen flex flex-col overflow-hidden bg-white">
+      {/* Background image */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={HERO}
           alt="Luxury Bridal Makeup"
           fetchPriority="high"
           style={{
-            objectPosition: 'center 20%',
             filter: "brightness(1.05) contrast(1.02)",
-            opacity: 1,
           }}
-          className="hero-bg w-full h-full object-cover"
+          className="hero-bg w-full h-full object-cover object-[center_15%] md:object-[75%_15%]"
         />
-        {/* Subtle vignette to make text legible without washing out the image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/10 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/20 pointer-events-none" />
+        {/* Left-side fade so text stays legible on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/20 to-transparent pointer-events-none" />
+        {/* Top fade — gives the transparent nav a clean white area on desktop */}
+        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/90 via-white/30 to-transparent pointer-events-none hidden md:block" />
+        {/* Bottom fade so text stays legible on mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-white/95 via-white/50 to-transparent pointer-events-none md:hidden" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-32 pb-16 pointer-events-none">
-        <div className="max-w-xl md:max-w-2xl mt-12 md:mt-24">
-          <p className="hero-eyebrow font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-800 opacity-0 mb-6">
+      {/* Content — pushed to the bottom on mobile, centered on desktop */}
+      <div className="relative z-10 flex-1 flex flex-col justify-end md:justify-center w-full max-w-screen-2xl mx-auto px-6 md:px-10 pb-16 md:pb-0 md:py-32">
+        <div className="max-w-xl md:max-w-2xl">
+          <p className="hero-eyebrow font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-700 opacity-0 mb-6">
             MUMBAI · DESTINATION WEDDINGS
           </p>
           
@@ -196,14 +197,14 @@ function Hero() {
             Bridal,<br />Refined.
           </h1>
           
-          <div className="hero-divider opacity-0 my-10 border-l border-gold h-12 ml-2" />
+          <div className="hero-divider opacity-0 my-8 md:my-10 border-l border-black h-10 ml-2" />
           
-          <p className="hero-subtitle font-sans font-light text-gray-800 text-lg md:text-[18px] leading-relaxed opacity-0 max-w-md">
+          <p className="hero-subtitle font-sans font-light text-gray-800 text-base md:text-[18px] leading-relaxed opacity-0 max-w-sm md:max-w-md">
             Flawless, luminous, and camera-honest artistry for the modern bride. Experience elevated beauty for your most photographed day.
           </p>
           
-          <div className="hero-cta mt-12 pointer-events-auto opacity-0">
-            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black transition-colors border border-black hover:border-black">
+          <div className="hero-cta mt-10 pointer-events-auto opacity-0">
+            <a href={WA.bridal} target="_blank" rel="noopener noreferrer" className="btn-dark">
               Enquire For Your Date
             </a>
           </div>
@@ -264,7 +265,7 @@ function PortfolioPreview() {
           </div>
           <Link
             to="/portfolio"
-            className="mt-8 inline-block text-sm font-medium tracking-[0.18em] uppercase text-black border-b border-gold pb-1 hover:text-gold hover:border-black transition-colors"
+            className="mt-8 inline-block text-sm font-medium tracking-[0.18em] uppercase text-black border-b border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors"
           >
             View Full Gallery →
           </Link>
@@ -345,7 +346,7 @@ function Services() {
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">The Services</p>
           <h2 className="font-display text-4xl md:text-6xl mt-4 text-black">Everything your wedding day needs.</h2>
-          <div className="border-t border-gold w-16 mx-auto mt-8" />
+          <div className="border-t border-black w-16 mx-auto mt-8" />
           <p className="font-sans font-light text-gray-600 mt-6 text-[16px] md:text-[18px] leading-relaxed">From the bridal trial to the last touch-up — every look is built personally by Gurleen.</p>
         </Reveal>
 
@@ -372,8 +373,8 @@ function Services() {
                 <p className="font-sans font-light text-sm text-white/90 mt-4 max-w-[28ch] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                   {s.desc}
                 </p>
-                <span className="mt-6 text-[11px] font-medium tracking-[0.25em] uppercase text-gold inline-flex items-center gap-3">
-                  Enquire <span className="block w-8 h-px bg-gold transition-all group-hover:w-12" />
+                <span className="mt-6 text-[11px] font-medium tracking-[0.25em] uppercase text-white/70 inline-flex items-center gap-3">
+                  Enquire <span className="block w-8 h-px bg-white/70 transition-all group-hover:w-12" />
                 </span>
               </div>
             </a>
@@ -431,17 +432,17 @@ function About() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-7xl mt-6 leading-[1.05] text-black">
             8+ years of bridal artistry.<br />Every bride, personally.
           </h2>
-          <div className="border-t border-gold w-16 my-10" />
+          <div className="border-t border-black w-16 my-10" />
           <div className="space-y-6 font-sans font-light text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-xl">
             <p>
-              Gurleen Kaur Pannu is the founder of GKP Artistry & Makeovers — a Mumbai-based bridal makeup studio known for a soft, luminous approach that photographs honestly and lasts through every ceremony.
+              Gurleen Kaur Pannu is the founder of Gurleen Kaur Pannu Artistry & Makeovers — a Mumbai-based bridal makeup studio known for a soft, luminous approach that photographs honestly and lasts through every ceremony.
             </p>
             <p>
               Her work travels with her brides — across India and to destinations overseas — and her academy carries the same philosophy into the next generation of artists.
             </p>
           </div>
           <div className="flex flex-wrap gap-4 mt-12">
-            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
+            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
             <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="btn-ghost border border-black text-black hover:bg-black hover:text-white transition-colors">@gurleenkaurpannu_mua</a>
           </div>
         </Reveal>
@@ -568,14 +569,14 @@ function Academy() {
         <div className="lg:col-span-5 relative">
           <div className="academy-pin-content">
             <Reveal>
-              <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">The Academy</p>
+              <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/70">The Academy</p>
               <h2 className="font-display text-4xl md:text-6xl mt-4 text-white">
                 Become a bridal makeup artist.
               </h2>
               <p className="font-sans font-light text-white/70 mt-6 text-[16px] md:text-[18px] leading-relaxed max-w-md">
                 Three formats. One philosophy. Learn luxury bridal artistry, the business behind it, and the calm that defines a premium client experience — directly from Gurleen.
               </p>
-              <Link to="/academy" className="inline-block mt-10 text-sm font-medium tracking-[0.18em] uppercase text-white/80 hover:text-gold border-b border-gold/40 pb-1 transition-colors">
+              <Link to="/academy" className="inline-block mt-10 text-sm font-medium tracking-[0.18em] uppercase text-white/80 hover:text-white border-b border-white/40 pb-1 transition-colors">
                 See Full Curriculum →
               </Link>
             </Reveal>
@@ -585,8 +586,8 @@ function Academy() {
         <div className="lg:col-span-7 flex flex-col gap-8 lg:gap-10">
           {courses.map((c, i) => (
             <Reveal key={c.title} delay={0.1}>
-              <article className="relative h-full border border-white/10 bg-white/5 hover:border-gold transition-colors duration-500 p-8 md:p-12 flex flex-col">
-                <p className="text-[11px] tracking-[0.28em] uppercase text-gold">{c.kicker}</p>
+              <article className="relative h-full border border-white/10 bg-white/5 hover:border-white transition-colors duration-500 p-8 md:p-12 flex flex-col">
+                <p className="text-[11px] tracking-[0.28em] uppercase text-white/70">{c.kicker}</p>
                 <h3 className="font-display text-3xl md:text-[36px] text-white mt-3 leading-tight">
                   {c.title}
                 </h3>
@@ -598,7 +599,7 @@ function Academy() {
                     <select
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="mt-2 w-full bg-transparent border-b border-white/20 focus:border-gold py-3 font-sans text-white text-sm tracking-widest outline-none uppercase"
+                      className="mt-2 w-full bg-transparent border-b border-white/20 focus:border-white py-3 font-sans text-white text-sm tracking-widest outline-none uppercase"
                     >
                       {CITIES.map((cc) => (
                         <option key={cc} value={cc} className="bg-black text-white">{cc}</option>
@@ -609,7 +610,7 @@ function Academy() {
 
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="mt-8 flex items-center justify-between w-full text-left font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/80 hover:text-gold transition-colors border-t border-white/10 pt-6"
+                  className="mt-8 flex items-center justify-between w-full text-left font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/80 hover:text-white transition-colors border-t border-white/10 pt-6"
                 >
                   What You'll Learn
                   <span className={`transition-transform ${open === i ? "rotate-45" : ""}`}>+</span>
@@ -623,7 +624,7 @@ function Academy() {
                   <ul className="mt-6 grid md:grid-cols-2 gap-y-3 gap-x-6 text-[14px] text-white/75 font-sans font-light">
                     {c.topics.map((t) => (
                       <li key={t} className="flex gap-3">
-                        <span className="text-gold mt-2 block w-3 h-[1px] bg-gold" />
+                        <span className="text-white mt-2 block w-3 h-[1px] bg-white" />
                         {t}
                       </li>
                     ))}
@@ -634,10 +635,10 @@ function Academy() {
                   href={c.cta.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-10 inline-flex items-center gap-3 text-sm tracking-[0.18em] uppercase text-gold hover:text-white transition-colors group/cta"
+                  className="mt-10 inline-flex items-center gap-3 text-sm tracking-[0.18em] uppercase text-white hover:text-gray-300 transition-colors group/cta"
                 >
                   {c.cta.label}
-                  <span className="block w-8 h-[1px] bg-gold transition-all group-hover/cta:w-14 group-hover/cta:bg-white" />
+                  <span className="block w-8 h-[1px] bg-white transition-all group-hover/cta:w-14 group-hover/cta:bg-gray-300" />
                 </a>
               </article>
             </Reveal>
@@ -668,7 +669,7 @@ function InstagramCallout() {
             href={IG_BUSINESS}
             target="_blank"
             rel="noreferrer"
-            className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors mt-10"
+            className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors mt-10"
           >
             @gurleenkaurpannu_mua
           </a>
@@ -696,16 +697,16 @@ function FinalCTA() {
       </div>
       <div className="relative z-10 mx-auto max-w-screen-md px-6 text-center">
         <Reveal>
-          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Ready to Book</p>
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/70">Ready to Book</p>
           <h2 className="font-display text-4xl md:text-6xl lg:text-[80px] mt-6 text-white leading-[1.05]">
-            Book your bridal<br /><em className="text-gold italic">makeup artist.</em>
+            Book your bridal<br /><em className="text-white/90 italic">makeup artist.</em>
           </h2>
           <div className="border-t border-white/20 w-16 mx-auto my-12" />
           <div className="flex flex-wrap justify-center gap-6">
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-dark bg-white text-black hover:bg-black hover:text-white hover:border-white transition-colors">
               Enquire on WhatsApp
             </a>
-            <a href={`tel:${PHONE}`} className="inline-flex items-center px-6 py-4 font-sans text-[12px] font-medium tracking-[0.2em] uppercase text-white/90 hover:text-gold transition-colors border border-transparent hover:border-gold">
+            <a href={`tel:${PHONE}`} className="inline-flex items-center px-6 py-4 font-sans text-[12px] font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors border border-transparent hover:border-white">
               Call {PHONE_DISPLAY}
             </a>
           </div>

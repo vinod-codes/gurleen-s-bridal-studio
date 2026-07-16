@@ -17,11 +17,11 @@ if (typeof window !== "undefined") {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Gurleen Kaur Pannu — Bridal Makeup Artist Mumbai | GKP Artistry" },
+      { title: "About Gurleen Kaur Pannu — Bridal Makeup Artist Mumbai | Gurleen Kaur Pannu Artistry" },
       {
         name: "description",
         content:
-          "Meet Gurleen — Mumbai-based luxury bridal makeup artist with 8+ years of experience. Founder of GKP Artistry & Makeovers and GKP Professional Makeup Academy.",
+          "Meet Gurleen — Mumbai-based luxury bridal makeup artist with 8+ years of experience. Founder of Gurleen Kaur Pannu Artistry & Makeovers and Gurleen Kaur Pannu Professional Makeup Academy.",
       },
       { property: "og:title", content: "About Gurleen Kaur Pannu — Bridal Makeup Artist Mumbai" },
       {
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/about")({
           jobTitle: "Luxury Bridal Makeup Artist & Educator",
           image: FOUNDER.marble.url,
           url: "https://gkpartistry.com/about",
-          worksFor: { "@type": "Organization", name: "GKP Artistry & Makeovers" },
+          worksFor: { "@type": "Organization", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
           address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
           knowsAbout: ["Bridal Makeup", "Indian Bridal Artistry", "Makeup Education", "Airbrush Makeup", "HD Makeup", "Bridal Hair Styling"],
           sameAs: [IG_BUSINESS],
@@ -132,14 +132,14 @@ function AboutPage() {
                 With 8+ years of luxury bridal experience across Mumbai, Gurleen Kaur Pannu has developed a signature that is deliberately understated: skin-first prep, a curated palette, and a finish that reads honest in every photograph.
               </p>
               <p>
-                She is the founder of GKP Artistry & Makeovers and the GKP Professional Makeup Academy — bringing the same philosophy of precision, calm and longevity to every bride and every student she works with.
+                She is the founder of Gurleen Kaur Pannu Artistry & Makeovers and the Gurleen Kaur Pannu Professional Makeup Academy — bringing the same philosophy of precision, calm and longevity to every bride and every student she works with.
               </p>
               <p>
                 Her bridal work spans traditional Indian ceremonies, destination weddings from Goa to Dubai, and editorial projects across the country.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-10">
-              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
+              <a href={WA.general} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Enquire on WhatsApp</a>
               <a href={IG_BUSINESS} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-4 font-sans text-[12px] font-medium tracking-[0.2em] uppercase text-gray-600 hover:text-black transition-colors border border-transparent hover:border-black">@gurleenkaurpannu_mua</a>
             </div>
           </Reveal>
@@ -155,7 +155,7 @@ function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {PILLARS.map((p, i) => (
               <Reveal key={p.t} delay={i * 0.08}>
-                <div className="border-t border-gold/40 pt-6">
+                <div className="border-t border-black/20 pt-6">
                   <h3 className="font-display text-2xl text-black">{p.t}</h3>
                   <p className="font-sans font-light text-gray-600 mt-3 leading-relaxed text-[15px]">{p.d}</p>
                 </div>
@@ -175,7 +175,7 @@ function AboutPage() {
             {CHAPTERS.map((c, i) => (
               <Reveal key={c.y} delay={i * 0.06}>
                 <li className="grid md:grid-cols-12 gap-6 border-t border-black/10 pt-8">
-                  <p className="md:col-span-4 font-display italic text-2xl text-gold">{c.y}</p>
+                  <p className="md:col-span-4 font-display italic text-2xl text-black">{c.y}</p>
                   <p className="md:col-span-8 font-sans font-light text-gray-600 text-[17px] leading-relaxed">{c.d}</p>
                 </li>
               </Reveal>
@@ -187,12 +187,12 @@ function AboutPage() {
       <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Work with Gurleen</p>
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-white/70">Work with Gurleen</p>
             <h2 className="font-display text-4xl md:text-5xl mt-4 leading-tight text-white">
               Every bride deserves a personal artist.
             </h2>
             <div className="border-t border-white/20 w-24 mx-auto my-10" />
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-dark bg-white text-black hover:bg-black hover:text-white hover:border-white transition-colors">
               Enquire on WhatsApp
             </a>
           </Reveal>

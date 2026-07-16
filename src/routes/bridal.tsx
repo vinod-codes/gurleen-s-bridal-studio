@@ -9,13 +9,13 @@ import { TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/bridal")({
   head: () => ({
     meta: [
-      { title: "Bridal Makeup — GKP Artistry & Makeovers, Mumbai" },
+      { title: "Bridal Makeup — Gurleen Kaur Pannu Artistry & Makeovers, Mumbai" },
       {
         name: "description",
         content:
-          "Signature bridal makeup by GKP Artistry & Makeovers — soft, luminous, camera-honest artistry for the most photographed day of your life. Mumbai and beyond.",
+          "Signature bridal makeup by Gurleen Kaur Pannu Artistry & Makeovers — soft, luminous, camera-honest artistry for the most photographed day of your life. Mumbai and beyond.",
       },
-      { property: "og:title", content: "Bridal Makeup — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Bridal Makeup — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Signature luxury bridal makeup in Mumbai." },
       { property: "og:url", content: "/bridal" },
       { property: "og:image", content: TRADITIONAL[0].url },
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/bridal")({
           "@type": "Service",
           name: "Signature Bridal Makeup",
           serviceType: "Bridal Makeup",
-          provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
+          provider: { "@type": "Person", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
           areaServed: ["Mumbai", "India", "Worldwide"],
           description:
             "Luxury bridal makeup — consultation, studio trial, full wedding-day artistry, hair styling, drape assistance and touch-ups.",
@@ -59,27 +59,27 @@ const JOURNEY = [
 
 function BridalPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
         <img src={TRADITIONAL[0].url} alt={TRADITIONAL[0].alt} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 pb-16 md:pb-24 w-full">
-          <p className="eyebrow !text-gold">Bridal Makeup</p>
-          <h1 className="font-display text-ivory text-5xl md:text-7xl mt-4 max-w-3xl leading-[1.03]">
+          <p className="eyebrow !text-white/70">Bridal Makeup</p>
+          <h1 className="font-display text-white text-5xl md:text-7xl mt-4 max-w-3xl leading-[1.03]">
             Skin that breathes.<br />A finish that lasts.
           </h1>
-          <p className="font-display italic text-ivory/90 text-lg md:text-2xl mt-6 max-w-2xl">
+          <p className="font-display italic text-white/90 text-lg md:text-2xl mt-6 max-w-2xl">
             Signature bridal artistry for the most photographed day of your life.
           </p>
           <div className="mt-8">
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine">Enquire Availability</a>
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">Enquire Availability</a>
           </div>
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="text-center mb-14 max-w-2xl mx-auto">
             <p className="eyebrow">What's included</p>
@@ -88,9 +88,9 @@ function BridalPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {INCLUDES.map((i, idx) => (
               <Reveal key={i.t} delay={(idx % 3) * 0.08}>
-                <div className="border-t border-gold/40 pt-6">
+                <div className="border-t border-black/20 pt-6">
                   <h3 className="font-display text-2xl">{i.t}</h3>
-                  <p className="text-taupe mt-3 leading-relaxed text-[15px]">{i.d}</p>
+                  <p className="text-gray-600 mt-3 leading-relaxed text-[15px]">{i.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -98,7 +98,7 @@ function BridalPage() {
         </div>
       </section>
 
-      <section className="bg-sand py-24 md:py-32">
+      <section className="bg-gray-50 py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="text-center mb-14 max-w-2xl mx-auto">
             <p className="eyebrow">The journey</p>
@@ -108,9 +108,9 @@ function BridalPage() {
             {JOURNEY.map((j, i) => (
               <Reveal key={j.y} delay={i * 0.08}>
                 <div>
-                  <p className="font-display italic text-3xl text-wine">{j.y}</p>
+                  <p className="font-display italic text-3xl text-black">{j.y}</p>
                   <h3 className="font-display text-xl mt-3">{j.t}</h3>
-                  <p className="text-taupe mt-2 text-[15px] leading-relaxed">{j.d}</p>
+                  <p className="text-gray-600 mt-2 text-[15px] leading-relaxed">{j.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -118,7 +118,7 @@ function BridalPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal className="text-center mb-12">
             <p className="eyebrow">The archive</p>
@@ -127,7 +127,7 @@ function BridalPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {TRADITIONAL.slice(0, 8).map((img, i) => (
               <Reveal key={img.url} delay={(i % 4) * 0.05}>
-                <figure className="group overflow-hidden aspect-[3/4] bg-sand">
+                <figure className="group overflow-hidden aspect-[3/4] bg-gray-50">
                   <img src={img.url} alt={img.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.04]" />
                 </figure>
               </Reveal>
@@ -136,11 +136,11 @@ function BridalPage() {
         </div>
       </section>
 
-      <section className="bg-ink text-ivory py-24 md:py-32">
+      <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="eyebrow !text-gold">Reserve your date</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 text-ivory">Every bride, personally.</h2>
+            <p className="eyebrow !text-white/70">Reserve your date</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-white">Every bride, personally.</h2>
             <div className="hairline w-24 mx-auto my-10" />
             <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">WhatsApp for Availability</a>
           </Reveal>

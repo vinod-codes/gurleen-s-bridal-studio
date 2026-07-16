@@ -9,13 +9,13 @@ import { TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — GKP Artistry & Makeovers" },
+      { title: "Testimonials — Gurleen Kaur Pannu Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Words from brides and clients who trusted GKP Artistry & Makeovers with their wedding day and editorial work.",
+          "Words from brides and clients who trusted Gurleen Kaur Pannu Artistry & Makeovers with their wedding day and editorial work.",
       },
-      { property: "og:title", content: "Testimonials — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Testimonials — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Words from brides and clients." },
       { property: "og:url", content: "/testimonials" },
       { property: "og:image", content: TRADITIONAL[1].url },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/testimonials")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "GKP Artistry & Makeovers",
+          name: "Gurleen Kaur Pannu Artistry & Makeovers",
           description: "Luxury bridal makeup artist and professional makeup academy in Mumbai.",
           url: "https://www.instagram.com/gurleenkaurpannu_mua",
           aggregateRating: {
@@ -102,10 +102,10 @@ const QUOTES = [
 
 function TestimonialsPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="eyebrow">Kind Words</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">Testimonials.</h1>
@@ -120,12 +120,12 @@ function TestimonialsPage() {
         <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-6 md:gap-8">
           {QUOTES.map((t, i) => (
             <Reveal key={t.who} delay={(i % 2) * 0.08}>
-              <figure className="bg-sand/60 border border-ink/10 p-8 md:p-10 h-full flex flex-col">
+              <figure className="bg-gray-50/60 border border-black/10 p-8 md:p-10 h-full flex flex-col">
                 <span className="font-display italic text-6xl text-wine/40 leading-none">"</span>
-                <blockquote className="font-display italic text-2xl md:text-[26px] leading-[1.35] text-ink mt-2">
+                <blockquote className="font-display italic text-2xl md:text-[26px] leading-[1.35] text-black mt-2">
                   {t.q}
                 </blockquote>
-                <figcaption className="mt-8 pt-6 border-t border-gold/40">
+                <figcaption className="mt-8 pt-6 border-t border-gray-300/40">
                   <p className="font-display text-lg">{t.who}</p>
                   <p className="text-[11px] tracking-[0.28em] uppercase text-taupe mt-1">{t.where}</p>
                 </figcaption>
@@ -135,11 +135,11 @@ function TestimonialsPage() {
         </div>
       </section>
 
-      <section className="bg-ink text-ivory py-24 md:py-32">
+      <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="eyebrow !text-gold">Your day, next</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 text-ivory">Reserve a date.</h2>
+            <p className="eyebrow !text-gray-500">Your day, next</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-white">Reserve a date.</h2>
             <div className="hairline w-24 mx-auto my-10" />
             <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-ghost-light">Enquire on WhatsApp</a>
           </Reveal>

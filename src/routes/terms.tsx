@@ -6,13 +6,13 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — GKP Artistry & Makeovers" },
+      { title: "Terms & Conditions — Gurleen Kaur Pannu Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Terms governing bookings, retainers, cancellations, travel and use of the GKP Artistry & Makeovers website and services.",
+          "Terms governing bookings, retainers, cancellations, travel and use of the Gurleen Kaur Pannu Artistry & Makeovers website and services.",
       },
-      { property: "og:title", content: "Terms & Conditions — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Terms & Conditions — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Booking, retainer, cancellation and website terms." },
       { property: "og:url", content: "/terms" },
     ],
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/terms")({
 
 function TermsPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="eyebrow">Legal</p>
           <h1 className="font-display text-5xl md:text-6xl mt-4 leading-[1.05]">Terms &amp; Conditions.</h1>
@@ -39,7 +39,7 @@ function TermsPage() {
         <div className="mx-auto max-w-3xl px-6 space-y-10 text-[16px] text-taupe leading-relaxed">
           <Block title="1. Scope">
             These terms govern your use of this website and the services offered by
-            GKP Artistry & Makeovers ("the artist"). Using the site or engaging our services
+            Gurleen Kaur Pannu Artistry & Makeovers ("the artist"). Using the site or engaging our services
             constitutes acceptance of these terms.
           </Block>
           <Block title="2. Bookings & retainers">
@@ -75,7 +75,7 @@ function TermsPage() {
           </Block>
           <Block title="8. Intellectual property">
             All content on this website — text, images, photography, and design — is the
-            property of GKP Artistry & Makeovers or licensed to us, and may not be reproduced
+            property of Gurleen Kaur Pannu Artistry & Makeovers or licensed to us, and may not be reproduced
             without written permission.
           </Block>
           <Block title="9. Liability">
@@ -99,7 +99,7 @@ function TermsPage() {
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="font-display text-2xl text-ink">{title}</h2>
+      <h2 className="font-display text-2xl text-black">{title}</h2>
       <div className="hairline w-16 my-4" />
       <div className="text-taupe">{children}</div>
     </div>

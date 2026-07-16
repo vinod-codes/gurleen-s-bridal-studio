@@ -10,10 +10,10 @@ import { WA } from "@/lib/whatsapp";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — GKP Artistry & Makeovers" },
-      { name: "description", content: "A curated portfolio of bridal, destination, engagement, reception, editorial and western bridal work by GKP Artistry & Makeovers." },
-      { property: "og:title", content: "Portfolio — GKP Artistry & Makeovers" },
-      { property: "og:description", content: "Full bridal portfolio of Mumbai luxury makeup artist GKP Artistry & Makeovers." },
+      { title: "Portfolio — Gurleen Kaur Pannu Artistry & Makeovers" },
+      { name: "description", content: "A curated portfolio of bridal, destination, engagement, reception, editorial and western bridal work by Gurleen Kaur Pannu Artistry & Makeovers." },
+      { property: "og:title", content: "Portfolio — Gurleen Kaur Pannu Artistry & Makeovers" },
+      { property: "og:description", content: "Full bridal portfolio of Mumbai luxury makeup artist Gurleen Kaur Pannu Artistry & Makeovers." },
       { property: "og:url", content: "/portfolio" },
       { property: "og:image", content: ALL_PORTFOLIO[0].url },
       { name: "twitter:image", content: ALL_PORTFOLIO[0].url },
@@ -25,8 +25,8 @@ export const Route = createFileRoute("/portfolio")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Bridal Portfolio — GKP Artistry & Makeovers",
-          author: { "@type": "Person", name: "GKP Artistry & Makeovers" },
+          name: "Bridal Portfolio — Gurleen Kaur Pannu Artistry & Makeovers",
+          author: { "@type": "Person", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
           image: ALL_PORTFOLIO.slice(0, 12).map((i) => i.url),
         }),
       },
@@ -41,9 +41,9 @@ function PortfolioPage() {
   const [active, setActive] = useState<typeof FILTERS[number]>("All");
   const items = active === "All" ? ALL_PORTFOLIO : ALL_PORTFOLIO.filter((i) => i.category === active);
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <p className="eyebrow">The Portfolio</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-[1.03]">
@@ -62,8 +62,8 @@ function PortfolioPage() {
                 onClick={() => setActive(f)}
                 className={`px-5 py-2 text-[11px] tracking-[0.22em] uppercase border transition-all ${
                   active === f
-                    ? "bg-wine text-ivory border-wine"
-                    : "bg-transparent text-ink border-ink/20 hover:border-wine hover:text-wine"
+                    ? "bg-black text-white border-black"
+                    : "bg-transparent text-black border-black/20 hover:border-black hover:text-wine"
                 }`}
               >
                 {f}
@@ -79,7 +79,7 @@ function PortfolioPage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: (i % 6) * 0.05 }}
-                className="group relative overflow-hidden bg-sand aspect-[3/4]"
+                className="group relative overflow-hidden bg-gray-50 aspect-[3/4]"
               >
                 <img
                   src={img.url}
@@ -87,7 +87,7 @@ function PortfolioPage() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
                 />
-                <figcaption className="absolute bottom-3 left-3 text-[10px] tracking-[0.24em] uppercase text-ivory bg-ink/50 px-2 py-1 backdrop-blur-sm">
+                <figcaption className="absolute bottom-3 left-3 text-[10px] tracking-[0.24em] uppercase text-white bg-black/50 px-2 py-1 backdrop-blur-sm">
                   {img.category}
                 </figcaption>
               </motion.figure>
@@ -95,7 +95,7 @@ function PortfolioPage() {
           </motion.div>
 
           <div className="text-center mt-20">
-            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-wine">
+            <a href={WA.bridal} target="_blank" rel="noreferrer" className="btn-dark">
               Book Your Bridal Makeup
             </a>
           </div>

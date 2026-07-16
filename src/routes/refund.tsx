@@ -5,9 +5,9 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/refund")({
   head: () => ({
     meta: [
-      { title: "Refund Policy — GKP Artistry & Makeovers" },
-      { name: "description", content: "Refund and cancellation policy for GKP Artistry & Makeovers Bridal Makeup and Academy bookings." },
-      { property: "og:title", content: "Refund Policy — GKP Artistry & Makeovers" },
+      { title: "Refund Policy — Gurleen Kaur Pannu Artistry & Makeovers" },
+      { name: "description", content: "Refund and cancellation policy for Gurleen Kaur Pannu Artistry & Makeovers Bridal Makeup and Academy bookings." },
+      { property: "og:title", content: "Refund Policy — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:url", content: "/refund" },
     ],
   }),
@@ -16,10 +16,10 @@ export const Route = createFileRoute("/refund")({
 
 function RefundPolicyPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
       
-      <section className="pt-36 md:pt-44 pb-24 md:pb-32 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-24 md:pb-32 bg-white">
         <div className="mx-auto max-w-3xl px-6">
           <p className="eyebrow">Legal</p>
           <h1 className="font-display text-5xl md:text-6xl mt-4 leading-[1.05]">

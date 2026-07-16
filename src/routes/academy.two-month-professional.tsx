@@ -9,11 +9,11 @@ import { FOUNDER, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/academy/two-month-professional")({
   head: () => ({
     meta: [
-      { title: "2-Month Professional Course — GKP Artistry & Makeovers Academy" },
+      { title: "2-Month Professional Course — Gurleen Kaur Pannu Artistry & Makeovers Academy" },
       {
         name: "description",
         content:
-          "End-to-end professional makeup artistry course by GKP Artistry & Makeovers. Learn bridal makeup, business strategy, and portfolio building in Mumbai.",
+          "End-to-end professional makeup artistry course by Gurleen Kaur Pannu Artistry & Makeovers. Learn bridal makeup, business strategy, and portfolio building in Mumbai.",
       },
       { property: "og:title", content: "2-Month Professional Makeup Course" },
       { property: "og:description", content: "End-to-end professional formation for the working artist." },
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/academy/two-month-professional")({
           "@context": "https://schema.org",
           "@type": "Course",
           name: "2-Month Professional Makeup Course",
-          description: "End-to-end professional makeup artistry course by GKP Artistry & Makeovers. Learn bridal makeup, business strategy, and portfolio building in Mumbai.",
+          description: "End-to-end professional makeup artistry course by Gurleen Kaur Pannu Artistry & Makeovers. Learn bridal makeup, business strategy, and portfolio building in Mumbai.",
           provider: {
             "@type": "Organization",
-            name: "GKP Professional Makeup Academy",
+            name: "Gurleen Kaur Pannu Professional Makeup Academy",
             sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
           },
           courseMode: "onsite",
@@ -67,7 +67,7 @@ function ProfessionalCoursePage() {
             Our most comprehensive programme. Designed to take you from passionate beginner to confident professional. Learn the craft, build your portfolio, and understand the business of luxury bridal artistry.
           </p>
           <div className="mt-10">
-            <a href={WA.twoMonth} target="_blank" rel="noreferrer" className="btn-wine bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Apply for Next Cohort</a>
+            <a href={WA.twoMonth} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Apply for Next Cohort</a>
           </div>
         </div>
       </section>
@@ -82,7 +82,7 @@ function ProfessionalCoursePage() {
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
             {MODULES.map((m, i) => (
               <Reveal key={m.title} delay={i * 0.05}>
-                <div className="border-t border-gold/40 pt-6">
+                <div className="border-t border-black/20 pt-6">
                   <h3 className="font-display text-2xl text-black">{m.title}</h3>
                   <p className="font-sans font-light text-gray-600 mt-3 leading-relaxed text-[15px]">{m.desc}</p>
                 </div>
@@ -107,15 +107,15 @@ function ProfessionalCoursePage() {
             </div>
             <ul className="mt-10 space-y-4">
               <li className="flex gap-4 border-b border-black/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
+                <span className="text-black mt-1">✦</span>
                 <span className="font-sans font-light text-gray-600 text-[15px]">Extensive professional vanity kit included.</span>
               </li>
               <li className="flex gap-4 border-b border-black/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
+                <span className="text-black mt-1">✦</span>
                 <span className="font-sans font-light text-gray-600 text-[15px]">Professional studio photoshoot days.</span>
               </li>
               <li className="flex gap-4 border-b border-black/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
+                <span className="text-black mt-1">✦</span>
                 <span className="font-sans font-light text-gray-600 text-[15px]">Lifetime alumni support group.</span>
               </li>
             </ul>

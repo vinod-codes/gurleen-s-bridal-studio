@@ -6,13 +6,13 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — GKP Artistry & Makeovers" },
+      { title: "Privacy Policy — Gurleen Kaur Pannu Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "How GKP Artistry & Makeovers collects, uses and protects personal information shared through this website and WhatsApp.",
+          "How Gurleen Kaur Pannu Artistry & Makeovers collects, uses and protects personal information shared through this website and WhatsApp.",
       },
-      { property: "og:title", content: "Privacy Policy — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Privacy Policy — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Our approach to personal information and privacy." },
       { property: "og:url", content: "/privacy" },
     ],
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/privacy")({
 
 function PrivacyPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="eyebrow">Legal</p>
           <h1 className="font-display text-5xl md:text-6xl mt-4 leading-[1.05]">Privacy Policy.</h1>
@@ -38,7 +38,7 @@ function PrivacyPage() {
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-3xl px-6 prose-editorial space-y-10 text-[16px] text-taupe leading-relaxed">
           <Block title="1. Who we are">
-            This website is operated by GKP Artistry & Makeovers ("we", "us", "our"), a luxury bridal
+            This website is operated by Gurleen Kaur Pannu Artistry & Makeovers ("we", "us", "our"), a luxury bridal
             makeup artist and educator based in Mumbai, India. For any privacy-related question,
             you can reach us on WhatsApp at +91 74003 53112.
           </Block>
@@ -98,7 +98,7 @@ function PrivacyPage() {
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="font-display text-2xl text-ink">{title}</h2>
+      <h2 className="font-display text-2xl text-black">{title}</h2>
       <div className="hairline w-16 my-4" />
       <div className="text-taupe">{children}</div>
     </div>

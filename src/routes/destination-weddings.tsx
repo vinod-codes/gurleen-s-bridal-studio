@@ -9,13 +9,13 @@ import { DESTINATION, TRADITIONAL, WESTERN } from "@/lib/images";
 export const Route = createFileRoute("/destination-weddings")({
   head: () => ({
     meta: [
-      { title: "Destination Wedding Makeup — GKP Artistry & Makeovers, Worldwide" },
+      { title: "Destination Wedding Makeup — Gurleen Kaur Pannu Artistry & Makeovers, Worldwide" },
       {
         name: "description",
         content:
-          "Destination bridal makeup by GKP Artistry & Makeovers — worldwide travel for weddings across India, Southeast Asia, the Middle East and Europe.",
+          "Destination bridal makeup by Gurleen Kaur Pannu Artistry & Makeovers — worldwide travel for weddings across India, Southeast Asia, the Middle East and Europe.",
       },
-      { property: "og:title", content: "Destination Wedding Makeup — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Destination Wedding Makeup — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Worldwide destination bridal artistry." },
       { property: "og:url", content: "/destination-weddings" },
       { property: "og:image", content: DESTINATION.url },
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/destination-weddings")({
           name: "Destination Wedding Makeup",
           serviceType: "Destination Bridal Makeup",
           areaServed: "Worldwide",
-          provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
+          provider: { "@type": "Person", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
           description:
             "Multi-day destination bridal artistry with transparent travel, stay and logistics — India and worldwide.",
         }),
@@ -67,7 +67,7 @@ function DestinationPage() {
         <img src={DESTINATION.url} alt={DESTINATION.alt} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 pb-16 md:pb-24 w-full">
-          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Destination Weddings</p>
+          <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Destination Weddings</p>
           <h1 className="font-display text-white text-5xl md:text-7xl mt-4 max-w-3xl leading-[1.03]">
             Wherever your<br />wedding lives.
           </h1>
@@ -75,7 +75,7 @@ function DestinationPage() {
             Worldwide travel with a Mumbai-trained bridal atelier in tow.
           </p>
           <div className="mt-8">
-            <a href={WA.destination} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">Enquire — Destination</a>
+            <a href={WA.destination} target="_blank" rel="noreferrer" className="btn-dark bg-white text-black hover:bg-black hover:text-black hover:border-gray-300 transition-colors">Enquire — Destination</a>
           </div>
         </div>
       </section>
@@ -89,7 +89,7 @@ function DestinationPage() {
             <ul className="space-y-3 text-gray-600 text-[16px] font-sans font-light">
               {REGIONS.map((r) => (
                 <li key={r} className="flex gap-3">
-                  <span className="mt-3 block w-3 h-px bg-gold" />
+                  <span className="mt-3 block w-3 h-px bg-black" />
                   {r}
                 </li>
               ))}
@@ -112,7 +112,7 @@ function DestinationPage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {NOTES.map((n, i) => (
               <Reveal key={n.t} delay={(i % 2) * 0.08}>
-                <div className="border-t border-gold/40 pt-6">
+                <div className="border-t border-gray-300/40 pt-6">
                   <h3 className="font-display text-2xl text-black">{n.t}</h3>
                   <p className="font-sans font-light text-gray-600 mt-3 leading-relaxed text-[15px]">{n.d}</p>
                 </div>
@@ -139,10 +139,10 @@ function DestinationPage() {
       <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gold">Plan your destination wedding</p>
+            <p className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-gray-500">Plan your destination wedding</p>
             <h2 className="font-display text-4xl md:text-5xl mt-4 text-white">Share your destination.</h2>
             <div className="border-t border-white/20 w-24 mx-auto my-10" />
-            <a href={WA.destination} target="_blank" rel="noreferrer" className="btn-wine bg-white text-black hover:bg-gold hover:text-black hover:border-gold transition-colors">WhatsApp for a Travel Quote</a>
+            <a href={WA.destination} target="_blank" rel="noreferrer" className="btn-dark bg-white text-black hover:bg-black hover:text-black hover:border-gray-300 transition-colors">WhatsApp for a Travel Quote</a>
           </Reveal>
         </div>
       </section>

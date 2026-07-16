@@ -9,13 +9,13 @@ import { WA } from "@/lib/whatsapp";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Frequently Asked Questions — GKP Artistry & Makeovers" },
+      { title: "Frequently Asked Questions — Gurleen Kaur Pannu Artistry & Makeovers" },
       {
         name: "description",
         content:
-          "Answers to common questions about bridal makeup, trials, destination weddings, academy courses and booking with GKP Artistry & Makeovers.",
+          "Answers to common questions about bridal makeup, trials, destination weddings, academy courses and booking with Gurleen Kaur Pannu Artistry & Makeovers.",
       },
-      { property: "og:title", content: "Frequently Asked Questions — GKP Artistry & Makeovers" },
+      { property: "og:title", content: "Frequently Asked Questions — Gurleen Kaur Pannu Artistry & Makeovers" },
       { property: "og:description", content: "Answers on bookings, trials, destination weddings and academy courses." },
       { property: "og:url", content: "/faq" },
     ],
@@ -77,7 +77,7 @@ const FAQS = [
   },
   {
     q: "Do you provide certification for academy courses?",
-    a: "Yes, all students receive a GKP Artistry & Makeovers certification upon successful completion of the Masterclass or Professional Course, recognizing their training.",
+    a: "Yes, all students receive a Gurleen Kaur Pannu Artistry & Makeovers certification upon successful completion of the Masterclass or Professional Course, recognizing their training.",
   },
   {
     q: "What is your cancellation policy?",
@@ -88,10 +88,10 @@ const FAQS = [
 function FaqPage() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="eyebrow">Frequently Asked</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">Questions, answered.</h1>
@@ -101,7 +101,7 @@ function FaqPage() {
 
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-3xl px-6">
-          <ul className="divide-y divide-ink/10 border-y border-ink/10">
+          <ul className="divide-y divide-ink/10 border-y border-black/10">
             {FAQS.map((f, i) => {
               const isOpen = open === i;
               return (
@@ -111,11 +111,11 @@ function FaqPage() {
                     aria-expanded={isOpen}
                     className="w-full flex items-start justify-between gap-6 py-6 text-left group"
                   >
-                    <span className="font-display text-xl md:text-2xl text-ink leading-snug">
+                    <span className="font-display text-xl md:text-2xl text-black leading-snug">
                       {f.q}
                     </span>
                     <span
-                      className={`mt-2 shrink-0 w-6 h-6 border border-ink/30 rounded-full flex items-center justify-center text-wine transition-transform ${
+                      className={`mt-2 shrink-0 w-6 h-6 border border-black/30 rounded-full flex items-center justify-center text-wine transition-transform ${
                         isOpen ? "rotate-45" : ""
                       }`}
                       aria-hidden
@@ -135,13 +135,13 @@ function FaqPage() {
         </div>
       </section>
 
-      <section className="bg-sand py-24 md:py-32">
+      <section className="bg-gray-50 py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
             <p className="eyebrow">Still have a question?</p>
             <h2 className="font-display text-4xl md:text-5xl mt-4">We reply personally.</h2>
             <div className="hairline w-24 mx-auto my-10" />
-            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-wine">Ask on WhatsApp</a>
+            <a href={WA.general} target="_blank" rel="noreferrer" className="btn-dark">Ask on WhatsApp</a>
           </Reveal>
         </div>
       </section>

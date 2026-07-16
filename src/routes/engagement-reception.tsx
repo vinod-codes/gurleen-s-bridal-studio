@@ -9,11 +9,11 @@ import { ENGAGEMENT, WESTERN, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/engagement-reception")({
   head: () => ({
     meta: [
-      { title: "Engagement, Party & Reception Makeup — GKP Artistry & Makeovers, Mumbai" },
+      { title: "Engagement, Party & Reception Makeup — Gurleen Kaur Pannu Artistry & Makeovers, Mumbai" },
       {
         name: "description",
         content:
-          "Engagement, roka, party, cocktail, and reception makeup by GKP Artistry & Makeovers. Soft luminous artistry for the softer moments and contemporary glamour for the evening.",
+          "Engagement, roka, party, cocktail, and reception makeup by Gurleen Kaur Pannu Artistry & Makeovers. Soft luminous artistry for the softer moments and contemporary glamour for the evening.",
       },
       { property: "og:title", content: "Engagement, Party & Reception Makeup" },
       { property: "og:description", content: "Soft luminous engagement looks, party makeup, and modern reception glamour." },
@@ -32,14 +32,14 @@ export const Route = createFileRoute("/engagement-reception")({
               "@type": "Service",
               name: "Engagement Makeup",
               serviceType: "Event Makeup",
-              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
+              provider: { "@type": "Person", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
               description: "Soft, luminous engagement and roka looks.",
             },
             {
               "@type": "Service",
               name: "Reception Makeup",
               serviceType: "Event Makeup",
-              provider: { "@type": "Person", name: "GKP Artistry & Makeovers" },
+              provider: { "@type": "Person", name: "Gurleen Kaur Pannu Artistry & Makeovers" },
               description: "Polished, contemporary glamour for the reception evening.",
             },
           ],
@@ -79,10 +79,10 @@ const LOOKS = [
 
 function EngagementPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-20 bg-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="eyebrow">Events</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 leading-[1.03]">
@@ -101,7 +101,7 @@ function EngagementPage() {
           {LOOKS.map((l, i) => (
             <Reveal key={l.title}>
               <article className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <div className="md:col-span-6 aspect-[4/5] bg-sand overflow-hidden">
+                <div className="md:col-span-6 aspect-[4/5] bg-gray-50 overflow-hidden">
                   <img src={l.img.url} alt={l.img.alt} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="md:col-span-6">
@@ -109,7 +109,7 @@ function EngagementPage() {
                   <h2 className="font-display text-4xl md:text-5xl mt-4">{l.title}</h2>
                   <div className="hairline w-24 my-6" />
                   <p className="text-taupe text-[17px] leading-relaxed max-w-lg">{l.desc}</p>
-                  <a href={l.cta} target="_blank" rel="noreferrer" className="btn-wine mt-8">{l.label}</a>
+                  <a href={l.cta} target="_blank" rel="noreferrer" className="btn-dark mt-8">{l.label}</a>
                 </div>
               </article>
             </Reveal>
@@ -117,7 +117,7 @@ function EngagementPage() {
         </div>
       </section>
 
-      <section className="bg-sand py-24 md:py-32">
+      <section className="bg-gray-50 py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6 grid md:grid-cols-3 gap-8 text-center">
           {[
             { t: "One event, one look", d: "Complete makeup and hair for a single ceremony." },
@@ -132,11 +132,11 @@ function EngagementPage() {
         </div>
       </section>
 
-      <section className="bg-ink text-ivory py-24 md:py-32">
+      <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="eyebrow !text-gold">Book your event</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 text-ivory">Share the date.</h2>
+            <p className="eyebrow !text-gray-500">Book your event</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-white">Share the date.</h2>
             <div className="hairline w-24 mx-auto my-10" />
             <a href={WA.general} target="_blank" rel="noreferrer" className="btn-ghost-light">WhatsApp for a Quote</a>
           </Reveal>

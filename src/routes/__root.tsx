@@ -15,18 +15,18 @@ import { ReactLenis } from "lenis/react";
 
 function NotFoundComponent() {
   return (
-    <div className="min-h-screen bg-ivory text-ink flex items-center justify-center px-6">
+    <div className="min-h-screen bg-white text-black flex items-center justify-center px-6">
       <div className="max-w-lg text-center">
         <p className="eyebrow">Off the map</p>
         <h1 className="font-display text-7xl md:text-8xl mt-4 leading-none">404</h1>
         <div className="hairline w-24 mx-auto my-8" />
         <h2 className="font-display text-2xl md:text-3xl">This page has been re-routed.</h2>
-        <p className="mt-4 text-taupe text-[15px] leading-relaxed">
+        <p className="mt-4 text-gray-600 text-[15px] leading-relaxed">
           The page you're looking for isn't here — it may have moved, or the link is
           out of date.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link to="/" className="btn-wine">Return Home</Link>
+          <Link to="/" className="btn-dark">Return Home</Link>
           <Link to="/portfolio" className="btn-ghost">View the Portfolio</Link>
         </div>
       </div>
@@ -77,20 +77,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GKP Artistry & Makeovers — Luxury Bridal Makeup, Mumbai" },
+      { title: "Gurleen Kaur Pannu Artistry & Makeovers — Luxury Bridal Makeup, Mumbai" },
       {
         name: "description",
         content:
-          "Luxury bridal makeup artistry by GKP Artistry & Makeovers. Mumbai-based, available worldwide for destination weddings. Professional makeup education and academy.",
+          "Luxury bridal makeup artistry by Gurleen Kaur Pannu Artistry & Makeovers. Mumbai-based, available worldwide for destination weddings. Professional makeup education and academy.",
       },
-      { name: "author", content: "GKP Artistry & Makeovers" },
-      { property: "og:title", content: "GKP Artistry & Makeovers — Luxury Bridal Makeup Artist" },
+      { name: "author", content: "Gurleen Kaur Pannu Artistry & Makeovers" },
+      { property: "og:title", content: "Gurleen Kaur Pannu Artistry & Makeovers — Luxury Bridal Makeup Artist" },
       {
         property: "og:description",
         content: "Mumbai-based luxury bridal artistry & academy. Available worldwide.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "GKP Artistry & Makeovers" },
+      { property: "og:site_name", content: "Gurleen Kaur Pannu Artistry & Makeovers" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     scripts: [
@@ -99,8 +99,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "GKP Artistry & Makeovers",
-          alternateName: "GKP Professional Makeup Academy",
+          name: "Gurleen Kaur Pannu Artistry & Makeovers",
+          alternateName: "Gurleen Kaur Pannu Professional Makeup Academy",
           description:
             "Luxury bridal makeup artist and academy based in Mumbai, available worldwide for destination weddings.",
         }),
@@ -114,10 +114,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400&f[]=general-sans@400,500,600,700&display=swap",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),

@@ -9,11 +9,11 @@ import { FOUNDER, TRADITIONAL } from "@/lib/images";
 export const Route = createFileRoute("/academy/one-on-one")({
   head: () => ({
     meta: [
-      { title: "One-on-One Makeup Training — GKP Artistry & Makeovers Academy" },
+      { title: "One-on-One Makeup Training — Gurleen Kaur Pannu Artistry & Makeovers Academy" },
       {
         name: "description",
         content:
-          "Private, bespoke makeup training sessions with GKP Artistry & Makeovers. Tailored one-on-one coaching in bridal makeup, hair styling, draping, portfolio building, and business strategy.",
+          "Private, bespoke makeup training sessions with Gurleen Kaur Pannu Artistry & Makeovers. Tailored one-on-one coaching in bridal makeup, hair styling, draping, portfolio building, and business strategy.",
       },
       { property: "og:title", content: "One-on-One Private Makeup Training" },
       {
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/academy/one-on-one")({
             "Bespoke private training sessions focused on your specific goals — bridal artistry, hair styling, draping, or business development.",
           provider: {
             "@type": "Organization",
-            name: "GKP Professional Makeup Academy",
+            name: "Gurleen Kaur Pannu Professional Makeup Academy",
             sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
           },
           courseMode: "onsite",
@@ -96,32 +96,32 @@ const WHY = [
   },
   {
     t: "Direct Access to Gurleen",
-    d: "Learn directly from the artist behind GKP Artistry & Makeovers — over 8 years of luxury bridal experience.",
+    d: "Learn directly from the artist behind Gurleen Kaur Pannu Artistry & Makeovers — over 8 years of luxury bridal experience.",
   },
 ];
 
 function OneOnOnePage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
       {/* Hero */}
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-5xl px-6">
-          <Link to="/academy" className="eyebrow hover:text-wine transition-colors">
+          <Link to="/academy" className="eyebrow hover:text-gray-500 transition-colors">
             ← Back to Academy
           </Link>
           <h1 className="font-display text-5xl md:text-7xl mt-6 max-w-3xl leading-[1.03]">
             One-on-One<br />Training.
           </h1>
           <div className="hairline w-32 mt-10" />
-          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl">
+          <p className="text-gray-600 mt-8 text-[17px] leading-relaxed max-w-2xl">
             Bespoke private coaching sessions designed entirely around your goals.
             Whether you're refining a specific technique or building a business from scratch —
             every session is directed, personal, and immediately applicable.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={WA.oneOnOne} target="_blank" rel="noreferrer" className="btn-wine">
+            <a href={WA.oneOnOne} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">
               Enquire on WhatsApp
             </a>
           </div>
@@ -129,7 +129,7 @@ function OneOnOnePage() {
       </section>
 
       {/* Focus Areas */}
-      <section className="py-24 md:py-32 bg-sand">
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="mb-14">
             <p className="eyebrow">What we can cover</p>
@@ -140,15 +140,15 @@ function OneOnOnePage() {
           <div className="space-y-0">
             {FOCUS_AREAS.map((f, i) => (
               <Reveal key={f.n} delay={i * 0.06}>
-                <div className="grid md:grid-cols-12 gap-6 border-t border-gold/40 py-8">
+                <div className="grid md:grid-cols-12 gap-6 border-t border-black/20 py-8">
                   <div className="md:col-span-1">
-                    <p className="font-display italic text-2xl text-wine">{f.n}</p>
+                    <p className="font-display italic text-2xl text-black">{f.n}</p>
                   </div>
                   <div className="md:col-span-4">
                     <h3 className="font-display text-2xl">{f.title}</h3>
                   </div>
                   <div className="md:col-span-7">
-                    <p className="text-taupe text-[16px] leading-relaxed">{f.desc}</p>
+                    <p className="text-gray-600 text-[16px] leading-relaxed">{f.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -158,10 +158,10 @@ function OneOnOnePage() {
       </section>
 
       {/* Why One-on-One */}
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <div className="aspect-[3/4] bg-sand overflow-hidden">
+            <div className="aspect-[3/4] bg-gray-50 overflow-hidden">
               <img
                 src={FOUNDER.marble.url}
                 alt="Gurleen conducting a private training session"
@@ -177,9 +177,9 @@ function OneOnOnePage() {
             </h2>
             <div className="space-y-8">
               {WHY.map((w) => (
-                <div key={w.t} className="border-t border-gold/40 pt-6">
+                <div key={w.t} className="border-t border-black/20 pt-6">
                   <h3 className="font-display text-xl">{w.t}</h3>
-                  <p className="text-taupe mt-2 text-[15px] leading-relaxed">{w.d}</p>
+                  <p className="text-gray-600 mt-2 text-[15px] leading-relaxed">{w.d}</p>
                 </div>
               ))}
             </div>
@@ -188,7 +188,7 @@ function OneOnOnePage() {
       </section>
 
       {/* Portfolio Gallery */}
-      <section className="bg-sand py-24 md:py-32">
+      <section className="bg-gray-50 py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal className="text-center mb-12">
             <p className="eyebrow">The work</p>
@@ -199,7 +199,7 @@ function OneOnOnePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {TRADITIONAL.slice(0, 8).map((img, i) => (
               <Reveal key={img.url} delay={(i % 4) * 0.05}>
-                <figure className="group overflow-hidden aspect-[3/4] bg-ivory">
+                <figure className="group overflow-hidden aspect-[3/4] bg-white">
                   <img
                     src={img.url}
                     alt={img.alt}
@@ -214,15 +214,15 @@ function OneOnOnePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink text-ivory py-24 md:py-32">
+      <section className="bg-black text-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <Reveal>
-            <p className="eyebrow !text-gold">Start your private training</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 text-ivory">
+            <p className="eyebrow !text-white/70">Start your private training</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 text-white">
               Tell us what you want to learn.
             </h2>
             <div className="hairline w-24 mx-auto my-10" />
-            <p className="text-ivory/70 text-[16px] leading-relaxed max-w-xl mx-auto mb-10">
+            <p className="text-white/70 text-[16px] leading-relaxed max-w-xl mx-auto mb-10">
               Share your current level, your goals, and your preferred schedule.
               We'll design a session plan that fits.
             </p>
@@ -230,7 +230,7 @@ function OneOnOnePage() {
               href={WA.oneOnOne}
               target="_blank"
               rel="noreferrer"
-              className="btn-ghost-light"
+              className="btn-ghost-light border-white text-white hover:bg-white hover:text-black transition-colors"
             >
               Enquire on WhatsApp
             </a>

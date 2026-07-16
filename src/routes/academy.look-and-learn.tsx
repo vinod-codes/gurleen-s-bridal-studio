@@ -10,11 +10,11 @@ import { FOUNDER } from "@/lib/images";
 export const Route = createFileRoute("/academy/look-and-learn")({
   head: () => ({
     meta: [
-      { title: "1-Day Look & Learn — GKP Artistry & Makeovers Academy" },
+      { title: "1-Day Look & Learn — Gurleen Kaur Pannu Artistry & Makeovers Academy" },
       {
         name: "description",
         content:
-          "Join GKP Artistry & Makeovers for a 1-Day Look & Learn masterclass in your city. A focused, single-day session covering a complete signature bridal look.",
+          "Join Gurleen Kaur Pannu Artistry & Makeovers for a 1-Day Look & Learn masterclass in your city. A focused, single-day session covering a complete signature bridal look.",
       },
       { property: "og:title", content: "1-Day Look & Learn Bridal Masterclass" },
       { property: "og:description", content: "A focused city-wise day covering a complete signature bridal look." },
@@ -28,10 +28,10 @@ export const Route = createFileRoute("/academy/look-and-learn")({
           "@context": "https://schema.org",
           "@type": "Course",
           name: "1-Day Look & Learn Bridal Masterclass",
-          description: "Join GKP Artistry & Makeovers for a 1-Day Look & Learn masterclass in your city. A focused, single-day session covering a complete signature bridal look.",
+          description: "Join Gurleen Kaur Pannu Artistry & Makeovers for a 1-Day Look & Learn masterclass in your city. A focused, single-day session covering a complete signature bridal look.",
           provider: {
             "@type": "Organization",
-            name: "GKP Professional Makeup Academy",
+            name: "Gurleen Kaur Pannu Professional Makeup Academy",
             sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
           },
           courseMode: "onsite",
@@ -60,31 +60,31 @@ function LookAndLearnPage() {
   const [city, setCity] = useState("Delhi");
 
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <Link to="/academy" className="eyebrow hover:text-wine transition-colors">← Back to Academy</Link>
+          <Link to="/academy" className="eyebrow hover:text-gray-500 transition-colors">← Back to Academy</Link>
           <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[1.03]">
             1-Day Look & Learn.
           </h1>
           <div className="hairline w-32 mx-auto mt-10" />
-          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-gray-600 mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
             A focused single day in your city, walking through one complete signature bridal look from start to finish. Observe the techniques, ask questions, and refine your eye.
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-sand border-y border-gold/20">
+      <section className="py-16 md:py-24 bg-gray-50 border-y border-black/10">
         <div className="mx-auto max-w-xl px-6">
-          <Reveal className="text-center bg-ivory p-10 shadow-sm">
+          <Reveal className="text-center bg-white p-10 shadow-sm">
             <p className="eyebrow">Select your city</p>
             <div className="mt-6">
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full bg-transparent border-b border-ink/30 focus:border-wine py-3 text-ink text-xl font-display outline-none text-center"
+                className="w-full bg-transparent border-b border-black/30 focus:border-black py-3 text-black text-xl font-display outline-none text-center"
               >
                 {CITIES.map((cc) => (
                   <option key={cc} value={cc}>{cc}</option>
@@ -92,7 +92,7 @@ function LookAndLearnPage() {
               </select>
             </div>
             <div className="mt-10">
-              <a href={WA.lookLearn(city)} target="_blank" rel="noreferrer" className="btn-wine w-full block text-center">
+              <a href={WA.lookLearn(city)} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors w-full block text-center">
                 Enquire for {city}
               </a>
             </div>
@@ -100,24 +100,24 @@ function LookAndLearnPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <div className="aspect-square bg-sand overflow-hidden">
+            <div className="aspect-square bg-gray-50 overflow-hidden">
                <img src={FOUNDER.marble.url} alt="Look and learn session" className="w-full h-full object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="eyebrow">What you will learn</p>
             <h2 className="font-display text-4xl mt-4 mb-8">The anatomy of a look.</h2>
-            <p className="text-taupe text-[16px] leading-relaxed mb-8">
+            <p className="text-gray-600 text-[16px] leading-relaxed mb-8">
               Watch Gurleen build her signature bridal glam in real-time. From skin prep to the final dusting of powder, every step is explained.
             </p>
             <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
               {TOPICS.map((t) => (
                 <li key={t} className="flex gap-3 items-start">
-                  <span className="text-gold mt-1">✦</span>
-                  <span className="text-[15px] text-ink">{t}</span>
+                  <span className="text-black mt-1">✦</span>
+                  <span className="text-[15px] text-black">{t}</span>
                 </li>
               ))}
             </ul>

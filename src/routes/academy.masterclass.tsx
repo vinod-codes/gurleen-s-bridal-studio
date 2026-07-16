@@ -9,11 +9,11 @@ import { FOUNDER } from "@/lib/images";
 export const Route = createFileRoute("/academy/masterclass")({
   head: () => ({
     meta: [
-      { title: "5-Day Masterclass — GKP Artistry & Makeovers Academy" },
+      { title: "5-Day Masterclass — Gurleen Kaur Pannu Artistry & Makeovers Academy" },
       {
         name: "description",
         content:
-          "Intensive 5-day hands-on makeup training for aspiring makeup artists by GKP Artistry & Makeovers in Mumbai.",
+          "Intensive 5-day hands-on makeup training for aspiring makeup artists by Gurleen Kaur Pannu Artistry & Makeovers in Mumbai.",
       },
       { property: "og:title", content: "5-Day Bridal Masterclass" },
       { property: "og:description", content: "Professional hands-on training for aspiring artists." },
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/academy/masterclass")({
           "@context": "https://schema.org",
           "@type": "Course",
           name: "5-Day Bridal Makeup Masterclass",
-          description: "Intensive 5-day hands-on makeup training for aspiring makeup artists by GKP Artistry & Makeovers in Mumbai.",
+          description: "Intensive 5-day hands-on makeup training for aspiring makeup artists by Gurleen Kaur Pannu Artistry & Makeovers in Mumbai.",
           provider: {
             "@type": "Organization",
-            name: "GKP Professional Makeup Academy",
+            name: "Gurleen Kaur Pannu Professional Makeup Academy",
             sameAs: "https://www.instagram.com/gurleenkaurpannu_mua",
           },
           courseMode: "onsite",
@@ -52,26 +52,26 @@ const SCHEDULE = [
 
 function MasterclassPage() {
   return (
-    <div className="bg-ivory text-ink min-h-screen">
+    <div className="bg-white text-black min-h-screen">
       <Nav />
 
-      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-ivory">
+      <section className="pt-36 md:pt-44 pb-16 md:pb-24 bg-white">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <Link to="/academy" className="eyebrow hover:text-wine transition-colors">← Back to Academy</Link>
+          <Link to="/academy" className="eyebrow hover:text-gray-500 transition-colors">← Back to Academy</Link>
           <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[1.03]">
             5-Day Masterclass.
           </h1>
           <div className="hairline w-32 mx-auto mt-10" />
-          <p className="text-taupe mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-gray-600 mt-8 text-[17px] leading-relaxed max-w-2xl mx-auto">
             An intensive, fully hands-on immersion into signature bridal artistry. Designed for beginners and emerging artists who want to build a foundation on technique, not trends.
           </p>
           <div className="mt-10">
-            <a href={WA.masterclass} target="_blank" rel="noreferrer" className="btn-wine">Reserve Your Seat</a>
+            <a href={WA.masterclass} target="_blank" rel="noreferrer" className="btn-dark bg-black text-white hover:bg-white hover:text-black hover:border-black transition-colors">Reserve Your Seat</a>
           </div>
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-sand">
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="mx-auto max-w-5xl px-6">
           <Reveal className="mb-14">
             <p className="eyebrow">The Curriculum</p>
@@ -81,13 +81,13 @@ function MasterclassPage() {
           <div className="space-y-10">
             {SCHEDULE.map((s, i) => (
               <Reveal key={s.day} delay={i * 0.08}>
-                <div className="grid md:grid-cols-12 gap-6 border-t border-gold/40 pt-8">
+                <div className="grid md:grid-cols-12 gap-6 border-t border-black/20 pt-8">
                   <div className="md:col-span-3">
-                    <p className="font-display italic text-2xl text-wine">{s.day}</p>
+                    <p className="font-display italic text-2xl text-black">{s.day}</p>
                   </div>
                   <div className="md:col-span-9">
                     <h3 className="font-display text-2xl">{s.title}</h3>
-                    <p className="text-taupe mt-3 leading-relaxed text-[16px]">{s.desc}</p>
+                    <p className="text-gray-600 mt-3 leading-relaxed text-[16px]">{s.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -96,10 +96,10 @@ function MasterclassPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <div className="aspect-[4/5] bg-sand overflow-hidden">
+            <div className="aspect-[4/5] bg-gray-50 overflow-hidden">
                <img src={FOUNDER.lipShot.url} alt="Masterclass practice" className="w-full h-full object-cover" />
             </div>
           </Reveal>
@@ -107,21 +107,21 @@ function MasterclassPage() {
             <p className="eyebrow">What's Included</p>
             <h2 className="font-display text-4xl mt-4 mb-8">Beyond the brush.</h2>
             <ul className="space-y-4">
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe">Professional brush set and starter kit.</span>
+              <li className="flex gap-4 border-b border-black/10 pb-4">
+                <span className="text-black mt-1">✦</span>
+                <span className="text-gray-600">Professional brush set and starter kit.</span>
               </li>
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe">Certification of Completion.</span>
+              <li className="flex gap-4 border-b border-black/10 pb-4">
+                <span className="text-black mt-1">✦</span>
+                <span className="text-gray-600">Certification of Completion.</span>
               </li>
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe">Ongoing mentorship and community access.</span>
+              <li className="flex gap-4 border-b border-black/10 pb-4">
+                <span className="text-black mt-1">✦</span>
+                <span className="text-gray-600">Ongoing mentorship and community access.</span>
               </li>
-              <li className="flex gap-4 border-b border-ink/10 pb-4">
-                <span className="text-gold mt-1">✦</span>
-                <span className="text-taupe">Professional photoshoot of your final look.</span>
+              <li className="flex gap-4 border-b border-black/10 pb-4">
+                <span className="text-black mt-1">✦</span>
+                <span className="text-gray-600">Professional photoshoot of your final look.</span>
               </li>
             </ul>
           </Reveal>
