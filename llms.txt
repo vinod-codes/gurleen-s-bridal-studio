@@ -1,0 +1,16 @@
+# GKP Artistry & Makeovers
+> A luxury bridal makeup and professional makeup academy website.
+
+## Core Files
+- `src/routes/__root.tsx`: Main entry layout and global configuration
+- `src/router.tsx`: TanStack Router configuration
+- `src/routes/`: File-based routing for pages and views
+- `src/components/ui/`: Radix-based design system and core UI components
+- `graphify-out/`: Graphify dependency analysis and architecture knowledge graph
+
+## Key Concepts
+- **TanStack Start & Router**: Handles full-stack SSR routing. The routing structure is heavily dependent on the `src/routes/` directory structure.
+- **Design System**: Built on Radix UI primitives with Tailwind CSS v4. Managed mostly through the `cn` utility function.
+- **Animations**: Integrates GSAP, Framer Motion, and OGL for rich interactive experiences and transitions. Ensure performance monitoring on high-LCP pages.
+- **Forms**: Managed entirely via React Hook Form and validated with Zod, with standardized wrappers in `src/components/ui/form.tsx`.
+- **Graphify Analysis**: The graphify knowledge graph tracks codebase architecture. Run `graphify update .` to keep it synced.
